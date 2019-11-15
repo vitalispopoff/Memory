@@ -9,6 +9,10 @@ public class Main {
             MainFrame windowFrame = new MainFrame(40);
             windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             windowFrame.setVisible(true);
+            GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            GraphicsDevice device = graphics.getDefaultScreenDevice();
+            device.setFullScreenWindow(windowFrame);
         });
     }
 }
+
