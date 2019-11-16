@@ -1,13 +1,17 @@
 package gui;
 
-import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 import static gui.MainFrame.*;
 
 
-public class LeftPanel extends JPanel{
+public class LeftPanel extends JPanel {
+
+    static int x = 9;
+    static int y = 9;
+//    static Icon cardCover = new ImageIcon("resources\\clothTile.png","piece of tablecloth");
 
 
     public LeftPanel() {
@@ -19,12 +23,30 @@ public class LeftPanel extends JPanel{
         leftPanel.setBounds(
                 tile >> 5,
                 tile >> 5,
-                tile_x - (tile_x >> 2) - (tile >> 3),
+                tile_x - (tile_x >> 2) - (tile >> 3) - (tile >> 5),
                 tile_y - (tile >> 3) + (tile >> 5));
-        leftPanel.setBackground(new Color(64, 192, 255));
-        MigLayout Layout = new MigLayout();
-        leftPanel.setLayout(Layout);
+
+//        MigLayout Layout = new MigLayout();
+//        leftPanel.setLayout(Layout);
+        leftPanel.setOpaque(true);      // opacity probably not needed
+        leftPanel.setBackground(new Color(64, 192, 255, 0));
+        leftPanel.setLayout(new GridLayout(x, y));
+        populateGrid(leftPanel);
     }
 
-    void populatePanel(){}
+    private static void populateGrid(JPanel panel/*, ActionListener*/) {
+
+        for (int i = 0; i < x * y; i++) {
+            JLabel label = new JLabel();
+//            label.setOpaque(false);
+            label.setBackground(new Color(128, 128, 128, 64));
+            label.setBorder(MainFrame.blackBorder());
+//            label.addActionListener(listener);
+            panel.add(label);
+        }
+
+    }
+
+    void populatePanel() {
+    }
 }

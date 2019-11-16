@@ -1,11 +1,8 @@
 package gui;
 
-import net.miginfocom.layout.LC;
-import net.miginfocom.swing.MigLayout;
-
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class MainFrame extends JFrame /*implements FrontEndable*/ {
 
@@ -35,53 +32,20 @@ public class MainFrame extends JFrame /*implements FrontEndable*/ {
     public static JPanel MainPanel() {
         mainPanel = new JPanel();
         mainPanel.setLayout(null);
-//        mainPanel.setBackground(new Color(255, 255, 0));
-
         return mainPanel;
     }
-
-/*    *//*@Override*//*
-    public JPanel LeftPanel() {
-        leftPanel = new JPanel();
-        leftPanel.setBounds(
-                tile >> 5,
-                tile >> 5,
-                tile_x - (tile_x >> 2) - (tile >> 3),
-                tile_y - (tile >> 3) + (tile >> 5));
-        leftPanel.setBackground(new Color(64, 192, 255));
-        MigLayout Layout = new MigLayout();
-        leftPanel.setLayout(Layout);
-        return leftPanel;
-    }*/     //moved to class
-
-/*    *//*@Override*//*
-    public JPanel RightPanel() {
-        rightPanel = new JPanel();
-        rightPanel.setBounds(
-                tile_x - (tile_x >> 2) - (tile >> 3),
-                tile >> 5,
-                (tile_x >> 2) + (tile >> 3) - (tile >> 7),
-                tile_y - (tile >> 3) + (tile >> 5));
-        rightPanel.setBackground(new Color(192, 64, 255));
-        LC lc = new LC();
-        lc.setTopToBottom(true);
-        MigLayout Layout = new MigLayout(lc);
-        rightPanel.setLayout(Layout);
-        ArrayList<JPanel> list = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            list.add(new JPanel());
-            rightPanel.add(list.get(i), "wrap");
-        }
-        return rightPanel;
-    }*/     //moved to class
-
 
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(tile_x, tile_y);
     }
+
+    static Border blackBorder(){
+        return BorderFactory.createLineBorder(new Color(128, 128, 128, 128), 1);
+    }
 }
 
+/*
 class ImageComponent extends JComponent{
     private Image image;
 
@@ -100,4 +64,4 @@ class ImageComponent extends JComponent{
         }
 
     }
-}
+}*/     // BS disposable
