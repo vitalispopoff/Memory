@@ -4,21 +4,21 @@ import javax.swing.*;
 
 public interface FrontEndable {
 
-    public JPanel MainPanel();
+    public static JPanel MainPanel(){return new JPanel();}
 
     /**
      * <code>LeftPanel()</code>
      * generuje lewy panel głównego okna,
      * który wyświetla rozdanie
     */
-    public JPanel LeftPanel();
+    public default JPanel LeftPanel(){return new JPanel();}
 
     /**
      * <code>RightPanel()</code>
      * generuje prawy panel głównego okna;
      * który wyświetla informacje o stanie gry
     */
-    public JPanel RightPanel();
+    public default JPanel RightPanel(){return new JPanel();}
 
 //    public default JButton populateCardGrid(){return null}
 
