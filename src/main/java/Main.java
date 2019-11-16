@@ -12,7 +12,7 @@ public class Main {
         EventQueue.invokeLater(() -> {
             MainFrame windowFrame = new MainFrame();
             windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            windowFrame.setVisible(true);
+
         });
     }
 }
