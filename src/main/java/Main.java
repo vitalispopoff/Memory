@@ -3,6 +3,8 @@ import gui.*;
 import javax.swing.*;
 import java.awt.*;
 
+import static gui.MainFrame.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -11,9 +13,6 @@ public class Main {
             MainFrame windowFrame = new MainFrame();
             windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             windowFrame.setVisible(true);
-/*            GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice device = graphics.getDefaultScreenDevice();
-            device.setFullScreenWindow(windowFrame);*/
         });
     }
 }

@@ -9,32 +9,30 @@ public class MainFrame extends JFrame /*implements FrontEndable*/ {
 
     private static Toolkit kit = Toolkit.getDefaultToolkit();
     private static Dimension screenSize = kit.getScreenSize();
-    private static int tile_x = screenSize.width;
-    private static int tile_y = screenSize.height;
-
+    public static int tile_x = screenSize.width;
+    public static int tile_y = screenSize.height;
+    private static int tile = Integer.min(tile_x, tile_y);
 
     public MainFrame() throws HeadlessException {
         setResizable(false);
-        setExtendedState(Frame.MAXIMIZED_BOTH);
-        setBackground(new Color(140, 192, 40));
-        add(setLeftPanel());
-        pack();
-    }
-
-    //    @Override
-    public JPanel setLeftPanel() {
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(null);
+        mainPanel.setBackground(new Color(255, 255, 0));
+        add(mainPanel);
         JPanel leftPanel = new JPanel();
-        MigLayout layout = new MigLayout();
-        leftPanel.setLayout(layout);
+        leftPanel.setBounds(tile >> 5, tile >> 5, tile_x - (tile_x >> 2) - (tile >> 4), tile_y - (tile >> 3) + (tile >> 5));
+        leftPanel.setBackground(new Color(0, 255, 255));
+        mainPanel.add(leftPanel);
+        JPanel rightPanel = new JPanel();
+        rightPanel.setBounds(tile_x - (tile_x >> 2) - (tile >> 7), tile >> 5, (tile_x >> 2) - (tile >> 5), tile_y - (tile >> 3) + (tile >> 5));
+        rightPanel.setBackground(new Color(255,0,255));
+        mainPanel.add(rightPanel);
+
+        pack();
 
 
-        return leftPanel;
     }
 
-/*    @Override
-    public JPanel setRightPanel() {
-        return null;
-    }*/
 
     @Override
     public Dimension getPreferredSize() {
