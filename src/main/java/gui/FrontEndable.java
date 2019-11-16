@@ -4,6 +4,8 @@ import javax.swing.*;
 
 public interface FrontEndable {
 
+    public JPanel MainPanel();
+
     /**
      * <code>LeftPanel()</code>
      * generuje lewy panel głównego okna,
