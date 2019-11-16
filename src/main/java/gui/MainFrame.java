@@ -15,7 +15,7 @@ public class MainFrame extends JFrame /*implements FrontEndable*/ {
     public static int tile_y = screenSize.height;
     public static int tile = Integer.min(tile_x, tile_y);
     static JPanel mainPanel;
-    static JPanel leftPanel;
+//    static JPanel leftPanel;
     static JPanel rightPanel;
 
     public MainFrame() throws HeadlessException {
@@ -23,8 +23,9 @@ public class MainFrame extends JFrame /*implements FrontEndable*/ {
         MainPanel.MainPanel();
 
         add(mainPanel);
-        mainPanel.add(LeftPanel());
-        mainPanel.add(RightPanel());
+        mainPanel.add(new LeftPanel());
+//        mainPanel.add(LeftPanel());
+//        mainPanel.add(RightPanel());
         pack();
         setVisible(true);
     }
@@ -38,7 +39,7 @@ public class MainFrame extends JFrame /*implements FrontEndable*/ {
         return mainPanel;
     }
 
-    /*@Override*/
+/*    *//*@Override*//*
     public JPanel LeftPanel() {
         leftPanel = new JPanel();
         leftPanel.setBounds(
@@ -50,7 +51,7 @@ public class MainFrame extends JFrame /*implements FrontEndable*/ {
         MigLayout Layout = new MigLayout();
         leftPanel.setLayout(Layout);
         return leftPanel;
-    }
+    }*/     //moved to class
 
     /*@Override*/
     public JPanel RightPanel() {
