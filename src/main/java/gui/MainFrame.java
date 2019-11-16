@@ -24,6 +24,7 @@ public class MainFrame extends JFrame /*implements FrontEndable*/ {
 
         add(mainPanel);
         mainPanel.add(new LeftPanel());
+        mainPanel.add(new RightPanel());
 //        mainPanel.add(LeftPanel());
 //        mainPanel.add(RightPanel());
         pack();
@@ -53,7 +54,7 @@ public class MainFrame extends JFrame /*implements FrontEndable*/ {
         return leftPanel;
     }*/     //moved to class
 
-    /*@Override*/
+/*    *//*@Override*//*
     public JPanel RightPanel() {
         rightPanel = new JPanel();
         rightPanel.setBounds(
@@ -72,7 +73,7 @@ public class MainFrame extends JFrame /*implements FrontEndable*/ {
             rightPanel.add(list.get(i), "wrap");
         }
         return rightPanel;
-    }
+    }*/     //moved to class
 
 
     @Override

@@ -25,4 +25,6 @@ public class LeftPanel extends JPanel{
         MigLayout Layout = new MigLayout();
         leftPanel.setLayout(Layout);
     }
+
+    void populatePanel(){}
 }
