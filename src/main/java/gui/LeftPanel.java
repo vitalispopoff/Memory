@@ -28,10 +28,10 @@ public class LeftPanel extends JPanel {
 
 //        MigLayout Layout = new MigLayout();
 //        leftPanel.setLayout(Layout);
-        leftPanel.setOpaque(true);      // opacity probably not needed
+        leftPanel.setOpaque(false);      // opacity probably not needed
         leftPanel.setBackground(new Color(64, 192, 255, 0));
         leftPanel.setLayout(new GridLayout(x, y));
-        populateGrid(leftPanel);
+//        populateGrid(leftPanel);
     }
 
     private static void populateGrid(JPanel panel/*, ActionListener*/) {
