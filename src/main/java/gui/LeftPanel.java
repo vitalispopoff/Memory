@@ -37,7 +37,7 @@ public class LeftPanel extends JPanel {
     private static void populateGrid(JPanel panel/*, ActionListener*/) {
 
         for (int i = 0; i < x * y; i++) {
-            JLabel label = new JLabel();
+            JLabel label = new JLabel(new ImageIcon(new ImageIcon("src\\main\\resources\\clothTile.png").getImage()));
 //            label.setOpaque(false);
             label.setBackground(new Color(128, 128, 128, 64));
             label.setBorder(MainFrame.blackBorder());
