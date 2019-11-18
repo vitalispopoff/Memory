@@ -23,17 +23,7 @@ public class MainFrame extends JPanel {
 
         layeredPane = new JLayeredPane();
         layeredPane.setPreferredSize(new Dimension(640, 480));
-
-//        for (int i = 0; i < 5; i++) {
-//            JPanel panel = new JPanel();
-//            panel.add(new JLabel());
-//            panel.setOpaque(false);
-//            layeredPane.add(panel, new Integer(i));
-//            panelList.add(panel);
-//        }
-//        add(layeredPane);
-
-
+        
         {
             JPanel panel0 = new JPanel();
             layeredPane.add(panel0, new Integer(0));
@@ -56,7 +46,7 @@ public class MainFrame extends JPanel {
                     panel0.add(label);
                 }
             }
-        }
+        }   //layer0: panel0: background
 
         {
             JPanel panel1 = new JPanel();
@@ -67,141 +57,86 @@ public class MainFrame extends JPanel {
 
             {
                 JPanel panel1Left = new JPanel();
-                panel1Left.setBounds(0, 0, tile_x >> 1, tile_y);
+                panel1Left.setBounds(
+                        tile >> 5,
+                        tile >> 5,
+                        tile_x - (tile_x >> 2) - (tile >> 3) - (tile >> 5),
+                        tile_y - (tile >> 3) + (tile >> 5));
                 panel1Left.setLayout(null);
                 panel1Left.setOpaque(true);
                 panel1Left.setBackground(new Color(255, 255, 0, 64));
                 panel1.add(panel1Left);
-            }
-            JPanel panel1right = new JPanel();
-            panel1right.setBounds(tile_x>>1, 0, tile_x>>1, tile_y);
-            panel1right.setLayout(null);
-            panel1right.setOpaque(true);
-            panel1right.setBackground(new Color(255,0,255,64));
-            panel1.add(panel1right);
-        }
+            }   //panel1Left    : lewy panel (graphics)
+            {
+                JPanel panel1Right = new JPanel();
+                panel1Right.setBounds(
+                        tile_x - (tile_x >> 2) - (tile >> 3),
+                        tile >> 5,
+                        (tile_x >> 2) + (tile >> 3),
+                        tile_y - (tile >> 3) + (tile >> 5));
+                panel1Right.setLayout(null);
+                panel1Right.setOpaque(true);
+                panel1Right.setBackground(new Color(255, 0, 255, 64));
+                panel1.add(panel1Right);
+            }   //panel1Right   : prawy panel (graphics)
+            
+        }   //layer1: panel1: graphics
 
+//        TODO : //layer2: panel2: infos (txts)
+
+        {
+            JPanel panel3 = new JPanel();
+            panel3.setOpaque(false);
+            layeredPane.add(panel3, new Integer(1));
+            panel3.setBounds(0, 0, tile_x, tile_y);
+            panel3.setLayout(null);
+
+            {
+                JPanel panel3Left = new JPanel();
+                panel3Left.setBounds(
+                        tile >> 5,
+                        tile >> 5,
+                        tile_x - (tile_x >> 2) - (tile >> 3) - (tile >> 5),
+                        tile_y - (tile >> 3) + (tile >> 5));
+                panel3Left.setLayout(null);
+                panel3Left.setOpaque(true);
+                panel3Left.setBackground(new Color(255, 255, 0, 64));
+                panel3.add(panel3Left);
+            }   //panel3Left    : lewy panel (graphics)
+            
+            {
+                JPanel panel3Right = new JPanel();
+                panel3Right.setBounds(
+                        tile_x - (tile_x >> 2) - (tile >> 3),
+                        tile >> 5,
+                        (tile_x >> 2) + (tile >> 3),
+                        tile_y - (tile >> 3) + (tile >> 5));
+                panel3Right.setLayout(null);
+                panel3Right.setOpaque(true);
+                panel3Right.setBackground(new Color(255, 0, 255, 64));
+                panel3.add(panel3Right);
+            }   //panel3Right   : prawy panel (graphics)
+
+        }   //layer1: panel3: interactions
+        
+        
+        
 
         add(layeredPane);
-//        panelList.get(1).setBounds(0, 0, tile_x, tile_y);
-//        panelList.get(1).add(new JLabel(new ImageIcon(new ImageIcon("src\\main\\resources\\gif-fail-plane-737408.gif").getImage())));
-
-
-//        panelList.get(4).setBounds(0, 0, tile_x, tile_y);
-//        panelList.get(4).setLayout(null);
-//        for (int i = 0; i < tile_x; i += 32) {
-//            for (int j = 0; j < tile_y; j += 32) {
-//                JButton button = new JButton();
-//                button.setBounds(i, j, 32, 32);
-//                button.setOpaque(true);
-//                button.setContentAreaFilled(false);
-//                button.setBorderPainted(true);
-//                panelList.get(4).add(button);
-//            }
-//        }
-
     }
-
-//    public MainFrame() {
-//        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-//
-//        layeredPane = new JLayeredPane();
-//        layeredPane.setPreferredSize(new Dimension(640, 480));
-//
-///*        for (int i = 0; i < 5; i++) {
-//            JPanel panel = new JPanel();
-//            panel.add(new JLabel());
-//            panel.setOpaque(false);
-//            panel.setBounds(0, 0, 0, 0);
-//            layeredPane.add(panel, new Integer(i));
-//            panelList.add(panel);
-//        } //layer iteration
-//
-//      add(layeredPane);
-//      */
-//        panel0 = new JPanel();
-//        panel0.setLayout(null);
-//        panel0.setBounds(0, 0, tile_x, tile_y);
-//        String addressTree = "src\\main\\resources\\mainBackground.png";
-//        Random random = new Random();
-//        int imageDimension = 240;
-//        int bcgImageNumber = 4;
-//
-//        for (int i = 0; i < tile_x; i += imageDimension) {
-//            for (int j = 0; j < tile_y; j += imageDimension) {
-//
-//                Integer fileNumber = random.nextInt(bcgImageNumber);
-//                String fileAddress = addressTree.replace(addressTree.substring(addressTree.length() - 4, addressTree.length() - 3), (Integer.toString(fileNumber) + "."));
-//
-//                JLabel label = new JLabel(new ImageIcon(new ImageIcon(fileAddress).getImage()));
-//                label.setBounds(i, j, imageDimension, imageDimension);
-//                panel0.add(label);
-//            }
-//        }
-//
-//
-//
-//
-// /*         panelList.get(0).setBounds(0, 0, 640, 480);
-//        panelList.get(0).setLayout(null);
-//        for (int i = 0; i < 640; i += 240) {
-//            for (int j = 0; j < 480; j += 240) {
-//                JLabel label = new JLabel(new ImageIcon(new ImageIcon("src\\main\\resources\\mainBackground0.png").getImage()));
-//                label.setBounds(i, j, 240, 240);
-//                panelList.get(0).add(label);
-//            }
-//        }*/ //layer0
-//
-//
-///*        panelList.get(1).setBounds(0, 0, 640, 480);
-//        panelList.get(1).add(new JLabel(new ImageIcon(new ImageIcon("src\\main\\resources\\gif-fail-plane-737408.gif").getImage())));*/ //layer1
-//
-//
-///*        panelList.get(4).setBounds(0, 0, 640, 480);
-//        panelList.get(4).setLayout(null);
-//        for (int i = 0; i < 640; i += 32) {
-//            for (int j = 0; j < 480; j += 32) {
-//                JButton button = new JButton();
-//                button.setBounds(i, j, 32, 32);
-//                button.setOpaque(true);
-//                button.setContentAreaFilled(false);
-//                button.setBorderPainted(true);
-//                panelList.get(4).add(button);
-//            }
-//        }*/ //layer4
-//
-//        add(layeredPane);
-//    }
-
-/*    void addTexture(JPanel panel) {
-        String addressTree = "src\\main\\resources\\mainBackground.png";
-        Random random = new Random();
-        int imageDimension = 240;
-        int bcgImageNumber = 4;
-        for (int i = 0; i < MainFrame.tile_x; i += imageDimension) {
-            for (int j = 0; j < MainFrame.tile_y; j += imageDimension) {
-
-                Integer fileNumber = random.nextInt(bcgImageNumber);
-                String fileAddress = addressTree.replace(addressTree.substring(addressTree.length() - 4, addressTree.length() - 3), (Integer.toString(fileNumber) + "."));
-
-                JLabel label = new JLabel(new ImageIcon(new ImageIcon(fileAddress).getImage()));
-                label.setBounds(i, j, imageDimension, imageDimension);
-                panel.add(label);
-            }
-        }
-    }*/
 
     public static void createAndShowGUI() {
 
         JFrame frame = new JFrame();
+        frame.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JComponent newContentPane = new MainFrame();
         newContentPane.setOpaque(true);
         frame.setContentPane(newContentPane);
         frame.pack();
         frame.setVisible(true);
+        frame.setResizable(true);
     }
-
 
     @Override
     public Dimension getPreferredSize() {
