@@ -1,4 +1,4 @@
-package gui;
+package _rejected;
 
 import javax.swing.*;
 

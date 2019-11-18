@@ -1,4 +1,4 @@
-package gui;
+package _rejected;
 
 import net.miginfocom.layout.LC;
 import net.miginfocom.swing.MigLayout;
@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-import static gui.MainFrame.*;
+import static _rejected.MainFrame.*;
 
 public class RightPanel extends JPanel{
 
@@ -35,7 +35,7 @@ public class RightPanel extends JPanel{
         ArrayList<JPanel> list = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             list.add(new JPanel());
-            rightPanel.add(list.get(i), "wrap");
+//            rightPanel.add(list.get(i), "wrap");  //temporal
         }
     }
 }

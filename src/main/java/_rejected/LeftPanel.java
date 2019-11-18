@@ -1,10 +1,9 @@
-package gui;
+package _rejected;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
-import static gui.MainFrame.*;
+import static _rejected.MainFrame.*;
 
 
 public class LeftPanel extends JPanel {
@@ -31,7 +30,7 @@ public class LeftPanel extends JPanel {
         leftPanel.setOpaque(false);      // opacity probably not needed
         leftPanel.setBackground(new Color(64, 192, 255, 0));
         leftPanel.setLayout(new GridLayout(x, y));
-//        populateGrid(leftPanel);
+        populateGrid(leftPanel);
     }
 
     private static void populateGrid(JPanel panel/*, ActionListener*/) {
@@ -40,7 +39,7 @@ public class LeftPanel extends JPanel {
             JLabel label = new JLabel(new ImageIcon(new ImageIcon("src\\main\\resources\\clothTile.png").getImage()));
 //            label.setOpaque(false);
             label.setBackground(new Color(128, 128, 128, 64));
-            label.setBorder(MainFrame.blackBorder());
+//            label.setBorder(MainFrame.blackBorder());
 //            label.addActionListener(listener);
             panel.add(label);
         }

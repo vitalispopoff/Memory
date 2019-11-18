@@ -1,22 +1,21 @@
-package gui;
+package _rejected;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.Random;
 
-public class MainPanel extends MainFrame /*implements FrontEndable*/ {
+public class MainPanel_old extends MainFrame /*implements FrontEndable*/ {
 
     static JLabel label;
 //    private static String textureAdress = "resources\\clothTile.png";
 
     /*@Override*/
-    public static JPanel MainPanel() {
-        mainPanel = new JPanel();
-        mainPanel.setLayout(null);
-        addTexture();
+//    public static JPanel MainPanel() {
+//        mainPanel = new JPanel();
+//        mainPanel.setLayout(null);
+//        addTexture();
 //        mainPanel.setBackground(new Color(255, 255, 0));
-        return mainPanel;
-    }
+//        return mainPanel;
+//    }
 
 /*    static void addTexture() {
         label = new JLabel(new ImageIcon(new ImageIcon("src\\main\\resources\\mainBackground0.png").getImage()));
@@ -41,7 +40,7 @@ public class MainPanel extends MainFrame /*implements FrontEndable*/ {
 
                 JLabel label = new JLabel(new ImageIcon(new ImageIcon(fileAddress).getImage()));
                 label.setBounds(i, j, imageDimension, imageDimension);
-                mainPanel.add(label);
+//                mainPanel.add(label);
             }
         }
     }
