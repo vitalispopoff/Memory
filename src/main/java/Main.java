@@ -10,9 +10,6 @@ public class Main {
         EventQueue.invokeLater(() -> {
             MainFrame.createAndShowGUI();
 
-
-
-
         });
     }
 }
