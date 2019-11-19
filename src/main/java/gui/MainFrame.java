@@ -25,47 +25,13 @@ public class MainFrame extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
         layeredPane = new JLayeredPane();
-//        layeredPane.setPreferredSize(new Dimension(640, 480));
-        layeredPane.add(Layer_0.makeLayer_0(), new Integer(0));
-        layeredPane.add(Layer_1.makeLayer_1(), new Integer(1));
-        layeredPane.add(Layer_2.makeLayer_2(), new Integer(2));
+        layeredPane.add(Layer_0.makeLayer_0(), new Integer(0));     // *    background (graphics only)
+        layeredPane.add(Layer_1.makeLayer_1(), new Integer(1));     // *    panels  (graphics only)
+        layeredPane.add(Layer_2.makeLayer_2(), new Integer(2));     // *    panel right - (writings - graphics)
+//        layeredPane.add(Layer_3.makeLayer_3(), new Integer(3));     // *    panels  (interactions)
         add(layeredPane);
     }
 
-        /*{
-            JPanel panel3 = new JPanel();
-            panel3.setOpaque(false);
-            layeredPane.add(panel3, new Integer(1));
-            panel3.setBounds(0, 0, tile_x, tile_y);
-            panel3.setLayout(null);
-
-            {
-                JPanel panel3Left = new JPanel();
-                panel3Left.setBounds(
-                        tile >> 5,
-                        tile >> 5,
-                        tile_x - (tile_x >> 2) - (tile >> 3) - (tile >> 5),
-                        tile_y - (tile >> 3) + (tile >> 5));
-                panel3Left.setLayout(null);
-                panel3Left.setOpaque(true);
-                panel3Left.setBackground(new Color(255, 255, 0, 64));
-                panel3.add(panel3Left);
-            }   //panel3Left    : lewy panel (graphics)
-
-            {
-                JPanel panel3Right = new JPanel();
-                panel3Right.setBounds(
-                        tile_x - (tile_x >> 2) - (tile >> 3),
-                        tile >> 5,
-                        (tile_x >> 2) + (tile >> 3),
-                        tile_y - (tile >> 3) + (tile >> 5));
-                panel3Right.setLayout(null);
-                panel3Right.setOpaque(true);
-                panel3Right.setBackground(new Color(255, 0, 255, 64));
-                panel3.add(panel3Right);
-            }   //panel3Right   : prawy panel (graphics)
-
-        }*/   //layer3:   interactions
 
 
     public static void createAndShowGUI() {

@@ -2,7 +2,6 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Random;
 
 import static gui.MainFrame.*;
@@ -25,7 +24,7 @@ public class Layer_2 {
             (tile_x >> 2) + (tile >> 3),
             tile_y - (tile >> 3) + (tile >> 5)
     };
-    private static String coverImageFileAddress = "src\\main\\resources\\transparent.png";
+    private static String coverImageFileAddress = "src\\main\\resources\\cardCover.png";
 
     public Layer_2() {
         panel2 = new JPanel();
@@ -59,17 +58,12 @@ public class Layer_2 {
         Random random = new Random();
 
         for (int i = 0; i < cardGridSize[0] * cardGridSize[1]; i++) {
-//            Image image = new ImageIcon(coverImageFileAddress).getImage().getScaledInstance(panel2LeftBounds[2]/cardGridSize[0], panel2LeftBounds[3]/cardGridSize[1], Image.SCALE_FAST);
-            JButton button = new JButton();
-            button.setOpaque(true);
-            button.setContentAreaFilled(false);
-            button.setBorderPainted(true);
-            panel2Left.add(button);
-            leftPanelButtons.add(button);
+        int size_x = panel2LeftBounds[2]/cardGridSize[0];
+        int size_y = panel2LeftBounds[3]/cardGridSize[1];
+            Image image = new ImageIcon(coverImageFileAddress).getImage().getScaledInstance(size_x-(size_x>>4),size_y-(size_y>>2) , Image.SCALE_SMOOTH);
+            JLabel label = new JLabel(new ImageIcon(image));
 
-
+            panel2Left.add(label);
         }
-
     }
-
 }
