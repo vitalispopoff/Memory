@@ -5,7 +5,7 @@ import java.util.Random;
 
 import static gui.MainFrame.*;
 
-public class Layer_0 extends JPanel {
+public class Layer_0 /*extends JPanel */{
 
     private static JPanel panel0;
     private static String addressTree = "src\\main\\resources\\mainBackground.png";

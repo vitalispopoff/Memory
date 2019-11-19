@@ -16,8 +16,8 @@ public class MainFrame extends JPanel {
     private JLayeredPane layeredPane;
     private int[] deckNumber = {8, 6};
     public ArrayList<JButton> leftPanelButtons = new ArrayList<>();
-//    private static JPanel panel0;     // TODO out
-    private static JPanel panel1;
+    //    private static JPanel panel0;     // TODO out
+//    private static JPanel panel1;     // TODO out
     private static JPanel panel2;
 
     public void setDeckNumber(int[] deckNumber) {
@@ -33,11 +33,11 @@ public class MainFrame extends JPanel {
 //        panel0 = new JPanel();        //TODO out
         layeredPane.add(Layer_0.makeLayer_0(), new Integer(0));
         /*JPanel*/
-        panel1 = new JPanel();
-        layeredPane.add(panel1, new Integer(1));
+//        panel1 = new JPanel();
+        layeredPane.add(Layer_1.makeLayer_1(), new Integer(1));
         /*JPanel*/
-        panel2 = new JPanel();
-        layeredPane.add(panel2, new Integer(1));
+//        panel2 = new JPanel();
+        layeredPane.add(Layer_2.makeLayer_2(), new Integer(2));
         add(layeredPane);
     }
         /*{
@@ -105,19 +105,19 @@ public class MainFrame extends JPanel {
                 panel1.add(panel1Right);
             }   //panel1Right   : prawy panel (graphics)    disabled
 
-        }*/   //layer1: panel1: graphics
+        }*/   //layer1: panel1: graphics    : moved to Layer_1 class
 
 //        populatePanel2();
 //    }
 
-    public void populatePanel2() {
+    /*{
 //            JPanel panel2 = new JPanel();
         panel2.setOpaque(false);
 
         panel2.setBounds(0, 0, tile_x, tile_y);
         panel2.setLayout(null);
 
-            /*{
+            {
                 JPanel panel2Left = new JPanel();
                 int[] panel2LeftBounds = {
                         tile >> 5,
@@ -135,9 +135,9 @@ public class MainFrame extends JPanel {
                 panel2Left.setOpaque(true);
                 panel2Left.setBackground(new Color(255, 255, 0, 64));
                 panel2.add(panel2Left);
-            }*/   //panel2Left    : lewy panel (buttons)
+            }   //panel2Left    : lewy panel (buttons)
 
-            /*{
+            {
                 JPanel panel2Right = new JPanel();
                 panel2Right.setBounds(
                         tile_x - (tile_x >> 2) - (tile >> 3),
@@ -148,9 +148,9 @@ public class MainFrame extends JPanel {
                 panel2Right.setOpaque(true);
                 panel2Right.setBackground(new Color(255, 0, 255, 64));
                 panel2.add(panel2Right);
-            }*/   //panel2Right   : prawy panel (buttons)
+            }   //panel2Right   : prawy panel (buttons)
 
-    }   //layer1: panel2: graphics
+    }*/   //layer1: panel2: graphics
 
         /*{
             JPanel panel3 = new JPanel();
@@ -186,6 +186,7 @@ public class MainFrame extends JPanel {
             }   //panel3Right   : prawy panel (graphics)
 
         }*/   //layer3:   interactions
+
 
     public static void createAndShowGUI() {
 
