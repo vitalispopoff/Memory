@@ -16,7 +16,6 @@ public class Layer_0 /*extends JPanel */{
         panel0 = new JPanel();
         panel0.setBounds(0, 0, tile_x, tile_y);
         panel0.setLayout(null);
-//        String addressTree = "src\\main\\resources\\mainBackground.png";
         Random random = new Random();
 
         for (int i = 0; i < tile_x; i += imageDimension) {
@@ -38,3 +37,5 @@ public class Layer_0 /*extends JPanel */{
         return panel0;
     }
 }
+
+//  TODO :      randomization of textures

@@ -1,9 +1,7 @@
 package gui;
 
 import javax.swing.*;
-
 import java.awt.*;
-
 import static gui.MainFrame.*;
 
 public class Layer_1 {
@@ -40,7 +38,7 @@ public class Layer_1 {
             panel1Left.setOpaque(true);
             panel1Left.setBackground(new Color(255, 255, 0, 64));
             panel1.add(panel1Left);
-        }*/   //panel1Left    : lewy panel (graphics)   disabled
+        }*/   //panel1Left    :  (graphics)   disabled
 
         {
             JPanel panel1Right = new JPanel();
@@ -52,8 +50,8 @@ public class Layer_1 {
             JLabel label = new JLabel(new ImageIcon(sheet));
             label.setBounds(panel1RightBounds[0], panel1RightBounds[1], panel1RightBounds[2], panel1LeftBounds[3]);
             panel1.add(panel1Right.add(label));
-        }   //panel1Right   : prawy panel (graphics)    disabled
-    }   //layer1: panel1: graphics
+        }
+    }
 
     public static JPanel makeLayer_1() {
         new Layer_1();

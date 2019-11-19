@@ -4,8 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+import static com.sun.javafx.scene.control.skin.Utils.getResource;
+
 public class MainFrame extends JPanel {
 
+    private static String gameIconImage = "F:\\_Java_Projects_IntelliJ\\Memory\\src\\main\\resources\\gameIcon.png";
     private static Toolkit kit = Toolkit.getDefaultToolkit();
     private static Dimension screenSize = kit.getScreenSize();
     public static int tile_x = screenSize.width;
@@ -32,8 +35,6 @@ public class MainFrame extends JPanel {
         add(layeredPane);
     }
 
-
-
     public static void createAndShowGUI() {
 
         JFrame frame = new JFrame();
@@ -41,6 +42,7 @@ public class MainFrame extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JComponent newContentPane = new MainFrame();
         newContentPane.setOpaque(true);
+        frame.setIconImage(new ImageIcon(gameIconImage).getImage());
         frame.setContentPane(newContentPane);
         frame.pack();
         frame.setVisible(true);
@@ -52,3 +54,5 @@ public class MainFrame extends JPanel {
         return new Dimension(tile_x, tile_y);
     }
 }
+
+//      TODO : fullscreen
