@@ -21,7 +21,7 @@ public class Layer_1 {
     };
     private static int[] panel1RightBounds = {
             tile_x - (tile_x >> 2) - (tile >> 3),
-            0,
+            tile >> 5,
             (tile_x >> 2) + (tile >> 3),
             tile_y
     };
@@ -51,8 +51,6 @@ public class Layer_1 {
             Image sheet = new ImageIcon(fileAddress).getImage().getScaledInstance(panel1RightBounds[2], panel1LeftBounds[3], Image.SCALE_SMOOTH);
             JLabel label = new JLabel(new ImageIcon(sheet));
             label.setBounds(panel1RightBounds[0], panel1RightBounds[1], panel1RightBounds[2], panel1LeftBounds[3]);
-//            panel1Right.add(label);
-//            panel1.add(panel1Right);
             panel1.add(panel1Right.add(label));
         }   //panel1Right   : prawy panel (graphics)    disabled
     }   //layer1: panel1: graphics

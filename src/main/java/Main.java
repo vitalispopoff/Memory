@@ -14,3 +14,6 @@ public class Main {
     }
 }
 
+/**
+ * Icon by Linector: https://www.flaticon.com/authors/linector
+ */
