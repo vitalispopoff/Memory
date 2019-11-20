@@ -8,7 +8,7 @@ import static com.sun.javafx.scene.control.skin.Utils.getResource;
 
 public class MainFrame extends JPanel {
 
-    private static String gameIconImage = "F:\\_Java_Projects_IntelliJ\\Memory\\src\\main\\resources\\gameIcon.png";
+    private static String gameIconImage = "src\\main\\resources\\gameIcon.png";
     private static Toolkit kit = Toolkit.getDefaultToolkit();
     private static Dimension screenSize = kit.getScreenSize();
     public static int tile_x = screenSize.width;
@@ -31,7 +31,7 @@ public class MainFrame extends JPanel {
         layeredPane.add(Layer_0.makeLayer_0(), new Integer(0));     // *    background (graphics only)
         layeredPane.add(Layer_1.makeLayer_1(), new Integer(1));     // *    panels  (graphics only)
         layeredPane.add(Layer_2.makeLayer_2(), new Integer(2));     // *    panel right - (writings - graphics)
-//        layeredPane.add(Layer_3.makeLayer_3(), new Integer(3));     // *    panels  (interactions)
+        layeredPane.add(Layer_3.makeLayer_3(), new Integer(3));     // *    panels  (interactions)
         add(layeredPane);
     }
 
@@ -43,10 +43,12 @@ public class MainFrame extends JPanel {
         JComponent newContentPane = new MainFrame();
         newContentPane.setOpaque(true);
         frame.setIconImage(new ImageIcon(gameIconImage).getImage());
+        frame.setTitle("Memory");
         frame.setContentPane(newContentPane);
         frame.pack();
         frame.setVisible(true);
-        frame.setResizable(true);
+        frame.setResizable(false);
+
     }
 
     @Override

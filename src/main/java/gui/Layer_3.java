@@ -1,11 +1,20 @@
 package gui;
 
+import mechanics.CardLists;
+import mechanics.type.Card;
+import mechanics.type.Music;
+import static mechanics.Play.getMusicForClick;
+import static mechanics.Play.getCardsList;
+import static mechanics.Play.getCardGraphicsLists;
+
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 import static gui.MainFrame.*;
 
-public class Layer_3 {
+public class Layer_3{
 
     private static JPanel panel3;
     private static JPanel panel3Left = new JPanel();
@@ -25,6 +34,7 @@ public class Layer_3 {
     };
     private static String coverImageFileAddress = "src\\main\\resources\\transparent.png";
 
+
     public Layer_3() {
         panel3 = new JPanel();
         panel3.setOpaque(false);
@@ -36,6 +46,7 @@ public class Layer_3 {
             panel3Left.setLayout(new GridLayout(cardGridSize[0], cardGridSize[1]));
             panel3Left.setOpaque(false);
             makeCardButtons();
+
             panel3.add(panel3Left);
         }   //panel3Left    : lewy panel (buttons)
 
@@ -54,8 +65,15 @@ public class Layer_3 {
     }
 
     public void makeCardButtons() {
-        Random random = new Random();
 
+        for (int i = 0; i < cardGridSize[0] * cardGridSize[1]; i++) {
+            panel3Left.add(getCardsList().getCardFromList(i).getjButton());
+            leftPanelButtons.add(getCardsList().getCardFromList(i).getjButton());
+        }
+
+
+        /*
+        Random random = new Random();
         for (int i = 0; i < cardGridSize[0] * cardGridSize[1]; i++) {
 //            Image image = new ImageIcon(coverImageFileAddress).getImage().getScaledInstance(panel3LeftBounds[2]/cardGridSize[0], panel3LeftBounds[3]/cardGridSize[1], Image.SCALE_FAST);
             JButton button = new JButton();
@@ -65,7 +83,9 @@ public class Layer_3 {
             panel3Left.add(button);
             leftPanelButtons.add(button);
         }
-
+*/
     }
+
+
 
 }
