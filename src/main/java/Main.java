@@ -21,4 +21,17 @@ public class Main {
  * https://www.freepik.com/free-photos-vectors/vintage,
  * https://www.freepik.com/free-photos-vectors/vintage,
  * https://www.freepik.com/free-photos-vectors/background
+ *
+ * Sounds effects from Freesound.org community:
+ * 434472__dersuperanton__taking-card
+ * 240777__f4ngy__dealing-card
+ * 240776__f4ngy__card-flip
+ * 485010__g-e-n-e__card-shuffle
+ *
+ * Sound loops used under the public domain (1) and fair use policy (2, 3, 4) respectively.
+ *
+ * 1. Scott Joplin - The Entertainer
+ * 2. Duke Ellington - You Gave Me The Gate
+ * 3. Beastie Boys - The Sound Of The Neckbone
+ * 4. Beastie Boys - Groove Holmes
  */
