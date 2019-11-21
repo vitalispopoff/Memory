@@ -87,18 +87,7 @@ public class Layer_2 {
 
                 getCardsList().addCardToList(new Card(getCardGraphicsLists().getFrontImagesList().get(i / 2).getScaledInstance(rescale-(rescale>>2),rescale-(rescale>>2) , Image.SCALE_SMOOTH)
                         ,getCardGraphicsLists().getCoverImagesList().get(random.nextInt(4)).getScaledInstance(rescale-(rescale>>2),rescale-(rescale>>2) , Image.SCALE_SMOOTH),cardId,new JButton(),new JLabel()));
-                getCardsList().getCardFromList(i).getjButton().setOpaque(true);
-                getCardsList().getCardFromList(i).getjButton().setContentAreaFilled(false);
-                getCardsList().getCardFromList(i).getjButton().setBorderPainted(false);
-                final int i_final = i;
-                getCardsList().getCardFromList(i).getjButton().addActionListener(e -> {
-                    clickCounter[0] = clickCounter[0] + 1;
-                    if (clickCounter[0] < 3) {
-                        getMusicForClick().playMusic("src\\main\\resources\\SFX\\flipCard2.wav");
-                        getCardsList().getCardFromList(i_final).getjLabel().setIcon(new ImageIcon(getCardsList().getCardFromList(i_final).getFront()));
-                        cardsComparison(getCardsList().getCardFromList(i_final));
-                    }
-                });
+
                 cardId += 1;
             }
             else {
@@ -112,33 +101,19 @@ public class Layer_2 {
                 getCardsList().addCardToList(new Card(getCardGraphicsLists().getFrontImagesList().get(i / 2).getScaledInstance(rescale-(rescale>>2),rescale-(rescale>>2), Image.SCALE_SMOOTH),
                         getCardGraphicsLists().getCoverImagesList().get(random.nextInt(4)).getScaledInstance(rescale-(rescale>>2),rescale-(rescale>>2) , Image.SCALE_SMOOTH),
                         getCardsList().getCardFromList(i-1).getCardId(),new JButton(),new JLabel()));
-                getCardsList().getCardFromList(i).getjButton().setOpaque(true);
-                getCardsList().getCardFromList(i).getjButton().setContentAreaFilled(false);
-                getCardsList().getCardFromList(i).getjButton().setBorderPainted(false);
-                final int i_final = i;
-                getCardsList().getCardFromList(i).getjButton().addActionListener(e -> {
-                    clickCounter[0] = clickCounter[0] + 1;
-                    if (clickCounter[0] < 3) {
-                        getMusicForClick().playMusic("src\\main\\resources\\SFX\\flipCard2.wav");
-                        getCardsList().getCardFromList(i_final).getjLabel().setIcon(new ImageIcon(getCardsList().getCardFromList(i_final).getFront()));
-                        cardsComparison(getCardsList().getCardFromList(i_final));
-                    }
-                });
-
             }
-            getCardsList().getCardFromList(i).getjLabel().setIcon(new ImageIcon(getCardsList().getCardFromList(i).getBack()));
 
-           panel2Left.add(getCardsList().getCardFromList(i).getjLabel());
+            getCardsList().getCardFromList(i).getjLabel().setIcon(new ImageIcon(getCardsList().getCardFromList(i).getBack()));
         }
 
-        ////////////////////////////////////////////////////////////////////
-        // SHUFFLE :O
-        /*Collections.shuffle(getCardsList().getCardsList());
+
+
+
+        Collections.shuffle(getCardsList().getCardsList());
 
         for (int i = 0; i < cardGridSize[0] * cardGridSize[1]; i++) {
             panel2Left.add(getCardsList().getCardFromList(i).getjLabel());
-        }*/
-        ////////////////////////////////////////////////////////////////////
+        }
 
 
         /* Random random = new Random();
@@ -159,45 +134,6 @@ public class Layer_2 {
     }
 
 
-    public void cardsComparison(Card card){
-        comparison.compare(card);
-
-        if (comparison.getComparisonStatus()== ComparisonStatus.WAIT)
-            clickCounter[0] =1;
-
-        if (comparison.getComparisonStatus()==ComparisonStatus.TRUE){
-            new java.util.Timer().schedule(
-                    new java.util.TimerTask() {
-                        @Override
-                        public void run() {
-                            comparison.getCard1().getjButton().setVisible(false);
-                            comparison.getCard1().getjLabel().setVisible(false);
-                            comparison.getCard2().getjButton().setVisible(false);
-                            comparison.getCard2().getjLabel().setVisible(false);
-                            clickCounter[0]=0;
-                        }
-                    },
-                    1000
-            );
-
-            // players[turnChange.getCurrentPlayer()].addPoint();
-
-        } else if (comparison.getComparisonStatus()==ComparisonStatus.FALSE){
-
-            new java.util.Timer().schedule(
-                    new java.util.TimerTask() {
-                        @Override
-                        public void run() {
-                            comparison.getCard1().getjLabel().setIcon(new ImageIcon(card.getBack()));
-                            comparison.getCard2().getjLabel().setIcon(new ImageIcon(card.getBack()));
-                            clickCounter[0]=0;
-                        }
-                    },
-                    1000
-            );
-        }
-        // turnChange.changePlayer(comparison.getComparisonStatus());
-    }
 }
 
 //      TODO :  arbitrary angle rotation, and dislocation of cards within labels
