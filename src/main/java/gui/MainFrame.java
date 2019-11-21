@@ -17,6 +17,7 @@ public class MainFrame extends JPanel {
     public static int[] cardGridSize = {8, 7};
     public static ArrayList<JButton> leftPanelButtons = new ArrayList<>();
     private JLayeredPane layeredPane;
+    static GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()[0];
 
     private static JPanel panel2;
 
@@ -38,17 +39,20 @@ public class MainFrame extends JPanel {
     public static void createAndShowGUI() {
 
         JFrame frame = new JFrame();
-        frame.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        {
+            frame.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);      //frame  maximized
+            device.setFullScreenWindow(frame);      // fullscreen
+            frame.setIconImage(new ImageIcon(gameIconImage).getImage());
+            frame.setTitle("Memory");
+            frame.setResizable(false);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
+        }   // frame settings
+
         JComponent newContentPane = new MainFrame();
         newContentPane.setOpaque(true);
-        frame.setIconImage(new ImageIcon(gameIconImage).getImage());
-        frame.setTitle("Memory");
         frame.setContentPane(newContentPane);
         frame.pack();
-        frame.setVisible(true);
-        frame.setResizable(false);
-
     }
 
     @Override

@@ -37,5 +37,3 @@ public class Layer_0 /*extends JPanel */{
         return panel0;
     }
 }
-
-//  TODO :      randomization of textures
