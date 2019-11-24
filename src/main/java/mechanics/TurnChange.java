@@ -5,7 +5,7 @@ import mechanics.type.*;
 public class TurnChange {
 
     private int currentPlayer = 0;
-    private int numberOfPlayers;
+    private int numberOfPlayers = Player.playerList.size()-1;
 
     public TurnChange(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
@@ -23,9 +23,9 @@ public class TurnChange {
         return numberOfPlayers;
     }
 
-    public void setNumberOfPlayers(int numberOfPlayers) {
+/*    public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
-    }
+    }*/ //setNumberOfPlayers - można przez static ArrayList graczy (Player:7)
 
     public int changePlayer(ComparisonStatus comparisonStatus) {
 

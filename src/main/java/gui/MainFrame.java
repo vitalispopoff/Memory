@@ -1,5 +1,7 @@
 package gui;
 
+import mechanics.type.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import static com.sun.javafx.scene.control.skin.Utils.getResource;
 
 public class MainFrame extends JPanel {
 
+    private static Object[] opcje = {"1 gracz", "2 graczy"};
     private static String gameIconImage = "src\\main\\resources\\gameIcon.png";
     private static Toolkit kit = Toolkit.getDefaultToolkit();
     private static Dimension screenSize = kit.getScreenSize();
@@ -41,24 +44,43 @@ public class MainFrame extends JPanel {
         JFrame frame = new JFrame();
         {
             frame.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);      //frame  maximized
-            device.setFullScreenWindow(frame);      // fullscreen
+//            device.setFullScreenWindow(frame);      // fullscreen
             frame.setIconImage(new ImageIcon(gameIconImage).getImage());
             frame.setTitle("Memory");
             frame.setResizable(false);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setVisible(true);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         }   // frame settings
 
         JComponent newContentPane = new MainFrame();
         newContentPane.setOpaque(true);
         frame.setContentPane(newContentPane);
         frame.pack();
+        chosePlayers(frame);
+
+
     }
 
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(tile_x, tile_y);
     }
+
+    public static void chosePlayers(Component parentComponent) {
+
+        Player.generatePlayers(JOptionPane.showOptionDialog(
+                parentComponent,
+                "wybierz liczbę graczy",
+                "",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opcje,
+                opcje[1]
+        ));
+    }
+
 }
 
 //      TODO : fullscreen

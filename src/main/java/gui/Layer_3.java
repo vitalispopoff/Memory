@@ -143,6 +143,4 @@ public class Layer_3{
         // turnChange.changePlayer(comparison.getComparisonStatus());
     }
 
-
-
 }
