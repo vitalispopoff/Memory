@@ -2,7 +2,6 @@ package gui;
 
 import mechanics.Comparison;
 import mechanics.type.Card;
-import mechanics.type.ComparisonStatus;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +10,6 @@ import java.util.Random;
 
 import static gui.MainFrame.*;
 import static mechanics.Play.*;
-import static mechanics.Play.getMusicForClick;
 
 
 public class Layer_2 {

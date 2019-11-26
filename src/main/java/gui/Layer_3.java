@@ -1,19 +1,20 @@
 package gui;
 
-import mechanics.CardLists;
 import mechanics.Comparison;
 import mechanics.type.Card;
 import mechanics.type.ComparisonStatus;
-import mechanics.type.Music;
-import static mechanics.Play.getMusicForClick;
-import static mechanics.Play.getCardsList;
-import static mechanics.Play.getCardGraphicsLists;
 
+import static mechanics.type.Music.playMusicAction;
+import static mechanics.Play.getCardsList;
+import static mechanics.type.Player.playerList;
+import static mechanics.TurnChange.changePlayer;
+import static mechanics.TurnChange.getCurrentPlayer;
+import static mechanics.type.Player.getNumberOfPoints;
 
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Random;
+
 import static gui.MainFrame.*;
 
 public class Layer_3{
@@ -79,7 +80,7 @@ public class Layer_3{
             getCardsList().getCardFromList(i).getjButton().addActionListener(e -> {
                 clickCounter[0] = clickCounter[0] + 1;
                 if (clickCounter[0] < 3) {
-                    getMusicForClick().playMusic("src\\main\\resources\\SFX\\flipCard2.wav");
+                    playMusicAction("src\\main\\resources\\SFX\\flipCard2.wav");
                     getCardsList().getCardFromList(i_final).getjLabel().setIcon(new ImageIcon(getCardsList().getCardFromList(i_final).getFront()));
                     cardsComparison(getCardsList().getCardFromList(i_final));
                 }
@@ -124,7 +125,9 @@ public class Layer_3{
                     1000
             );
 
-            // players[turnChange.getCurrentPlayer()].addPoint();
+            playerList.get(getCurrentPlayer()).addPoint();
+            System.out.println(getCurrentPlayer() + " " + getNumberOfPoints());
+
 
         } else if (comparison.getComparisonStatus()==ComparisonStatus.FALSE){
 
@@ -140,7 +143,8 @@ public class Layer_3{
                     1000
             );
         }
-        // turnChange.changePlayer(comparison.getComparisonStatus());
+        changePlayer(comparison.getComparisonStatus());
+        System.out.println(getCurrentPlayer());
     }
 
 }

@@ -1,4 +1,5 @@
 import gui.MainFrame;
+import gui.intro.MyJFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,8 +8,30 @@ public class Main {
 
     public static void main(String[] args) {
 
-        EventQueue.invokeLater(() -> {
+       /* EventQueue.invokeLater(() -> {
             MainFrame.createAndShowGUI();
+
+        });*/
+
+        EventQueue.invokeLater(() -> {
+            MyJFrame window = new MyJFrame();
+            GraphicsEnvironment graphics =
+                    GraphicsEnvironment.getLocalGraphicsEnvironment();
+            GraphicsDevice device = graphics.getDefaultScreenDevice();
+            device.setFullScreenWindow(window);
+            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            window.setVisible(true);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            window.setVisible(false);
+                            MainFrame.createAndShowGUI();
+
+                        }
+                    },
+                    4300
+            );
 
         });
     }
@@ -16,7 +39,7 @@ public class Main {
 
 /**
  * Icon by Linector: https://www.flaticon.com/authors/linector
- * Vectors on card fronts by by rawpixel.com - www.freepik.com:
+ * Vectors on card fronts by rawpixel.com - www.freepik.com:
  * https://www.freepik.com/free-photos-vectors/vintage,
  * https://www.freepik.com/free-photos-vectors/vintage,
  * https://www.freepik.com/free-photos-vectors/vintage,

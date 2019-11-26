@@ -7,7 +7,7 @@ public class Player {
     public static ArrayList<Player> playerList = new ArrayList<>();
 
     private String name;
-    private int numberOfPoints = 0;
+    private static int numberOfPoints = 0;
 
 
     public Player(String name) {
@@ -23,7 +23,7 @@ public class Player {
         this.name = name;
     }
 
-    public int getNumberOfPoints() {
+    public static int getNumberOfPoints() {
         return numberOfPoints;
     }
 
@@ -42,6 +42,7 @@ public class Player {
             System.out.println(name.toString()+" added to playerList");
 
         }
+        System.out.println(playerList.size());
     }
 
 }

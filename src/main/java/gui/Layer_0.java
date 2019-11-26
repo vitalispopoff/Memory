@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.util.Random;
 
 import static gui.MainFrame.*;
+import static mechanics.type.Music.playMusicBackground;
 
 public class Layer_0 /*extends JPanel */{
 
@@ -13,6 +14,7 @@ public class Layer_0 /*extends JPanel */{
     private static int bcgImageNumber = 4;
 
     public Layer_0() {
+        playMusicBackground("src\\main\\resources\\SFX\\backgroundMusicLoops1.wav");
         panel0 = new JPanel();
         panel0.setBounds(0, 0, tile_x, tile_y);
         panel0.setLayout(null);

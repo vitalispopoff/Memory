@@ -7,7 +7,7 @@ import java.io.File;
 
 public class Music {
 
-    public void playMusic(String musicLocation){
+    public static void playMusicAction(String musicLocation){
 
         try {
             File musicPath = new File(musicLocation);
@@ -17,6 +17,26 @@ public class Music {
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioInput);
                 clip.start();
+            } else {
+                System.out.println("File not found");
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void playMusicBackground(String musicLocation){
+
+        try {
+            File musicPath = new File(musicLocation);
+
+            if (musicPath.exists()){
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
             } else {
                 System.out.println("File not found");
             }
