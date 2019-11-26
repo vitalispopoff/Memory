@@ -6,10 +6,10 @@ import mechanics.type.ComparisonStatus;
 
 import static mechanics.type.Music.playMusicAction;
 import static mechanics.Play.getCardsList;
-import static mechanics.type.Player.playerList;
+import static mechanics.PlayersList.playerList;
 import static mechanics.TurnChange.changePlayer;
 import static mechanics.TurnChange.getCurrentPlayer;
-import static mechanics.type.Player.getNumberOfPoints;
+//import static mechanics.type.Player.getNumberOfPoints;
 
 
 import javax.swing.*;
@@ -123,10 +123,11 @@ public class Layer_3{
                         }
                     },
                     1000
+
             );
 
             playerList.get(getCurrentPlayer()).addPoint();
-            System.out.println(getCurrentPlayer() + " " + getNumberOfPoints());
+            System.out.println(playerList.get(getCurrentPlayer()).getName() + " " + playerList.get(getCurrentPlayer()).getNumberOfPoints());
 
 
         } else if (comparison.getComparisonStatus()==ComparisonStatus.FALSE){
@@ -142,9 +143,10 @@ public class Layer_3{
                     },
                     1000
             );
+            System.out.println(playerList.get(getCurrentPlayer()).getName());
+
         }
         changePlayer(comparison.getComparisonStatus());
-        System.out.println(getCurrentPlayer());
     }
 
 }

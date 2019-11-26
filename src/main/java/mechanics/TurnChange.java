@@ -5,7 +5,7 @@ import mechanics.type.*;
 public class TurnChange {
 
     private static int currentPlayer = 0;
-    private static int numberOfPlayers = Player.playerList.size()-1;
+    private static int numberOfPlayers = PlayersList.playerList.size();
 
     public TurnChange(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;

@@ -4,15 +4,13 @@ import java.util.ArrayList;
 
 public class Player {
 
-    public static ArrayList<Player> playerList = new ArrayList<>();
 
     private String name;
-    private static int numberOfPoints = 0;
+    private int numberOfPoints = 0;
 
 
     public Player(String name) {
         this.name = name;
-        playerList.add(this);
     }
 
     public String getName() {
@@ -23,7 +21,7 @@ public class Player {
         this.name = name;
     }
 
-    public static int getNumberOfPoints() {
+    public int getNumberOfPoints() {
         return numberOfPoints;
     }
 
@@ -35,14 +33,6 @@ public class Player {
         numberOfPoints = numberOfPoints + 1;
     }
 
-    public static void generatePlayers(int gracze){
-        for (int i = 0; i <= gracze; i++) {
-            StringBuilder name = new StringBuilder().append("Gracz ").append(Integer.toString(i));
-            playerList.add(i,new Player(name.toString()));
-            System.out.println(name.toString()+" added to playerList");
 
-        }
-        System.out.println(playerList.size());
-    }
 
 }

@@ -1,5 +1,6 @@
 package gui;
 
+import mechanics.PlayersList;
 import mechanics.type.Player;
 
 import javax.swing.*;
@@ -69,7 +70,7 @@ public class MainFrame extends JPanel {
 
     public static void chosePlayers(Component parentComponent) {
 
-        Player.generatePlayers(JOptionPane.showOptionDialog(
+        PlayersList.generatePlayers(JOptionPane.showOptionDialog(
                 parentComponent,
                 "wybierz liczbę graczy",
                 "",

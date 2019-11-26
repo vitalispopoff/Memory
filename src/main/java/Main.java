@@ -30,7 +30,7 @@ public class Main {
 
                         }
                     },
-                    4300
+                    4600
             );
 
         });
