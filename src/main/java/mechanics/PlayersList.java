@@ -8,7 +8,6 @@ public class PlayersList {
 
     public static ArrayList<Player> playerList = new ArrayList<>();
 
-
     public static void generatePlayers(int gracze){
         for (int i = 0; i <= gracze; i++) {
             StringBuilder name = new StringBuilder().append("Gracz ").append(Integer.toString(i));

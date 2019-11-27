@@ -45,7 +45,8 @@ public class MainFrame extends JPanel {
         JFrame frame = new JFrame();
         {
             frame.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);      //frame  maximized
-//            device.setFullScreenWindow(frame);      // fullscreen
+//           device.setFullScreenWindow(frame);      // fullscreen
+            frame.setUndecorated(true);
             frame.setIconImage(new ImageIcon(gameIconImage).getImage());
             frame.setTitle("Memory");
             frame.setResizable(false);
