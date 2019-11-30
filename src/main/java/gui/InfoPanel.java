@@ -6,6 +6,7 @@ import java.awt.*;
 
 import static gui.MainFrame.tile_x;
 import static gui.MainFrame.tile_y;
+import static java.awt.Color.*;
 
 public class InfoPanel extends JPanel {
     int[] infoPanelBounds = {
@@ -46,7 +47,7 @@ public class InfoPanel extends JPanel {
         JLabel roundTitleLabel = new JLabel();
         roundTitleLabel.setHorizontalAlignment(0);
         roundTitleLabel.setVerticalAlignment(0);
-        String roundTitleLabelText = "<html><p style=\" font-weight: bold; font-style: italic; font-size: 32px;font-family: Helvetica, Arial, Sans-Serif;\"><u>KOLEJKA</u></p></html>";
+        String roundTitleLabelText = "<html><p style=\" transform: rotate(10deg); font-weight: bold; font-style: italic; font-size: 32px;font-family: Helvetica, Arial, Sans-Serif;\"><u>KOLEJKA</u></p></html>";
         roundTitleLabel.setText(roundTitleLabelText);
         roundTitleLabel.setBounds(
                 0,
@@ -55,9 +56,9 @@ public class InfoPanel extends JPanel {
                 infoPanelBounds[3] >> 3
         );
         roundTitleLabel.setVisible(true);
-//        roundTitleLabel.setBackground(new Color(255, 255, 0, 128));
-//        roundTitleLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
+        roundTitleLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
         add(roundTitleLabel);
+
 
 
         JLabel roundNumberLabel = new JLabel();
@@ -71,8 +72,12 @@ public class InfoPanel extends JPanel {
                 infoPanelBounds[2] >> 2,
                 infoPanelBounds[3] >> 3
         );
-//        roundNumberLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
+        roundNumberLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
         add(roundNumberLabel);
+
+
+
+
 
 
         JLabel player_1Label = new JLabel();
@@ -86,7 +91,7 @@ public class InfoPanel extends JPanel {
                 infoPanelBounds[2] - (infoPanelBounds[2] >> 3),
                 infoPanelBounds[3] >> 3
         );
-//        player_1Label.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
+        player_1Label.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
         add(player_1Label);
 
 
@@ -101,7 +106,7 @@ public class InfoPanel extends JPanel {
                 (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 4),
                 infoPanelBounds[3] >> 3
         );
-//        player_1PointTitleLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
+        player_1PointTitleLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
         add(player_1PointTitleLabel);
 
 
@@ -116,7 +121,7 @@ public class InfoPanel extends JPanel {
                 infoPanelBounds[2] >> 2,
                 infoPanelBounds[3] >> 3
         );
-//        player_1PointNumberLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
+        player_1PointNumberLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
         add(player_1PointNumberLabel);
 
 
@@ -131,7 +136,7 @@ public class InfoPanel extends JPanel {
                 infoPanelBounds[2] - (infoPanelBounds[2] >> 3),
                 infoPanelBounds[3] >> 3
         );
-//        player_2Label.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
+        player_2Label.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
         add(player_2Label);
 
 
@@ -146,7 +151,7 @@ public class InfoPanel extends JPanel {
                 (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 4),
                 infoPanelBounds[3] >> 3
         );
-//        player_2PointTitleLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
+        player_2PointTitleLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
         add(player_2PointTitleLabel);
 
 
@@ -161,11 +166,40 @@ public class InfoPanel extends JPanel {
                 infoPanelBounds[2] >> 2,
                 infoPanelBounds[3] >> 3
         );
-//        player_2PointNumberLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
+        player_2PointNumberLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
         add(player_2PointNumberLabel);
 
 
+
+        JButton restartt = new JButton();
+        restartt.setBounds(
+                0,
+                (infoPanelBounds[3]) - (infoPanelBounds[3] >> 4)- (infoPanelBounds[3] >> 5),
+                (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
+                (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5)
+        );
+//        player_2PointNumberLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
+        restartt.setText("JESZCZE RAZ");
+        restartt.setBackground(new Color(255,255,255,255));
+        add(restartt);
+
+        JButton rageQuit = new JButton();
+        rageQuit.setBounds(
+                (infoPanelBounds[3] >> 2) /*+ (infoPanelBounds[3] >> 3)*/,
+                (infoPanelBounds[3]) - (infoPanelBounds[3] >> 4)- (infoPanelBounds[3] >> 5),
+                (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
+                (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5)
+        );
+//        rageQuit.setOpaque(false);
+//        rageQuit.setContentAreaFilled(false);
+        rageQuit.setText("(ノ°Д°）ノ︵ ┻━┻");
+        rageQuit.setBackground(new Color(255,255,255,255));
+//        rageQuit
+        add(rageQuit);
+
     }
+
+
 
 
 }
