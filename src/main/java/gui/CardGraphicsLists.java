@@ -27,15 +27,7 @@ public class CardGraphicsLists {
         return frontImagesList;
     }
 
-    public void setFrontImagesList(List<Image> frontImagesList) {
-        this.frontImagesList = frontImagesList;
-    }
-
     public List<Image> getCoverImagesList() {
         return coverImagesList;
-    }
-
-    public void setCoverImagesList(List<Image> backImagesList) {
-        this.coverImagesList = backImagesList;
     }
 }
