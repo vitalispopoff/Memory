@@ -46,4 +46,24 @@ public class Music {
         }
     }
 
+    public static void playMusicInro(String musicLocation){
+
+        try {
+            File musicPath = new File(musicLocation);
+
+            if (musicPath.exists()){
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+//                clip.loop(Clip.LOOP_CONTINUOUSLY);
+            } else {
+                System.out.println("File not found");
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }

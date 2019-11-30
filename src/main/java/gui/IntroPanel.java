@@ -5,6 +5,8 @@ import java.awt.*;
 
 import static gui.MainFrame.tile_x;
 import static gui.MainFrame.tile_y;
+import static mechanics.type.Music.playMusicBackground;
+import static mechanics.type.Music.playMusicInro;
 
 public class IntroPanel extends JPanel {
 
@@ -16,14 +18,16 @@ public class IntroPanel extends JPanel {
         setLayout(null);
         setBounds(0, 0, tile_x, tile_y);
         introImage = Toolkit.getDefaultToolkit().createImage(introImageUrl);
+        playMusicInro("src\\main\\resources\\SFX\\introMusic.wav");
         new java.util.Timer().schedule(
                 new java.util.TimerTask() {
                     @Override
                     public void run() {
                         setVisible(false);
+                        playMusicBackground("src\\main\\resources\\SFX\\backgroundMusicLoops1.wav");
                     }
                 },
-                4600
+                5080
         );
 
     }

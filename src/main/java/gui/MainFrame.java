@@ -55,6 +55,8 @@ public class MainFrame extends JPanel {
 import javax.swing.*;
 import java.awt.*;
 
+import static mechanics.type.Music.playMusicBackground;
+
 public class MainFrame extends JFrame {
 
     private static Toolkit kit = Toolkit.getDefaultToolkit();
@@ -85,6 +87,7 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         pack();
+
     }
 
     @Override

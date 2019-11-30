@@ -11,27 +11,6 @@ public class Main {
         EventQueue.invokeLater(()->{
             MainFrame mainFrame = new MainFrame();
         });
-
-/*        EventQueue.invokeLater(() -> {
-            MyJFrame window = new MyJFrame();
-            GraphicsEnvironment graphics =
-                    GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice device = graphics.getDefaultScreenDevice();
-            device.setFullScreenWindow(window);
-            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            window.setVisible(true);
-            new java.util.Timer().schedule(
-                    new java.util.TimerTask() {
-                        @Override
-                        public void run() {
-                            window.setVisible(false);
-//                            MainFrame.createAndShowGUI();
-                            MainFrame mainFrame = new MainFrame();
-                        }
-                    },
-                    4600
-            );
-        });*/   // disposable
     }
 }
 
