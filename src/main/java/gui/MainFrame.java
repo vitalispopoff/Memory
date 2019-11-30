@@ -69,23 +69,21 @@ public class MainFrame extends JFrame {
     public MainFrame() {
         super();
         setLayout(null);
-
-        IntroPanel introPanel = new IntroPanel();
-
         setUndecorated(true);
         setExtendedState(Frame.MAXIMIZED_BOTH);
         setVisible(true);
 
         BackgroundPanel backgroundPanel = new BackgroundPanel();
         CardPanel cardPanel = new CardPanel();
+        InfoPanel infoPanel = new InfoPanel();
 
-        add(introPanel);
+//        add(new IntroPanel());
+        add(infoPanel);
         add(cardPanel);
         add(backgroundPanel);
 
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         pack();
 
     }

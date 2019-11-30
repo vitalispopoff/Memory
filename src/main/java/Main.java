@@ -32,4 +32,8 @@ public class Main {
  *
  * 1. Scott Joplin - The Entertainer
  * 2. Duke Ellington - You Gave Me The Gate
+ *
+ * Outro scene taken from "Lo chiamavano Trinità..." under the fair use policy.
+ * https://archive.org/details/theycallmetrinity1971
+ *https://en.wikipedia.org/wiki/They_Call_Me_Trinity
  */
