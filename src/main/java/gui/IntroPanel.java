@@ -18,7 +18,7 @@ public class IntroPanel extends JPanel {
         setLayout(null);
         setBounds(0, 0, tile_x, tile_y);
         introImage = Toolkit.getDefaultToolkit().createImage(introImageUrl);
-        playMusicInro("src\\main\\resources\\SFX\\introMusic.wav");
+        playMusicInro("src\\main\\resources\\intro\\introMusic.wav");
         new java.util.Timer().schedule(
                 new java.util.TimerTask() {
                     @Override
