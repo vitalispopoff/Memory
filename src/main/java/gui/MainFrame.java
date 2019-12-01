@@ -59,37 +59,39 @@ import static mechanics.type.Music.playMusicBackground;
 
 public class MainFrame extends JFrame {
 
-    private static Toolkit kit = Toolkit.getDefaultToolkit();
-    private static Dimension screenSize = kit.getScreenSize();
+    //private static Toolkit kit = Toolkit.getDefaultToolkit();
+   /* public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static int tile_x = screenSize.width;
     public static int tile_y = screenSize.height+5;
-    public static int tile = Integer.min(tile_x, tile_y);
+    public static int tile = Integer.min(tile_x, tile_y);*/
+   // public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
 
 
     public MainFrame() {
         super();
         setLayout(null);
         setUndecorated(true);
-        setExtendedState(Frame.MAXIMIZED_BOTH);
+      //  setExtendedState(Frame.MAXIMIZED_BOTH);
         setVisible(true);
 
         BackgroundPanel backgroundPanel = new BackgroundPanel();
         CardPanel cardPanel = new CardPanel();
         InfoPanel infoPanel = new InfoPanel();
 
-//        add(new IntroPanel());
+       //add(new IntroPanel());
         add(infoPanel);
         add(cardPanel);
         add(backgroundPanel);
 
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack();
+      //  pack();
 
     }
 
-    @Override
+   /* @Override
     public Dimension getPreferredSize() {
-        return new Dimension(tile_x, tile_y);
-    }
+        return new Dimension(screenSize.width, screenSize.height);
+    }*/
 }

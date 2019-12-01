@@ -4,8 +4,8 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-import static gui.MainFrame.tile_x;
-import static gui.MainFrame.tile_y;
+import static gui.BackgroundPanel.tile_x;
+import static gui.BackgroundPanel.tile_y;
 import static java.awt.Color.*;
 
 public class InfoPanel extends JPanel {

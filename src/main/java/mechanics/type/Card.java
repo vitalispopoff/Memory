@@ -8,15 +8,20 @@ public class Card implements Cloneable {
     private Image front;
     private Image back;
     private int cardId;
+    protected static  int lastId = 0;
     private JButton jButton;
-    private JLabel jLabel;
 
-    public Card(Image front, Image back, int cardId, JButton jButton, JLabel jLabel) {
+    public Card(Image front, Image back, int cardId, JButton jButton) {
         this.front = front;
         this.back = back;
         this.cardId = cardId;
         this.jButton = jButton;
-        this.jLabel = jLabel;
+    }
+
+    public Card(Image front) {
+        this.front = front;
+        lastId++;
+        this.cardId = lastId;
     }
 
     public Card (){}
@@ -52,14 +57,6 @@ public class Card implements Cloneable {
 
     public void setjButton(JButton jButton) {
         this.jButton = jButton;
-    }
-
-    public JLabel getjLabel() {
-        return jLabel;
-    }
-
-    public void setjLabel(JLabel jLabel) {
-        this.jLabel = jLabel;
     }
 
     @Override

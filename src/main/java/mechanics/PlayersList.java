@@ -15,6 +15,5 @@ public class PlayersList {
             System.out.println(name.toString()+" added to playerList");
 
         }
-        System.out.println(playerList.size());
     }
 }

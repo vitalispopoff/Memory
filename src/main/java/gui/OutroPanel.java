@@ -3,8 +3,8 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
-import static gui.MainFrame.tile_x;
-import static gui.MainFrame.tile_y;
+import static gui.BackgroundPanel.tile_x;
+import static gui.BackgroundPanel.tile_y;
 import static mechanics.type.Music.playMusicBackground;
 import static mechanics.type.Music.playMusicInro;
 

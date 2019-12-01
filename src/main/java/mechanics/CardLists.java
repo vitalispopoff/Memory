@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CardLists {
 
-    private List<Card> cardsList = new ArrayList<>();
+    public static List<Card> cardsList = new ArrayList<>();
 
     public CardLists() {
     }

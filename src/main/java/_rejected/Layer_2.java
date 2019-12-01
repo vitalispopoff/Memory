@@ -2,6 +2,8 @@ package _rejected;
 
 import javax.swing.*;
 
+import java.util.Random;
+
 import static gui.MainFrame.*;
 
 public class Layer_2 {
@@ -50,7 +52,7 @@ public class Layer_2 {
         return panel2;
     }
 
-    public void makeCardLabels() {
+   /* public void makeCardLabels() {
         Random random = new Random();
 
         for (int i = 0; i < cardGridSize[0] * cardGridSize[1]; i++) {
@@ -89,6 +91,6 @@ public class Layer_2 {
         for (int i = 0; i < cardGridSize[0] * cardGridSize[1]; i++) {
             panel2Left.add(getCardsList().getCardFromList(i).getjLabel());
         }
-    }
+    }*/
 }
 

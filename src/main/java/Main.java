@@ -10,6 +10,10 @@ public class Main {
 
         EventQueue.invokeLater(()->{
             MainFrame mainFrame = new MainFrame();
+            GraphicsEnvironment graphics =
+                    GraphicsEnvironment.getLocalGraphicsEnvironment();
+            GraphicsDevice device = graphics.getDefaultScreenDevice();
+            device.setFullScreenWindow(mainFrame);
         });
     }
 }
