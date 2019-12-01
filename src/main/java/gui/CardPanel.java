@@ -104,7 +104,7 @@ public class CardPanel extends JPanel {
                 cardsList.get(i).getjButton().addActionListener(e -> {
                     clickCounter = clickCounter+1;
                     if (clickCounter<3) {
-                       playMusicAction("music\\flipCard2.wav");
+                       playMusicAction("src\\main\\resources\\SFX\\flipCard2.wav");
                         cardsList.get(i_final).getjButton().setIcon(new ImageIcon(cardsList.get(i_final).getFront()));
                         cardsComparison(cardsList.get(i_final));
                     }

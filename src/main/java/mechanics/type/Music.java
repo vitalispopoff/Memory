@@ -18,7 +18,7 @@ public class Music {
                 clip.open(audioInput);
                 clip.start();
             } else {
-                System.out.println("File not found");
+                System.out.println("File not found AC");
             }
 
         } catch (Exception e){
@@ -38,7 +38,7 @@ public class Music {
                 clip.start();
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
             } else {
-                System.out.println("File not found");
+                System.out.println("File not found BG");
             }
 
         } catch (Exception e){
@@ -58,7 +58,7 @@ public class Music {
                 clip.start();
 //                clip.loop(Clip.LOOP_CONTINUOUSLY);
             } else {
-                System.out.println("File not found");
+                System.out.println("File not found INT");
             }
 
         } catch (Exception e){
