@@ -53,9 +53,6 @@ public class MainFrame extends JPanel {
 }*/
 
 import javax.swing.*;
-import java.awt.*;
-
-import static mechanics.type.Music.playMusicBackground;
 
 public class MainFrame extends JFrame {
 
@@ -75,11 +72,16 @@ public class MainFrame extends JFrame {
       //  setExtendedState(Frame.MAXIMIZED_BOTH);
         setVisible(true);
 
+        // -------------------> IKONKA do wyboru :) <------------------------------------------
+       // setIconImage(new ImageIcon("src\\main\\resources\\gameIconLogo.png").getImage());
+        setIconImage(new ImageIcon("src\\main\\resources\\gameIcon.png").getImage());
+
+
         BackgroundPanel backgroundPanel = new BackgroundPanel();
         CardPanel cardPanel = new CardPanel();
         InfoPanel infoPanel = new InfoPanel();
 
-       add(new IntroPanel());
+       //add(new IntroPanel());
         add(infoPanel);
         add(cardPanel);
         add(backgroundPanel);

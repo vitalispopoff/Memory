@@ -4,12 +4,12 @@ import java.awt.*;
 
 public class Main {
 
-
+    public static MainFrame mainFrame;
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(()->{
-            MainFrame mainFrame = new MainFrame();
+            mainFrame = new MainFrame();
             GraphicsEnvironment graphics =
                     GraphicsEnvironment.getLocalGraphicsEnvironment();
             GraphicsDevice device = graphics.getDefaultScreenDevice();

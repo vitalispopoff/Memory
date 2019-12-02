@@ -3,10 +3,11 @@ package gui;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import static gui.BackgroundPanel.tile_x;
 import static gui.BackgroundPanel.tile_y;
-import static java.awt.Color.*;
 
 public class InfoPanel extends JPanel {
     int[] infoPanelBounds = {
@@ -30,6 +31,8 @@ public class InfoPanel extends JPanel {
 
     int player_1PointNumber = 0;
     int player_2PointNumber = 0;
+
+    JLabel restartt;
 
 
     public InfoPanel() {
@@ -171,19 +174,30 @@ public class InfoPanel extends JPanel {
 
 
 
-        JButton restartt = new JButton();
+        restartt = new JLabel();
         restartt.setBounds(
                 0,
                 (infoPanelBounds[3]) - (infoPanelBounds[3] >> 4)- (infoPanelBounds[3] >> 5),
                 (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
                 (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5)
         );
+        restartt.setOpaque(false);
+        restartt.setVisible(true);
+        restartt.setIcon(new ImageIcon("src\\main\\resources\\buttons\\play_again.png"));
+
 //        player_2PointNumberLabel.setBorder(new LineBorder(new Color(0, 0, 0, 128), 1, true));
-        restartt.setText("JESZCZE RAZ");
-        restartt.setBackground(new Color(255,255,255,255));
+        //restartt.setText("JESZCZE RAZ");
+        //restartt.setBackground(new Color(255,255,255,255));
+        restartt.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
+             ////////////////// DOPISAC AKCJE DO PRZYCISKU RESTART
+            }
+        });
         add(restartt);
 
-        JButton rageQuit = new JButton();
+        JLabel rageQuit = new JLabel();
         rageQuit.setBounds(
                 (infoPanelBounds[3] >> 2) /*+ (infoPanelBounds[3] >> 3)*/,
                 (infoPanelBounds[3]) - (infoPanelBounds[3] >> 4)- (infoPanelBounds[3] >> 5),
@@ -192,12 +206,22 @@ public class InfoPanel extends JPanel {
         );
 //        rageQuit.setOpaque(false);
 //        rageQuit.setContentAreaFilled(false);
-        rageQuit.setText("(ノ°Д°）ノ︵ ┻━┻");
+       // rageQuit.setText("(ノ°Д°）ノ︵ ┻━┻");
+        rageQuit.setIcon(new ImageIcon("src\\main\\resources\\buttons\\close.png"));
+        rageQuit.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
+                System.exit(0);
+            }
+        });
         rageQuit.setBackground(new Color(255,255,255,255));
 //        rageQuit
         add(rageQuit);
 
     }
+
+
 
 
 

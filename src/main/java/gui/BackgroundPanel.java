@@ -3,7 +3,6 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
-import static mechanics.type.Music.playMusicBackground;
 
 
 public class BackgroundPanel extends JPanel {
