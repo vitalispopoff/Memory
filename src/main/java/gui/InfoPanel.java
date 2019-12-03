@@ -1,5 +1,7 @@
 package gui;
 
+import mechanics.type.Card;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -9,6 +11,7 @@ import static gui.BackgroundPanel.tile_x;
 import static gui.BackgroundPanel.tile_y;
 
 public class InfoPanel extends JPanel {
+
     static int[] infoPanelBounds = {
             (tile_x >> 1) + (tile_x >> 2) - (tile_x >> 5),
             tile_y >> 3,
@@ -16,29 +19,22 @@ public class InfoPanel extends JPanel {
             tile_y - (tile_y >> 2) + (tile_y >> 5)
     };
 
-//    public int roundNumber = 0;
-
 //    * PLAYERS
 
     public static boolean isPlayer_2Move = false;
-//    static int currentPlayerChooser = isPlayer_2Move ? 0 : 1;
-
     static int player_1Score = 0;
     static int player_2Score = 0;
     public static int[] playerPoints = {player_1Score, player_2Score};
 
     static JLabel player_1ScoreLabel = new JLabel();
     static JLabel player_2ScoreLabel = new JLabel();
-    static JLabel[] scoreboard = {player_1ScoreLabel, player_1ScoreLabel};
+//    static JLabel[] scoreboard = {player_1ScoreLabel, player_1ScoreLabel};
 
     static String player_1ScoreUrl = "src\\main\\resources\\infoPanel\\0.png";
     static String player_2ScoreUrl = "src\\main\\resources\\infoPanel\\0.png";
-//    static String[] scoreBoardUrls = {player_1ScoreUrl, player_2ScoreUrl};
 
     public static void updateScoreBoard() {
         int cache = InfoPanel.isPlayer_2Move ? 0 : 1;
-//        System.out.println("cache: " + cache);
-//        System.out.println("table: " + scoreboard[cache].toString());
 
         Image ScoreIcon = new ImageIcon(
                 new StringBuilder()
@@ -167,40 +163,12 @@ public class InfoPanel extends JPanel {
         }
         add(player_2Headline);
 
-//        *     REPLAY BUTTON
-
-        JLabel replay = new JLabel();
-        {
-            replay.setBounds(
-                    0,
-                    (infoPanelBounds[3]) - (infoPanelBounds[3] >> 4) - (infoPanelBounds[3] >> 5),
-                    (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
-                    (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5)
-            );
-            replay.setOpaque(false);
-            replay.setVisible(true);
-            Image replayUrl = new ImageIcon("src\\main\\resources\\infoPanel\\replay.png").getImage().getScaledInstance(
-                    (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
-                    (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5),
-                    Image.SCALE_SMOOTH);
-            replay.setIcon(new ImageIcon(replayUrl));
-
-            replay.addMouseListener(new MouseAdapter() {
-                public void mouseClicked(MouseEvent e) {
-
-
-                    //  TODO    DOPISAC AKCJE DO PRZYCISKU RESTART
-                }
-            });
-        }
-        add(replay);
-
 //       *      QUIT BUTTON
 
         JLabel rageQuit = new JLabel();
         {
             rageQuit.setBounds(
-                    (infoPanelBounds[3] >> 2) + (infoPanelBounds[3] >> 4),
+                    (infoPanelBounds[3] >> 3) + (infoPanelBounds[3] >> 5),
                     (infoPanelBounds[3]) - (infoPanelBounds[3] >> 4) - (infoPanelBounds[3] >> 5),
                     (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
                     (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5)

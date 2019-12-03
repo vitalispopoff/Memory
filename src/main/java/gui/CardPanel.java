@@ -20,7 +20,6 @@ public class CardPanel extends JPanel {
     private int clickCounter = 0;
     private Comparison comparison = new Comparison();
 
-
     private int[] cardPanelBounds = {BackgroundPanel.tile >> 5,
             BackgroundPanel.tile >> 5,
             (BackgroundPanel.tile_x >> 1) + (BackgroundPanel.tile_x >> 3),
@@ -38,7 +37,7 @@ public class CardPanel extends JPanel {
     {
         int cache = Integer.min(cardPanelGridSizes[0], cardPanelGridSizes[0]);
         cardSize = cache - (cache >> 2);
-    }   //  * cardSize definition
+    }
 
     public CardPanel() {
         super();
@@ -54,7 +53,11 @@ public class CardPanel extends JPanel {
                 cardPanelBounds[3]
         );
         setOpaque(false);
+        dealTheCards();
+    }
 
+    public void dealTheCards(){
+        clickCounter = 0;
         Image sheet = new ImageIcon(fileAddress).getImage().getScaledInstance(
                 cardSize,
                 cardSize,
@@ -116,11 +119,9 @@ public class CardPanel extends JPanel {
                             comparison.getCard2().getjButton().setVisible(false);
                             clickCounter = 0;
                             tricks -= 2;
-
                             InfoPanel.playerPoints[InfoPanel.isPlayer_2Move ? 0 : 1] += 1;
                             InfoPanel.updateScoreBoard();
                             if (tricks == 0) {
-                                System.out.println("tricks: " + tricks);
                                 stopMusicBackground();
                             }
                         }
@@ -138,14 +139,10 @@ public class CardPanel extends JPanel {
                             comparison.getCard2().getjButton().setIcon(new ImageIcon(card.getBack()));
                             clickCounter = 0;
                             InfoPanel.isPlayer_2Move = !(InfoPanel.isPlayer_2Move);
-                            System.out.println(InfoPanel.isPlayer_2Move);
                         }
                     },
                     1000
             );
-
         }
-
-
     }
 }

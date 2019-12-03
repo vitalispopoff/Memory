@@ -6,6 +6,8 @@ import java.awt.*;
 
 public class Main {
 
+    public static boolean restart = false;
+
 
     public static MainFrame mainFrame;
 
@@ -13,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(()->{
-            mainFrame = new MainFrame();
+            mainFrame = new MainFrame(true);
             GraphicsEnvironment graphics =
                     GraphicsEnvironment.getLocalGraphicsEnvironment();
             GraphicsDevice device = graphics.getDefaultScreenDevice();
@@ -34,6 +36,7 @@ public class Main {
  * 434472__dersuperanton__taking-card
  * 240777__f4ngy__dealing-card
  * 240776__f4ngy__card-flip
+ *
  * 485010__g-e-n-e__card-shuffle
  *
  * Sound loops used under the public domain (1) and fair use policy (2) respectively.

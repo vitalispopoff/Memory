@@ -3,15 +3,12 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
-
-
 public class BackgroundPanel extends JPanel {
 
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static int tile_x = screenSize.width;
     public static int tile_y = screenSize.height+5;
     public static int tile = Integer.min(tile_x, tile_y);
-
 
     public BackgroundPanel() {
         super();

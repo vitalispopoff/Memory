@@ -17,17 +17,16 @@ public class OutroPanel extends JPanel {
         setLayout(null);
         setBounds(0, 0, tile_x, tile_y);
         outroImage = Toolkit.getDefaultToolkit().createImage(outroImageUrl);
-        playMusicIntro("src\\main\\resources\\outro\\outroMusic.wav");
-        /*new java.util.Timer().schedule(
+//        playMusicIntro("src\\main\\resources\\outro\\outroMusic.wav");
+        new java.util.Timer().schedule(
                 new java.util.TimerTask() {
                     @Override
                     public void run() {
-                        setVisible(false);
-//                        playMusicBackground("src\\main\\resources\\SFX\\backgroundMusicLoops1.wav");
+                        System.exit(0);
                     }
                 },
-                5080
-        );*/
+                8000
+        );
 
     }
 
@@ -36,6 +35,20 @@ public class OutroPanel extends JPanel {
         super.paintComponent(g);
         if (outroImage != null)
             g.drawImage(outroImage, 0, 0, this.getWidth(), this.getHeight(), this);
+    }
+
+
+    public static void bye(){
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        System.exit(0);
+                    }
+                },
+                8000
+        );
+
     }
 
 }

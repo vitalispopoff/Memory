@@ -2,12 +2,14 @@ package gui;
 
 import javax.swing.*;
 
+import static mechanics.type.Music.playMusicBackground;
+
 public class MainFrame extends JFrame {
     public static BackgroundPanel backgroundPanel;
     public static CardPanel cardPanel;
-    public  InfoPanel infoPanel;
+    public InfoPanel infoPanel;
 
-    public MainFrame() {
+    public MainFrame(boolean intro) {
         super();
         setLayout(null);
         setUndecorated(true);
@@ -18,7 +20,8 @@ public class MainFrame extends JFrame {
         cardPanel = new CardPanel();
         infoPanel = new InfoPanel();
 
-        add(new IntroPanel());
+        if (intro) add(new IntroPanel());
+        else playMusicBackground();
         add(infoPanel);
         add(cardPanel);
         add(backgroundPanel);
@@ -28,7 +31,10 @@ public class MainFrame extends JFrame {
 
     }
 
-    public void refreshFrame(){
-        /*infoPanel.*/revalidate();
+    public void refreshFrame() {
+        /*infoPanel.*/
+        revalidate();
     }
+
+
 }

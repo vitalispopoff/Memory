@@ -2,6 +2,7 @@ package mechanics.type;
 
 import gui.CardPanel;
 import gui.InfoPanel;
+import gui.OutroPanel;
 
 import javax.sound.sampled.*;
 import java.io.File;
@@ -99,6 +100,18 @@ public class Music {
                             e.printStackTrace();
                         } catch (LineUnavailableException e) {
                             e.printStackTrace();
+                        }
+                        {
+                            new java.util.Timer().schedule(
+                                    new java.util.TimerTask() {
+                                        @Override
+                                        public void run() {
+                                            System.exit(0);
+                                        }
+                                    },
+                                    5700
+                            );
+
                         }
                     }
                 },
