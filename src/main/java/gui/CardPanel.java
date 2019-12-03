@@ -82,7 +82,6 @@ public class CardPanel extends JPanel {
                 cardsList.get(i).getjButton().setIcon(new ImageIcon(cardsList.get(i).getBack()));
                 cardsList.get(i).getjButton().addActionListener(
                         e -> {
-//                            clickCounter = clickCounter + 1;
                             clickCounter++;
                             if (clickCounter < 3) {
                                 cardsList.get(i_final).getjButton().setIcon(new ImageIcon(cardsList.get(i_final).getFront()));
@@ -115,8 +114,6 @@ public class CardPanel extends JPanel {
                             clickCounter = 0;
 
                             InfoPanel.playerPoints[InfoPanel.isPlayer_2Move?0:1]+=1;
-//                            System.out.println("player: "+(InfoPanel.isPlayer_2Move?0:1));
-//                            System.out.println("Points: "+(InfoPanel.playerPoints[InfoPanel.isPlayer_2Move?0:1]));
                             InfoPanel.updateScoreBoard();
 
                         }

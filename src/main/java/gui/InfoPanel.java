@@ -27,9 +27,9 @@ public class InfoPanel extends JPanel {
     static int player_2Score = 0;
     public static int[] playerPoints = {player_1Score, player_2Score};
 
-    static JButton player_1ScoreLabel = new JButton();
-    static JButton player_2ScoreLabel = new JButton();
-    static JButton[] scoreboard = {player_1ScoreLabel, player_1ScoreLabel};
+    static JLabel player_1ScoreLabel = new JLabel();
+    static JLabel player_2ScoreLabel = new JLabel();
+    static JLabel[] scoreboard = {player_1ScoreLabel, player_1ScoreLabel};
 
     static String player_1ScoreUrl = "src\\main\\resources\\infoPanel\\0.png";
     static String player_2ScoreUrl = "src\\main\\resources\\infoPanel\\0.png";
@@ -37,8 +37,8 @@ public class InfoPanel extends JPanel {
 
     public static void updateScoreBoard() {
         int cache = InfoPanel.isPlayer_2Move ? 0 : 1;
-        System.out.println("cache: "+cache);
-        System.out.println("table: "+scoreboard[cache].toString());
+        System.out.println("cache: " + cache);
+        System.out.println("table: " + scoreboard[cache].toString());
 
         Image ScoreIcon = new ImageIcon(
                 new StringBuilder()
@@ -50,20 +50,17 @@ public class InfoPanel extends JPanel {
                 ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
                 ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
                 Image.SCALE_SMOOTH);
-        switch(cache){
+        switch (cache) {
             case 0:
                 player_1ScoreLabel.setIcon(new ImageIcon(ScoreIcon));
                 player_1ScoreLabel.revalidate();
 
-            break;
-            case 1: player_2ScoreLabel.setIcon(new ImageIcon(ScoreIcon));
+                break;
+            case 1:
+                player_2ScoreLabel.setIcon(new ImageIcon(ScoreIcon));
                 player_2ScoreLabel.revalidate();
                 break;
-
         }
-//        scoreboard[cache].setIcon(new ImageIcon(ScoreIcon));
-//        scoreboard[cache].validate();
-//        scoreboard[cache].repaint();
     }
 
     public InfoPanel() {
@@ -79,16 +76,14 @@ public class InfoPanel extends JPanel {
                     infoPanelBounds[2],
                     infoPanelBounds[3]
             );
-//            setBackground(new Color(255, 255, 255, 0));
             setOpaque(false);
         }
 
+//        *     SCOREBOARD
 
-//        player_1ScoreLabel = new JLabel();
-//        player_1ScoreLabel.setLayout(null);
         player_1ScoreLabel.setBounds(
                 (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3) + (infoPanelBounds[2] >> 4),
-                (infoPanelBounds[3] >> 2) /*+ (infoPanelBounds[3] >> 4)*/,
+                (infoPanelBounds[3] >> 2),
                 ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
                 ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1
         );
@@ -98,12 +93,8 @@ public class InfoPanel extends JPanel {
                 Image.SCALE_SMOOTH);
         player_1ScoreLabel.setIcon(new ImageIcon(player_1ScoreIcon));
         player_1ScoreLabel.setOpaque(false);
-        player_1ScoreLabel.setContentAreaFilled(false);
-        player_1ScoreLabel.setBorderPainted(false);
         add(player_1ScoreLabel);
 
-
-//        player_2ScoreLabel = new JLabel();
         player_2ScoreLabel.setBounds(
                 (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3) + (infoPanelBounds[2] >> 4),
                 (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 4),
@@ -116,10 +107,7 @@ public class InfoPanel extends JPanel {
                 Image.SCALE_SMOOTH);
         player_2ScoreLabel.setIcon(new ImageIcon(player_2ScoreIcon));
         player_2ScoreLabel.setOpaque(false);
-        player_2ScoreLabel.setContentAreaFilled(false);
-        player_2ScoreLabel.setBorderPainted(false);
         add(player_2ScoreLabel);
-
 
         JLabel panelHeadline = new JLabel();
         {
@@ -143,7 +131,7 @@ public class InfoPanel extends JPanel {
         {
             player_1Headline.setBounds(
                     0,
-                    (infoPanelBounds[3] >> 2) /*+ (infoPanelBounds[3] >> 4)*/,
+                    (infoPanelBounds[3] >> 2),
                     (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3),
                     ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) * 443 / 1046
             );
@@ -178,7 +166,6 @@ public class InfoPanel extends JPanel {
             player_2Headline.setIcon(new ImageIcon(player_2HeadlineUrl));
         }
         add(player_2Headline);
-
 
 //        *     REPLAY BUTTON
 
@@ -232,9 +219,5 @@ public class InfoPanel extends JPanel {
             });
         }
         add(rageQuit);
-
-
     }
-
-
 }
