@@ -24,7 +24,7 @@ public class IntroPanel extends JPanel {
                     @Override
                     public void run() {
                         setVisible(false);
-                        playMusicBackground("src\\main\\resources\\SFX\\backgroundMusicLoops1.wav");
+                        playMusicBackground();
                     }
                 },
                 5080

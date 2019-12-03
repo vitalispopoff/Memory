@@ -16,12 +16,12 @@ public class InfoPanel extends JPanel {
             tile_y - (tile_y >> 2) + (tile_y >> 5)
     };
 
-    public int roundNumber = 0;
+//    public int roundNumber = 0;
 
 //    * PLAYERS
 
     public static boolean isPlayer_2Move = false;
-    static int currentPlayerChooser = isPlayer_2Move ? 0 : 1;
+//    static int currentPlayerChooser = isPlayer_2Move ? 0 : 1;
 
     static int player_1Score = 0;
     static int player_2Score = 0;
@@ -33,12 +33,12 @@ public class InfoPanel extends JPanel {
 
     static String player_1ScoreUrl = "src\\main\\resources\\infoPanel\\0.png";
     static String player_2ScoreUrl = "src\\main\\resources\\infoPanel\\0.png";
-    static String[] scoreBoardUrls = {player_1ScoreUrl, player_2ScoreUrl};
+//    static String[] scoreBoardUrls = {player_1ScoreUrl, player_2ScoreUrl};
 
     public static void updateScoreBoard() {
         int cache = InfoPanel.isPlayer_2Move ? 0 : 1;
-        System.out.println("cache: " + cache);
-        System.out.println("table: " + scoreboard[cache].toString());
+//        System.out.println("cache: " + cache);
+//        System.out.println("table: " + scoreboard[cache].toString());
 
         Image ScoreIcon = new ImageIcon(
                 new StringBuilder()
@@ -187,6 +187,7 @@ public class InfoPanel extends JPanel {
 
             replay.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
+
 
                     //  TODO    DOPISAC AKCJE DO PRZYCISKU RESTART
                 }

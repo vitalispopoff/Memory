@@ -4,14 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Collections;
 
-import static mechanics.CardLists.cardsList;
-
 import mechanics.Comparison;
 import mechanics.type.Card;
 import mechanics.type.ComparisonStatus;
-import gui.InfoPanel.*;
 
+import static java.lang.Math.round;
+import static mechanics.CardLists.cardsList;
 import static mechanics.type.Music.playMusicAction;
+import static mechanics.type.Music.stopMusicBackground;
 
 public class CardPanel extends JPanel {
 
@@ -20,17 +20,19 @@ public class CardPanel extends JPanel {
     private int clickCounter = 0;
     private Comparison comparison = new Comparison();
 
+
     private int[] cardPanelBounds = {BackgroundPanel.tile >> 5,
             BackgroundPanel.tile >> 5,
             (BackgroundPanel.tile_x >> 1) + (BackgroundPanel.tile_x >> 3),
             BackgroundPanel.tile_y - (BackgroundPanel.tile >> 4)};
 
-    private int[] cardPanelGridDimensions = {7, 8};
-    private int numberOfPairs = (cardPanelGridDimensions[0]*cardPanelGridDimensions[1])>>1;
+    private static int[] cardPanelGridDimensions = {2, 2};
+    private static int numberOfCards = (cardPanelGridDimensions[0] * cardPanelGridDimensions[1]);
 
+    public static int tricks = numberOfCards;
     private int[] cardPanelGridSizes = {
-            cardPanelBounds[2] / cardPanelGridDimensions[0],
-            cardPanelBounds[3] / cardPanelGridDimensions[1]};
+            round(cardPanelBounds[2] / cardPanelGridDimensions[0]),
+            round(cardPanelBounds[3] / cardPanelGridDimensions[1])};
     private int cardSize;
 
     {
@@ -40,6 +42,7 @@ public class CardPanel extends JPanel {
 
     public CardPanel() {
         super();
+        System.out.println(numberOfCards);
         setLayout(new GridLayout(
                 cardPanelGridDimensions[0],
                 cardPanelGridDimensions[1])
@@ -59,14 +62,14 @@ public class CardPanel extends JPanel {
         );
         try {
 
-            for (int i = 0; i < numberOfPairs; i++) {
+            for (int i = 0; i < round(numberOfCards / 2); i++) {
                 cardsList.add(new Card(cardGraphicsLists.getFrontImagesList().get(i).getScaledInstance(
                         cardSize,
                         cardSize,
                         Image.SCALE_SMOOTH))
                 );
             }
-            for (int i = 0; i < 28; i++) {
+            for (int i = 0; i < round(numberOfCards / 2); i++) {
                 cardsList.add(cardsList.get(i).clone());
             }
 
@@ -86,7 +89,7 @@ public class CardPanel extends JPanel {
                             if (clickCounter < 3) {
                                 cardsList.get(i_final).getjButton().setIcon(new ImageIcon(cardsList.get(i_final).getFront()));
                                 cardsComparison(cardsList.get(i_final));
-                                playMusicAction("src\\main\\resources\\SFX\\flipCard2.wav");     // TODO random sounds
+                                playMusicAction();
                             }
                         });
             }
@@ -94,7 +97,7 @@ public class CardPanel extends JPanel {
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < 56; i++) {
+        for (int i = 0; i < numberOfCards; i++) {
             add(cardsList.get(i).getjButton());
         }
     }
@@ -112,16 +115,18 @@ public class CardPanel extends JPanel {
                             comparison.getCard1().getjButton().setVisible(false);
                             comparison.getCard2().getjButton().setVisible(false);
                             clickCounter = 0;
+                            tricks -= 2;
 
-                            InfoPanel.playerPoints[InfoPanel.isPlayer_2Move?0:1]+=1;
+                            InfoPanel.playerPoints[InfoPanel.isPlayer_2Move ? 0 : 1] += 1;
                             InfoPanel.updateScoreBoard();
-
+                            if (tricks == 0) {
+                                System.out.println("tricks: " + tricks);
+                                stopMusicBackground();
+                            }
                         }
                     },
                     1000
             );
-
-            // players[turnChange.getCurrentPlayer()].addPoint();
 
         } else if (comparison.getComparisonStatus() == ComparisonStatus.FALSE) {
 

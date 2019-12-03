@@ -4,6 +4,7 @@ import javax.swing.*;
 
 public class MainFrame extends JFrame {
     public static BackgroundPanel backgroundPanel;
+    public static CardPanel cardPanel;
     public  InfoPanel infoPanel;
 
     public MainFrame() {
@@ -14,7 +15,7 @@ public class MainFrame extends JFrame {
         setIconImage(new ImageIcon("src\\main\\resources\\gameIcon.png").getImage());
 
         backgroundPanel = new BackgroundPanel();
-        CardPanel cardPanel = new CardPanel();
+        cardPanel = new CardPanel();
         infoPanel = new InfoPanel();
 
         add(new IntroPanel());

@@ -1,67 +1,126 @@
 package mechanics.type;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import gui.CardPanel;
+import gui.InfoPanel;
+
+import javax.sound.sampled.*;
 import java.io.File;
+import java.io.IOException;
+import java.util.Random;
 
 public class Music {
 
-    public static void playMusicAction(String musicLocation){
+    static String musicLocation = "src\\main\\resources\\SFX\\";
+    static Random random = new Random();
+    static Clip bcgClip;
+    static boolean isBcgMusicOn = false;
+    static AudioInputStream bcgInput;
+    static long bcgMusicLength;
+
+
+//    public static boolean musicBcg = true;
+
+    public static void playMusicAction() {
 
         try {
-            File musicPath = new File(musicLocation);
-
-            if (musicPath.exists()){
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+            File musicPath = new File(
+                    new StringBuilder()
+                            .append(musicLocation)
+                            .append("flipCard")
+                            .append(random.nextInt(3))
+                            .append(".wav")
+                            .toString()
+            );
+            if (musicPath.exists()) {
+                AudioInputStream sfxInput = AudioSystem.getAudioInputStream(musicPath);
                 Clip clip = AudioSystem.getClip();
-                clip.open(audioInput);
+                clip.open(sfxInput);
                 clip.start();
             } else {
                 System.out.println("File not found AC");
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void playMusicBackground(String musicLocation){
+    public static void playMusicBackground() {
 
         try {
-            File musicPath = new File(musicLocation);
+            File musicPath = new File(
+                    new StringBuilder()
+                            .append(musicLocation)
+                            .append("backGroundMusicLoops1.wav")
 
-            if (musicPath.exists()){
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInput);
-                clip.start();
-                clip.loop(Clip.LOOP_CONTINUOUSLY);
+                            .toString()
+            );
+            if (musicPath.exists()) {
+                AudioInputStream bcgInput = AudioSystem.getAudioInputStream(musicPath);
+                bcgClip = AudioSystem.getClip();
+                bcgClip.open(bcgInput);
+                bcgClip.start();
+                bcgClip.loop(Clip.LOOP_CONTINUOUSLY);
+                isBcgMusicOn = true;
+//                bcgMusicLength = bcgClip.getMicrosecondLength();
+
             } else {
                 System.out.println("File not found BG");
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void playMusicIntro(String musicLocation){
+    public static void stopMusicBackground() {
+        File musicPath = new File(
+                new StringBuilder()
+                        .append(musicLocation)
+                        .append("outro.wav")
+                        .toString()
+        );
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        try {
+                            if (isBcgMusicOn) {
+                                bcgClip.close();
+                                isBcgMusicOn = false;
+                            }
+                            AudioInputStream outroInput = AudioSystem.getAudioInputStream(musicPath);
+                            Clip outroClip = AudioSystem.getClip();
+                            outroClip.open(outroInput);
+                            outroClip.start();
+                        } catch (UnsupportedAudioFileException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (LineUnavailableException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                1500
+        );
+    }
+
+    public static void playMusicIntro(String musicLocation) {
 
         try {
             File musicPath = new File(musicLocation);
 
-            if (musicPath.exists()){
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+            if (musicPath.exists()) {
+                AudioInputStream introInput = AudioSystem.getAudioInputStream(musicPath);
                 Clip clip = AudioSystem.getClip();
-                clip.open(audioInput);
+                clip.open(introInput);
                 clip.start();
-//                clip.loop(Clip.LOOP_CONTINUOUSLY);
             } else {
                 System.out.println("File not found INT");
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
