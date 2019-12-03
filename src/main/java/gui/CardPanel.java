@@ -26,7 +26,7 @@ public class CardPanel extends JPanel {
             (BackgroundPanel.tile_x >> 1) + (BackgroundPanel.tile_x >> 3),
             BackgroundPanel.tile_y - (BackgroundPanel.tile >> 4)};
 
-    private static int[] cardPanelGridDimensions = {2, 2};
+    private static int[] cardPanelGridDimensions = {7, 8};      // 7, 8
     private static int numberOfCards = (cardPanelGridDimensions[0] * cardPanelGridDimensions[1]);
 
     public static int tricks = numberOfCards;
