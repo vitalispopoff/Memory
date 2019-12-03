@@ -3,7 +3,7 @@ package gui;
 import javax.swing.*;
 
 public class MainFrame extends JFrame {
-
+    public static BackgroundPanel backgroundPanel;
 
     public MainFrame() {
         super();
@@ -12,7 +12,7 @@ public class MainFrame extends JFrame {
         setVisible(true);
         setIconImage(new ImageIcon("src\\main\\resources\\gameIcon.png").getImage());
 
-        BackgroundPanel backgroundPanel = new BackgroundPanel();
+        backgroundPanel = new BackgroundPanel();
         CardPanel cardPanel = new CardPanel();
         InfoPanel infoPanel = new InfoPanel();
 

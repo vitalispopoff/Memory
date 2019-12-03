@@ -114,8 +114,10 @@ public class CardPanel extends JPanel {
                             comparison.getCard2().getjButton().setVisible(false);
                             clickCounter = 0;
 
-                            InfoPanel.playerPoints[InfoPanel.isPlayer_2Move?0:1]++;
-//                            InfoPanel.updateScoreBoard();
+                            InfoPanel.playerPoints[InfoPanel.isPlayer_2Move?0:1]+=1;
+                            System.out.println("player: "+(InfoPanel.isPlayer_2Move?0:1));
+                            System.out.println("Points: "+(InfoPanel.playerPoints[InfoPanel.isPlayer_2Move?0:1]));
+                            InfoPanel.updateScoreBoard();
 
                         }
                     },
@@ -134,6 +136,7 @@ public class CardPanel extends JPanel {
                             comparison.getCard2().getjButton().setIcon(new ImageIcon(card.getBack()));
                             clickCounter = 0;
                             InfoPanel.isPlayer_2Move = !(InfoPanel.isPlayer_2Move);
+                            System.out.println(InfoPanel.isPlayer_2Move);
                         }
                     },
                     1000
