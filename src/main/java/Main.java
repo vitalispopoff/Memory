@@ -23,7 +23,7 @@ public class Main {
  * Vectors on card fronts by rawpixel.com - www.freepik.com:
  * https://www.freepik.com/free-photos-vectors/vintage,
  * https://www.freepik.com/free-photos-vectors/vintage,
- * https://www.freepik.com/free-photos-vectors/vintage,
+ * https://www.freepik.com/clefree-photos-vectors/vintage,
  * https://www.freepik.com/free-photos-vectors/background
  *
  * Sounds effects from Freesound.org community:
