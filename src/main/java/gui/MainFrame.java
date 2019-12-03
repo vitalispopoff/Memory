@@ -4,6 +4,7 @@ import javax.swing.*;
 
 public class MainFrame extends JFrame {
     public static BackgroundPanel backgroundPanel;
+    public  InfoPanel infoPanel;
 
     public MainFrame() {
         super();
@@ -14,7 +15,7 @@ public class MainFrame extends JFrame {
 
         backgroundPanel = new BackgroundPanel();
         CardPanel cardPanel = new CardPanel();
-        InfoPanel infoPanel = new InfoPanel();
+        infoPanel = new InfoPanel();
 
         add(new IntroPanel());
         add(infoPanel);
@@ -24,6 +25,9 @@ public class MainFrame extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    }
 
+    public void refreshFrame(){
+        /*infoPanel.*/revalidate();
     }
 }

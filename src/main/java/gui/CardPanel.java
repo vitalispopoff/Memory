@@ -115,8 +115,8 @@ public class CardPanel extends JPanel {
                             clickCounter = 0;
 
                             InfoPanel.playerPoints[InfoPanel.isPlayer_2Move?0:1]+=1;
-                            System.out.println("player: "+(InfoPanel.isPlayer_2Move?0:1));
-                            System.out.println("Points: "+(InfoPanel.playerPoints[InfoPanel.isPlayer_2Move?0:1]));
+//                            System.out.println("player: "+(InfoPanel.isPlayer_2Move?0:1));
+//                            System.out.println("Points: "+(InfoPanel.playerPoints[InfoPanel.isPlayer_2Move?0:1]));
                             InfoPanel.updateScoreBoard();
 
                         }
