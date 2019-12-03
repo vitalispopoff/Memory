@@ -5,8 +5,7 @@ import java.awt.*;
 
 import static gui.BackgroundPanel.tile_x;
 import static gui.BackgroundPanel.tile_y;
-import static mechanics.type.Music.playMusicBackground;
-import static mechanics.type.Music.playMusicInro;
+import static mechanics.type.Music.playMusicIntro;
 
 public class OutroPanel extends JPanel {
 
@@ -18,7 +17,7 @@ public class OutroPanel extends JPanel {
         setLayout(null);
         setBounds(0, 0, tile_x, tile_y);
         outroImage = Toolkit.getDefaultToolkit().createImage(outroImageUrl);
-        playMusicInro("src\\main\\resources\\outro\\outroMusic.wav");
+        playMusicIntro("src\\main\\resources\\outro\\outroMusic.wav");
         /*new java.util.Timer().schedule(
                 new java.util.TimerTask() {
                     @Override

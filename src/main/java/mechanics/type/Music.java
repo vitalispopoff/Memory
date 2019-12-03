@@ -46,7 +46,7 @@ public class Music {
         }
     }
 
-    public static void playMusicInro(String musicLocation){
+    public static void playMusicIntro(String musicLocation){
 
         try {
             File musicPath = new File(musicLocation);

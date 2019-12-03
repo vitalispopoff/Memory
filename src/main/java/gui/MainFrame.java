@@ -16,7 +16,7 @@ public class MainFrame extends JFrame {
         CardPanel cardPanel = new CardPanel();
         InfoPanel infoPanel = new InfoPanel();
 
-//        add(new IntroPanel());
+        add(new IntroPanel());
         add(infoPanel);
         add(cardPanel);
         add(backgroundPanel);
