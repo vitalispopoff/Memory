@@ -21,20 +21,30 @@ public class InfoPanel extends JPanel {
 
 //    * PLAYERS
 
-    public static boolean isPlayer_2Move = false;
+    public static boolean isPlayer_2Move = true;
     static int player_1Score = 0;
     static int player_2Score = 0;
     public static int[] playerPoints = {player_1Score, player_2Score};
 
     static JLabel player_1ScoreLabel = new JLabel();
     static JLabel player_2ScoreLabel = new JLabel();
-//    static JLabel[] scoreboard = {player_1ScoreLabel, player_1ScoreLabel};
+
+    public static JLabel player_1Pointer;
+    public static JLabel player_2Pointer;
 
     static String player_1ScoreUrl = "src\\main\\resources\\infoPanel\\0.png";
     static String player_2ScoreUrl = "src\\main\\resources\\infoPanel\\0.png";
 
+//    __________________________________________________________________________
+
+    public static void refreshPointers() {
+        player_1Pointer.setVisible(!isPlayer_2Move);
+        player_2Pointer.setVisible(isPlayer_2Move);
+    }
+
     public static void updateScoreBoard() {
-        int cache = InfoPanel.isPlayer_2Move ? 0 : 1;
+        int cache = InfoPanel.isPlayer_2Move ? 1 : 0;
+        System.out.println("cache: "+cache+", points"+playerPoints[cache]);
 
         Image ScoreIcon = new ImageIcon(
                 new StringBuilder()
@@ -43,14 +53,13 @@ public class InfoPanel extends JPanel {
                         .append(".png")
                         .toString()
         ).getImage().getScaledInstance(
-                ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
-                ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
+                ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
+                ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
                 Image.SCALE_SMOOTH);
         switch (cache) {
             case 0:
                 player_1ScoreLabel.setIcon(new ImageIcon(ScoreIcon));
                 player_1ScoreLabel.revalidate();
-
                 break;
             case 1:
                 player_2ScoreLabel.setIcon(new ImageIcon(ScoreIcon));
@@ -78,32 +87,67 @@ public class InfoPanel extends JPanel {
 //        *     SCOREBOARD
 
         player_1ScoreLabel.setBounds(
-                (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3) + (infoPanelBounds[2] >> 4),
-                (infoPanelBounds[3] >> 2),
-                ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
-                ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1
+                (infoPanelBounds[2] >> 1),
+                (infoPanelBounds[3] >> 2) + (infoPanelBounds[3] >> 3) + (infoPanelBounds[3] >> 5),
+                ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
+                ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1
         );
         Image player_1ScoreIcon = new ImageIcon(player_1ScoreUrl).getImage().getScaledInstance(
-                ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
-                ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
+                ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
+                ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
                 Image.SCALE_SMOOTH);
         player_1ScoreLabel.setIcon(new ImageIcon(player_1ScoreIcon));
         player_1ScoreLabel.setOpaque(false);
         add(player_1ScoreLabel);
 
         player_2ScoreLabel.setBounds(
-                (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3) + (infoPanelBounds[2] >> 4),
-                (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 4),
-                ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
-                ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1
+                (infoPanelBounds[2] >> 1),
+                (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 2),
+                ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
+                ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1
         );
         Image player_2ScoreIcon = new ImageIcon(player_2ScoreUrl).getImage().getScaledInstance(
-                ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
-                ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) >> 1,
+                ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
+                ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
                 Image.SCALE_SMOOTH);
         player_2ScoreLabel.setIcon(new ImageIcon(player_2ScoreIcon));
         player_2ScoreLabel.setOpaque(false);
         add(player_2ScoreLabel);
+
+//        *     POINTERS
+
+        {
+            Image PointerIcon = new ImageIcon("src\\main\\resources\\infoPanel\\pointer.png").getImage().getScaledInstance(
+                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
+                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
+                    Image.SCALE_SMOOTH);
+
+            player_1Pointer = new JLabel();
+            player_1Pointer.setBounds(
+                    0,
+                    (infoPanelBounds[3] >> 2),
+                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
+                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3
+            );
+            player_1Pointer.setIcon(new ImageIcon(PointerIcon));
+            player_1Pointer.setOpaque(false);
+
+            player_2Pointer = new JLabel();
+            player_2Pointer.setBounds(
+                    0,
+                    (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 4) + (infoPanelBounds[3] >> 5),
+                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
+                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3
+            );
+            player_2Pointer.setIcon(new ImageIcon(PointerIcon));
+            player_2Pointer.setOpaque(false);
+
+        }
+        refreshPointers();
+        add(player_1Pointer);
+        add(player_2Pointer);
+
+//        *     HEADLINES
 
         JLabel panelHeadline = new JLabel();
         {
@@ -121,46 +165,47 @@ public class InfoPanel extends JPanel {
                     Image.SCALE_SMOOTH);
             panelHeadline.setIcon(new ImageIcon(panelHeadlineUrl));
         }
-        add(panelHeadline);
 
         JLabel player_1Headline = new JLabel();
         {
             player_1Headline.setBounds(
-                    0,
+                    (infoPanelBounds[2] >> 2),
                     (infoPanelBounds[3] >> 2),
-                    (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3),
-                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) * 443 / 1046
+                    (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2),
+                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3
             );
             player_1Headline.setOpaque(false);
             player_1Headline.setVisible(true);
             Image player_1HeadlineUrl = new ImageIcon(
-                    "src\\main\\resources\\infoPanel\\Gracz1.png").getImage().getScaledInstance(
-                    (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3),
-                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) * 443 / 1046,
+                    "src\\main\\resources\\infoPanel\\player1.png").getImage().getScaledInstance(
+                    (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2),
+                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
                     Image.SCALE_SMOOTH
             );
             player_1Headline.setIcon(new ImageIcon(player_1HeadlineUrl));
         }
-        add(player_1Headline);
 
         JLabel player_2Headline = new JLabel();
         {
             player_2Headline.setBounds(
-                    0,
-                    (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 4),
-                    (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3),
-                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) * 429 / 1093
+                    (infoPanelBounds[2] >> 2),
+                    (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 4) + (infoPanelBounds[3] >> 5),
+                    (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2),
+                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3
             );
             player_2Headline.setOpaque(false);
             player_2Headline.setVisible(true);
             Image player_2HeadlineUrl = new ImageIcon(
-                    "src\\main\\resources\\infoPanel\\Gracz2.png").getImage().getScaledInstance(
-                    (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3),
-                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 3)) * 429 / 1093,
+                    "src\\main\\resources\\infoPanel\\player2.png").getImage().getScaledInstance(
+                    (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2),
+                    ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
                     Image.SCALE_SMOOTH
             );
             player_2Headline.setIcon(new ImageIcon(player_2HeadlineUrl));
         }
+
+        add(panelHeadline);
+        add(player_1Headline);
         add(player_2Headline);
 
 //       *      QUIT BUTTON

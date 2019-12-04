@@ -25,7 +25,7 @@ public class CardPanel extends JPanel {
             (BackgroundPanel.tile_x >> 1) + (BackgroundPanel.tile_x >> 3),
             BackgroundPanel.tile_y - (BackgroundPanel.tile >> 4)};
 
-    private static int[] cardPanelGridDimensions = {7, 8};      // 7, 8
+    private static int[] cardPanelGridDimensions = {4, 4};      // 7, 8
     private static int numberOfCards = (cardPanelGridDimensions[0] * cardPanelGridDimensions[1]);
 
     public static int tricks = numberOfCards;
@@ -41,7 +41,6 @@ public class CardPanel extends JPanel {
 
     public CardPanel() {
         super();
-        System.out.println(numberOfCards);
         setLayout(new GridLayout(
                 cardPanelGridDimensions[0],
                 cardPanelGridDimensions[1])
@@ -56,7 +55,7 @@ public class CardPanel extends JPanel {
         dealTheCards();
     }
 
-    public void dealTheCards(){
+    public void dealTheCards() {
         clickCounter = 0;
         Image sheet = new ImageIcon(fileAddress).getImage().getScaledInstance(
                 cardSize,
@@ -111,6 +110,7 @@ public class CardPanel extends JPanel {
             clickCounter = 1;
 
         if (comparison.getComparisonStatus() == ComparisonStatus.TRUE) {
+            InfoPanel.playerPoints[InfoPanel.isPlayer_2Move ? 1 : 0] += 1;
             new java.util.Timer().schedule(
                     new java.util.TimerTask() {
                         @Override
@@ -119,8 +119,9 @@ public class CardPanel extends JPanel {
                             comparison.getCard2().getjButton().setVisible(false);
                             clickCounter = 0;
                             tricks -= 2;
-                            InfoPanel.playerPoints[InfoPanel.isPlayer_2Move ? 0 : 1] += 1;
+
                             InfoPanel.updateScoreBoard();
+                            InfoPanel.refreshPointers();
                             if (tricks == 0) {
                                 stopMusicBackground();
                             }
@@ -139,10 +140,13 @@ public class CardPanel extends JPanel {
                             comparison.getCard2().getjButton().setIcon(new ImageIcon(card.getBack()));
                             clickCounter = 0;
                             InfoPanel.isPlayer_2Move = !(InfoPanel.isPlayer_2Move);
+                            InfoPanel.refreshPointers();
+
                         }
                     },
                     1000
             );
         }
+
     }
 }

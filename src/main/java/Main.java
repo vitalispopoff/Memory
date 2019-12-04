@@ -33,7 +33,8 @@ public class Main {
  * https://www.freepik.com/free-photos-vectors/background
  *
  * Sounds effects from Freesound.org community:
- * 434472__dersuperanton__taking-card
+ * 434472__der
+ * superanton__taking-card
  * 240777__f4ngy__dealing-card
  * 240776__f4ngy__card-flip
  *
