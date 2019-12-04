@@ -13,9 +13,8 @@ import static mechanics.CardLists.cardsList;
 import static mechanics.type.Music.playMusicAction;
 import static mechanics.type.Music.stopMusicBackground;
 
-public class CardPanel extends JPanel {
+class CardPanel extends JPanel {
 
-    private String fileAddress = "src\\main\\resources\\cardCover.png";
     private CardGraphicsLists cardGraphicsLists = new CardGraphicsLists();
     private int clickCounter = 0;
     private Comparison comparison = new Comparison();
@@ -28,18 +27,18 @@ public class CardPanel extends JPanel {
     private static int[] cardPanelGridDimensions = {4, 4};      // 7, 8
     private static int numberOfCards = (cardPanelGridDimensions[0] * cardPanelGridDimensions[1]);
 
-    public static int tricks = numberOfCards;
+    private static int tricks = numberOfCards;
     private int[] cardPanelGridSizes = {
-            round(cardPanelBounds[2] / cardPanelGridDimensions[0]),
-            round(cardPanelBounds[3] / cardPanelGridDimensions[1])};
+            (int) round((double) cardPanelBounds[2] / (double) cardPanelGridDimensions[0]),
+            (int) round((double) cardPanelBounds[3] / (double) cardPanelGridDimensions[1])};
     private int cardSize;
 
     {
-        int cache = Integer.min(cardPanelGridSizes[0], cardPanelGridSizes[0]);
+        int cache = Integer.min(cardPanelGridSizes[0], cardPanelGridSizes[1]);
         cardSize = cache - (cache >> 2);
     }
 
-    public CardPanel() {
+    CardPanel() {
         super();
         setLayout(new GridLayout(
                 cardPanelGridDimensions[0],
@@ -55,23 +54,24 @@ public class CardPanel extends JPanel {
         dealTheCards();
     }
 
-    public void dealTheCards() {
+    private void dealTheCards() {
         clickCounter = 0;
-        Image sheet = new ImageIcon(fileAddress).getImage().getScaledInstance(
-                cardSize,
-                cardSize,
-                Image.SCALE_SMOOTH
-        );
+        Image sheet = new ImageIcon("src\\main\\resources\\cardCover.png")
+                .getImage().getScaledInstance(
+                        cardSize,
+                        cardSize,
+                        Image.SCALE_SMOOTH
+                );
         try {
 
-            for (int i = 0; i < round(numberOfCards / 2); i++) {
+            for (int i = 0; i < (numberOfCards >> 1); i++) {
                 cardsList.add(new Card(cardGraphicsLists.getFrontImagesList().get(i).getScaledInstance(
                         cardSize,
                         cardSize,
                         Image.SCALE_SMOOTH))
                 );
             }
-            for (int i = 0; i < round(numberOfCards / 2); i++) {
+            for (int i = 0; i < (numberOfCards >> 1); i++) {
                 cardsList.add(cardsList.get(i).clone());
             }
 
@@ -104,7 +104,7 @@ public class CardPanel extends JPanel {
         }
     }
 
-    public void cardsComparison(Card card) {
+    private void cardsComparison(Card card) {
         comparison.compare(card);
         if (comparison.getComparisonStatus() == ComparisonStatus.WAIT)
             clickCounter = 1;
@@ -147,6 +147,5 @@ public class CardPanel extends JPanel {
                     1000
             );
         }
-
     }
 }

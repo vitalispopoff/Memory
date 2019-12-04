@@ -1,9 +1,5 @@
 package mechanics.type;
 
-import gui.CardPanel;
-import gui.InfoPanel;
-import gui.OutroPanel;
-
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
@@ -11,27 +7,15 @@ import java.util.Random;
 
 public class Music {
 
-    static String musicLocation = "src\\main\\resources\\SFX\\";
-    static Random random = new Random();
-    static Clip bcgClip;
-    static boolean isBcgMusicOn = false;
-    static AudioInputStream bcgInput;
-    static long bcgMusicLength;
-
-
-//    public static boolean musicBcg = true;
+    private static String musicLocation = "src\\main\\resources\\SFX\\";
+    private static Random random = new Random();
+    private static Clip bcgClip;
+    private static boolean isBcgMusicOn = false;
 
     public static void playMusicAction() {
 
         try {
-            File musicPath = new File(
-                    new StringBuilder()
-                            .append(musicLocation)
-                            .append("flipCard")
-                            .append(random.nextInt(3))
-                            .append(".wav")
-                            .toString()
-            );
+            File musicPath = new File(musicLocation + "flipCard" + random.nextInt(3) + ".wav");
             if (musicPath.exists()) {
                 AudioInputStream sfxInput = AudioSystem.getAudioInputStream(musicPath);
                 Clip clip = AudioSystem.getClip();
@@ -49,13 +33,7 @@ public class Music {
     public static void playMusicBackground() {
 
         try {
-            File musicPath = new File(
-                    new StringBuilder()
-                            .append(musicLocation)
-                            .append("backGroundMusicLoops1.wav")
-
-                            .toString()
-            );
+            File musicPath = new File(musicLocation + "backGroundMusicLoops1.wav");
             if (musicPath.exists()) {
                 AudioInputStream bcgInput = AudioSystem.getAudioInputStream(musicPath);
                 bcgClip = AudioSystem.getClip();
@@ -63,8 +41,6 @@ public class Music {
                 bcgClip.start();
                 bcgClip.loop(Clip.LOOP_CONTINUOUSLY);
                 isBcgMusicOn = true;
-//                bcgMusicLength = bcgClip.getMicrosecondLength();
-
             } else {
                 System.out.println("File not found BG");
             }
@@ -75,12 +51,7 @@ public class Music {
     }
 
     public static void stopMusicBackground() {
-        File musicPath = new File(
-                new StringBuilder()
-                        .append(musicLocation)
-                        .append("outro.wav")
-                        .toString()
-        );
+        File musicPath = new File(musicLocation + "outro.wav");
         new java.util.Timer().schedule(
                 new java.util.TimerTask() {
                     @Override
@@ -94,11 +65,7 @@ public class Music {
                             Clip outroClip = AudioSystem.getClip();
                             outroClip.open(outroInput);
                             outroClip.start();
-                        } catch (UnsupportedAudioFileException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (LineUnavailableException e) {
+                        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
                             e.printStackTrace();
                         }
                         {

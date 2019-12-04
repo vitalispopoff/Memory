@@ -5,9 +5,6 @@ import javax.swing.*;
 import static mechanics.type.Music.playMusicBackground;
 
 public class MainFrame extends JFrame {
-    public static BackgroundPanel backgroundPanel;
-    public static CardPanel cardPanel;
-    public InfoPanel infoPanel;
 
     public MainFrame(boolean intro) {
         super();
@@ -16,9 +13,9 @@ public class MainFrame extends JFrame {
         setVisible(true);
         setIconImage(new ImageIcon("src\\main\\resources\\gameIcon.png").getImage());
 
-        backgroundPanel = new BackgroundPanel();
-        cardPanel = new CardPanel();
-        infoPanel = new InfoPanel();
+        BackgroundPanel backgroundPanel = new BackgroundPanel();
+        CardPanel cardPanel = new CardPanel();
+        InfoPanel infoPanel = new InfoPanel();
 
         if (intro) add(new IntroPanel());
         else playMusicBackground();
@@ -28,13 +25,5 @@ public class MainFrame extends JFrame {
 
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
-
-    public void refreshFrame() {
-        /*infoPanel.*/
-        revalidate();
-    }
-
-
 }

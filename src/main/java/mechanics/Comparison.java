@@ -12,29 +12,27 @@ public class Comparison {
         return card1;
     }
 
-    public void setCard1(Card card1) {
+/*    public void setCard1(Card card1) {
         this.card1 = card1;
-    }
+    }*/
 
     public Card getCard2() {
         return card2;
     }
 
-    public void setCard2(Card card2) {
+/*    public void setCard2(Card card2) {
         this.card2 = card2;
-    }
+    }*/
 
     public ComparisonStatus getComparisonStatus() {
         return comparisonStatus;
     }
 
-    public void setComparisonStatus(ComparisonStatus comparisonStatus) {
+    /*public void setComparisonStatus(ComparisonStatus comparisonStatus) {
         this.comparisonStatus = comparisonStatus;
-    }
-
+    }*/
 
     public void compare(Card card){
-
 
         if (card1!=null & card2!=null){
             card1=null;
@@ -61,11 +59,8 @@ public class Comparison {
                 comparisonStatus = ComparisonStatus.WAIT;
             }
             else{
-
                 comparisonStatus = ComparisonStatus.FALSE;
-
             }
         }
     }
-
 }

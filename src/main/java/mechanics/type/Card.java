@@ -8,7 +8,7 @@ public class Card implements Cloneable {
     private Image front;
     private Image back;
     private int cardId;
-    protected static  int lastId = 0;
+    private static  int lastId = 0;
     private JButton jButton;
 
     public Card(Image front, Image back, int cardId, JButton jButton) {
@@ -26,13 +26,8 @@ public class Card implements Cloneable {
 
     public Card (){}
 
-
     public Image getFront() {
         return front;
-    }
-
-    public void setFront(Image front) {
-        this.front = front;
     }
 
     public Image getBack() {
@@ -45,10 +40,6 @@ public class Card implements Cloneable {
 
     public int getCardId() {
         return cardId;
-    }
-
-    public void setCardId(int cardId) {
-        this.cardId = cardId;
     }
 
     public JButton getjButton() {

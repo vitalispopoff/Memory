@@ -10,13 +10,13 @@ import static mechanics.type.Music.playMusicIntro;
 
 public class IntroPanel extends JPanel {
 
-    Image introImage;
-    String introImageUrl = "src\\main\\resources\\intro\\intro.gif";
+    private Image introImage;
 
-    public IntroPanel() {
+    IntroPanel() {
         setVisible(true);
         setLayout(null);
         setBounds(0, 0, tile_x, tile_y);
+        String introImageUrl = "src\\main\\resources\\intro\\intro.gif";
         introImage = Toolkit.getDefaultToolkit().createImage(introImageUrl);
         playMusicIntro("src\\main\\resources\\intro\\introMusic.wav");
         new java.util.Timer().schedule(
@@ -29,7 +29,6 @@ public class IntroPanel extends JPanel {
                 },
                 5080
         );
-
     }
 
     @Override
@@ -38,5 +37,4 @@ public class IntroPanel extends JPanel {
         if (introImage != null)
             g.drawImage(introImage, 0, 0, this.getWidth(), this.getHeight(), this);
     }
-
 }

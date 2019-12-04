@@ -5,19 +5,22 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardGraphicsLists {
+class CardGraphicsLists {
 
     private List<Image> frontImagesList = new ArrayList<>();
-    private String frontName = "src\\main\\resources\\cardFront";
 
-    public CardGraphicsLists() {
+    CardGraphicsLists() {
 
         for (int i = 0; i < 31; i++) {
-            frontImagesList.add(new ImageIcon(new String(frontName.concat(Integer.toString(i))).concat(".png")).getImage());
+            frontImagesList.add(new ImageIcon(
+                    "src\\main\\resources\\cardFront"
+                            .concat(Integer.toString(i))
+                            .concat(".png"))
+                    .getImage());
         }
     }
 
-    public List<Image> getFrontImagesList() {
+    List<Image> getFrontImagesList() {
         return frontImagesList;
     }
 }

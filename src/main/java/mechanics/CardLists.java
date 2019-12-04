@@ -12,19 +12,19 @@ public class CardLists {
     public CardLists() {
     }
 
-    public List<Card> getCardsList() {
+/*    public List<Card> getCardsList() {
         return cardsList;
-    }
+    }*/
 
-    public void setCardsList(List<Card> cardsList) {
+/*    public void setCardsList(List<Card> cardsList) {
         this.cardsList = cardsList;
-    }
+    }*/
 
-    public void addCardToList (Card card){
+/*    public void addCardToList (Card card){
         cardsList.add(card);
-    }
+    }*/
 
-    public Card getCardFromList(int index){
+/*    public Card getCardFromList(int index){
        return cardsList.get(index);
-    }
+    }*/
 }
