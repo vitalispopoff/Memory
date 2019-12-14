@@ -5,49 +5,55 @@ import java.awt.*;
 
 public class Card implements Cloneable {
 
-    private Image front;
-    private Image back;
+    private static int generalCardCounter = 0;
+
     private int cardId;
-    private static  int lastId = 0;
-    private JButton jButton;
+    private Image cardFrontCover;
+    private Image cardBackCover;
+    private JButton cardPlacingOnTable;
 
-    public Card(Image front, Image back, int cardId, JButton jButton) {
-        this.front = front;
-        this.back = back;
-        this.cardId = cardId;
-        this.jButton = jButton;
+    public Card(Image cardFrontCover, Image cardBackCover, JButton cardPlacingOnTable) {
+        setCardId();
+        this.cardFrontCover = cardFrontCover;
+        this.cardBackCover = cardBackCover;
+        this.cardPlacingOnTable = cardPlacingOnTable;
     }
 
-    public Card(Image front) {
-        this.front = front;
-        lastId++;
-        this.cardId = lastId;
+    public Card(Image cardFrontCover) {
+        setCardId();
+        this.cardFrontCover = cardFrontCover;
     }
 
-    public Card (){}
-
-    public Image getFront() {
-        return front;
+    public Card() {
+        setCardId();
     }
 
-    public Image getBack() {
-        return back;
-    }
-
-    public void setBack(Image back) {
-        this.back = back;
+    private void setCardId() {
+        this.cardId = generalCardCounter++;
     }
 
     public int getCardId() {
         return cardId;
     }
 
-    public JButton getjButton() {
-        return jButton;
+    public Image getCardFrontCover() {
+        return cardFrontCover;
     }
 
-    public void setjButton(JButton jButton) {
-        this.jButton = jButton;
+    public Image getCardBackCover() {
+        return cardBackCover;
+    }
+
+    public void setCardBackCover(Image cardBackCover) {
+        this.cardBackCover = cardBackCover;
+    }
+
+    public JButton getCardPlacingOnTable() {
+        return cardPlacingOnTable;
+    }
+
+    public void setCardPlacingOnTable(JButton cardPlacingOnTable) {
+        this.cardPlacingOnTable = cardPlacingOnTable;
     }
 
     @Override

@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import static gui.BackgroundPanel.tile_x;
 import static gui.BackgroundPanel.tile_y;
 
-class InfoPanel extends JPanel {
+class InfoPanel extends JPanel implements InfoPaneling{
 
     private static int[] infoPanelBounds = {
             (tile_x >> 1) + (tile_x >> 2) - (tile_x >> 5),

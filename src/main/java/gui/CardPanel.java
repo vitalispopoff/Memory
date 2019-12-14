@@ -9,13 +9,13 @@ import mechanics.type.Card;
 import mechanics.type.ComparisonStatus;
 
 import static java.lang.Math.round;
-import static mechanics.CardLists.cardsList;
+import static mechanics.CardList.cardsList;
 import static mechanics.type.Music.playMusicAction;
 import static mechanics.type.Music.stopMusicBackground;
 
 class CardPanel extends JPanel implements CardPaneling{
 
-    private CardGraphicsLists cardGraphicsLists = new CardGraphicsLists();
+    private CardGraphicsList cardGraphicsList = new CardGraphicsList();
     private int clickCounter = 0;
     private Comparison comparison = new Comparison();
 
@@ -66,7 +66,7 @@ class CardPanel extends JPanel implements CardPaneling{
         try {
 
             for (int i = 0; i < (numberOfCards >> 1); i++) {
-                cardsList.add(new Card(cardGraphicsLists.getFrontImagesList().get(i).getScaledInstance(
+                cardsList.add(new Card(cardGraphicsList.getFrontImagesList().get(i).getScaledInstance(
                         cardSize,
                         cardSize,
                         Image.SCALE_SMOOTH))
@@ -80,17 +80,17 @@ class CardPanel extends JPanel implements CardPaneling{
 
             for (int i = 0; i < cardsList.size(); i++) {
                 final int i_final = i;
-                cardsList.get(i).setjButton(new JButton());
-                cardsList.get(i).getjButton().setOpaque(false);
-                cardsList.get(i).getjButton().setContentAreaFilled(false);
-                cardsList.get(i).getjButton().setBorderPainted(false);
-                cardsList.get(i).setBack(sheet);
-                cardsList.get(i).getjButton().setIcon(new ImageIcon(cardsList.get(i).getBack()));
-                cardsList.get(i).getjButton().addActionListener(
+                cardsList.get(i).setCardPlacingOnTable(new JButton());
+                cardsList.get(i).getCardPlacingOnTable().setOpaque(false);
+                cardsList.get(i).getCardPlacingOnTable().setContentAreaFilled(false);
+                cardsList.get(i).getCardPlacingOnTable().setBorderPainted(false);
+                cardsList.get(i).setCardBackCover(sheet);
+                cardsList.get(i).getCardPlacingOnTable().setIcon(new ImageIcon(cardsList.get(i).getCardBackCover()));
+                cardsList.get(i).getCardPlacingOnTable().addActionListener(
                         e -> {
                             clickCounter++;
                             if (clickCounter < 3) {
-                                cardsList.get(i_final).getjButton().setIcon(new ImageIcon(cardsList.get(i_final).getFront()));
+                                cardsList.get(i_final).getCardPlacingOnTable().setIcon(new ImageIcon(cardsList.get(i_final).getCardFrontCover()));
                                 cardsComparison(cardsList.get(i_final));
                                 playMusicAction();
                             }
@@ -101,7 +101,7 @@ class CardPanel extends JPanel implements CardPaneling{
             e.printStackTrace();
         }
         for (int i = 0; i < numberOfCards; i++) {
-            add(cardsList.get(i).getjButton());
+            add(cardsList.get(i).getCardPlacingOnTable());
         }
     }
 
@@ -116,8 +116,8 @@ class CardPanel extends JPanel implements CardPaneling{
                     new java.util.TimerTask() {
                         @Override
                         public void run() {
-                            comparison.getCard1().getjButton().setVisible(false);
-                            comparison.getCard2().getjButton().setVisible(false);
+                            comparison.getCard1().getCardPlacingOnTable().setVisible(false);
+                            comparison.getCard2().getCardPlacingOnTable().setVisible(false);
                             clickCounter = 0;
                             tricks -= 2;
 
@@ -137,8 +137,8 @@ class CardPanel extends JPanel implements CardPaneling{
                     new java.util.TimerTask() {
                         @Override
                         public void run() {
-                            comparison.getCard1().getjButton().setIcon(new ImageIcon(card.getBack()));
-                            comparison.getCard2().getjButton().setIcon(new ImageIcon(card.getBack()));
+                            comparison.getCard1().getCardPlacingOnTable().setIcon(new ImageIcon(card.getCardBackCover()));
+                            comparison.getCard2().getCardPlacingOnTable().setIcon(new ImageIcon(card.getCardBackCover()));
                             clickCounter = 0;
                             InfoPanel.isPlayer_2Move = !(InfoPanel.isPlayer_2Move);
                             InfoPanel.refreshPointers();
