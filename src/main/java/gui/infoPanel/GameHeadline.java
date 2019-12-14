@@ -8,8 +8,9 @@ import gui.TemporalParent;
 public class GameHeadline extends TemporalParent {
 
     public GameHeadline() {
+        super();
         setLayout(null);
-        setOpaque(false);
+//        setOpaque(false);
         setBounds(
                 headlinePanelBounds[0],
                 headlinePanelBounds[1],

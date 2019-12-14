@@ -171,8 +171,7 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
                     ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
                     ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3
             );
-//            player_1Pointer.setIcon(new ImageIcon(PointerIcon));
-//            player_1Pointer.setOpaque(false);
+
             player_1Pointer.setBackground(new Color(255, 255,255,128)); // TODO $%^
 
             player_2Pointer = new JLabel();

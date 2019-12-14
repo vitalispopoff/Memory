@@ -3,8 +3,6 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
-import static gui.infoPanel.MenuPanel.*;
-
 public abstract class TemporalParent extends JPanel {
 
     private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -33,12 +31,25 @@ public abstract class TemporalParent extends JPanel {
             (infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 4)
     };
 
+    public static int[] playerStatusPanelBounds = {
+            infoPanelBounds[0],
+            infoPanelBounds[1] + headlinePanelBounds[3] + (infoPanelBounds[3] >> 4),
+            infoPanelBounds[2],
+            infoPanelBounds[3] >> 1
+    };
+
     public static int[] menuPanelBounds = {
             infoPanelBounds[0],
             infoPanelBounds[3],
             infoPanelBounds[2],
-            (infoPanelBounds[2] >> 2)-(infoPanelBounds[2]>>4)
+            (infoPanelBounds[2] >> 2) - (infoPanelBounds[2] >> 4)
     };
+
+    public TemporalParent(){
+        setOpaque(false);
+        setVisible(true);
+//        setBackground(new Color(0,0, 0, 128));
+    }
 
 
 }

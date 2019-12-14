@@ -45,7 +45,7 @@ class CardPanel extends TemporalParent implements CardPaneling{
                 cardPanelBounds[2],
                 cardPanelBounds[3]
         );
-        setOpaque(false);
+//        setOpaque(false);
         dealTheCards();
     }
 

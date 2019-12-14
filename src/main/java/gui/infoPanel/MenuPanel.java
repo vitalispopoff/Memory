@@ -21,61 +21,44 @@ public class MenuPanel extends TemporalParent {
                 menuPanelBounds[3]
         );
 
-        JButton restart = new JButton();
+        JButton replay = new JButton();
         {
-/*            restart.setBounds(
-                    0,
-                    0,
-                    (menuPanelBounds[2]>>2)+(menuPanelBounds[2]>>3),
-                    menuPanelBounds[3]-(menuPanelBounds[3]>>2)
-            );*/
-            restart.setOpaque(true);
-            restart.setBackground(new Color(255, 255, 0, 128));   // TODO $%^
-            restart.setVisible(true);
-            Image quitUrl = new ImageIcon("src\\main\\resources\\infoPanel\\restart.png")
+            replay.setVisible(true);
+            replay.setOpaque(false);
+            replay.setContentAreaFilled(false);
+            replay.setBorderPainted(true);
+            Image replayUrl = new ImageIcon("src\\main\\resources\\infoPanel\\replay.png")
                     .getImage().getScaledInstance(
                             menuPanelBounds[2]/numberOfMenuButtons,
-                            menuPanelBounds[3]/numberOfMenuButtons,
+                            menuPanelBounds[3],
                             Image.SCALE_SMOOTH);
-            restart.setIcon(new ImageIcon(quitUrl));
-
-            restart.addMouseListener(new MouseAdapter() {
+            replay.setIcon(new ImageIcon(replayUrl));
+            replay.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
-//                    System.exit(0);
                 }
             });
         }
+        add(replay);
 
         JButton rageQuit = new JButton();
         {
-/*            rageQuit.setBounds(
-                    0,
-                    0,
-                    (menuPanelBounds[2]>>2)+(menuPanelBounds[2]>>3),
-                    menuPanelBounds[3]-(menuPanelBounds[3]>>2)
-            );*/
-            rageQuit.setOpaque(true);
-            rageQuit.setBackground(new Color(255, 255, 0, 128));   // TODO $%^
             rageQuit.setVisible(true);
-            Image quitUrl = new ImageIcon("src\\main\\resources\\infoPanel\\restart.png")
+            rageQuit.setOpaque(false);
+            rageQuit.setContentAreaFilled(false);
+            rageQuit.setBorderPainted(false);
+            Image quitUrl = new ImageIcon("src\\main\\resources\\infoPanel\\quit.png")
                     .getImage().getScaledInstance(
                             menuPanelBounds[2]/numberOfMenuButtons,
-                            menuPanelBounds[3]/numberOfMenuButtons,
+                            menuPanelBounds[3],
                             Image.SCALE_SMOOTH);
             rageQuit.setIcon(new ImageIcon(quitUrl));
-
             rageQuit.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
                     System.exit(0);
                 }
             });
         }
-        add(restart);
         add(rageQuit);
 
-
-
     }
-
-
 }
