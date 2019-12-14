@@ -190,10 +190,6 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
         add(player_1Pointer);
         add(player_2Pointer);
 
-//        *     HEADLINES
-
-
-
 //        *     PLAYER HEADLINES
 
         JLabel player_1Headline = new JLabel();

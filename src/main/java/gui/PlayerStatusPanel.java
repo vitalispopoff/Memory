@@ -15,17 +15,27 @@ public class PlayerStatusPanel extends TemporalParent {
 //    private JLabel playerScoreLabel;
 //    private JLabel playerPointer;
     private int playerIndexNumber;
-//    private int playerScoreValue;
+    private int playerScoreValue = 0;
+    private String scoreValueGraphicUrl = "src\\main\\resources\\infoPanel\\" + playerScoreValue + ".png";
+//    private String playerNameGraphicUrl = "src\\main\\resources\\infoPanel\\player" + playerIndexNumber +".png";
 
     PlayerStatusPanel(int numberOfPlayers) {
         super();
         this.playerIndexNumber = playerNumberCounter++;
-        setOpaque(true);
-        setLayout(null);
-//        setVisible(true);
-        setBackground(new Color(127 * playerIndexNumber, 127 * playerIndexNumber, 127 * playerIndexNumber, 128));
-        int locationVerticalComponent = playerStatusPanelBounds[1] + (playerIndexNumber * playerStatusPanelBounds[3] / numberOfPlayers);
+        System.out.println(playerScoreValue);
 
+//        *     LOCAL DIMENSION VALUES
+
+        int locationVerticalComponent = playerStatusPanelBounds[1] + (playerIndexNumber * playerStatusPanelBounds[3] / numberOfPlayers);
+        int[] pointerBounds = {
+                0,
+                0,
+                playerStatusPanelBounds[2] >> 2,
+                (playerStatusPanelBounds[3] / numberOfPlayers) >> 1
+        };
+        int pointerGraphicSize = Math.min(pointerBounds[2], pointerBounds[3]);
+
+        setLayout(null);
         setBounds(
                 playerStatusPanelBounds[0],
                 locationVerticalComponent,
@@ -37,15 +47,14 @@ public class PlayerStatusPanel extends TemporalParent {
 
         JLabel playerPointer = new JLabel();
         playerPointer.setBounds(
-                0,
-                0,
-                playerStatusPanelBounds[2] >> 2,
-                (playerStatusPanelBounds[3] / numberOfPlayers) >> 1
+                0, 0,
+                pointerBounds[2],
+                pointerBounds[3]
         );
         Image PointerIcon = new ImageIcon("src\\main\\resources\\infoPanel\\pointer.png")
                 .getImage().getScaledInstance(
-                        Math.min(playerStatusPanelBounds[2] >> 2, (playerStatusPanelBounds[3] / numberOfPlayers) >> 1),
-                        Math.min(playerStatusPanelBounds[2] >> 2, (playerStatusPanelBounds[3] / numberOfPlayers) >> 1),
+                        pointerGraphicSize,
+                        pointerGraphicSize,
                         Image.SCALE_SMOOTH);
         playerPointer.setIcon(new ImageIcon(PointerIcon));
         add(playerPointer);
@@ -54,12 +63,18 @@ public class PlayerStatusPanel extends TemporalParent {
 
         JLabel playerName = new JLabel();
         playerName.setBounds(
-                playerStatusPanelBounds[2] >> 2,
+                pointerBounds[2],
                 0,
                 (playerStatusPanelBounds[2] - (playerStatusPanelBounds[2] >> 2)),
-                (playerStatusPanelBounds[3] / numberOfPlayers) >> 1
+                pointerBounds[3]
         );
-        playerName.setBackground(new Color(255, 255, 0, 128));
+        Image playerNameGraphic = new ImageIcon("src\\main\\resources\\infoPanel\\player"+playerIndexNumber+".png")
+                .getImage().getScaledInstance(
+                        (playerStatusPanelBounds[2] - (playerStatusPanelBounds[2] >> 2)),
+                        pointerBounds[3],
+                        Image.SCALE_SMOOTH
+                );
+        playerName.setIcon(new ImageIcon(playerNameGraphic));
         add(playerName);
 
 //        *     SCORES
@@ -69,14 +84,39 @@ public class PlayerStatusPanel extends TemporalParent {
                 playerStatusPanelBounds[2] >> 2,
                 (playerStatusPanelBounds[3] / numberOfPlayers) >> 1,
                 playerStatusPanelBounds[2] >> 1,
-                ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >>5)) / numberOfPlayers
+                ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers
         );
-        Image playerScoreIcon = new ImageIcon("src\\main\\resources\\infoPanel\\0.png")
+
+        Image playerScoreIcon = new ImageIcon(scoreValueGraphicUrl)
                 .getImage().getScaledInstance(
-                        ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >>5)) / numberOfPlayers,
-                        ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >>5)) / numberOfPlayers,
+                        ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
+                        ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
                         Image.SCALE_SMOOTH);
-                playerScoreValue.setIcon(new ImageIcon(playerScoreIcon));
+        playerScoreValue.setIcon(new ImageIcon(playerScoreIcon));
         add(playerScoreValue);
+    }
+
+    public int getPlayerIndexNumber() {
+        return playerIndexNumber;
+    }
+
+    public int getPlayerScoreValue() {
+        return playerScoreValue;
+    }
+
+    public void setPlayerScoreValue(int playerScoreValue) {
+        this.playerScoreValue = playerScoreValue;
+    }
+
+    public int incrementPlayerScoreValue() {
+        return ++playerScoreValue;
+    }
+
+    public String getScoreValueGraphicUrl() {
+        return scoreValueGraphicUrl;
+    }
+
+    public void setScoreValueGraphicUrl() {
+        this.scoreValueGraphicUrl = "src\\main\\resources\\infoPanel\\" + playerScoreValue + ".png";
     }
 }
