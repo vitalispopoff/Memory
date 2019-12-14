@@ -2,7 +2,7 @@ package gui;
 
 import javax.swing.*;
 
-public class PlayerStatusPanel extends InfoPanel {
+public class PlayerStatusPanel extends TemporalParent {
 
     private static int indexOfPlayerOnTheMove;
     private static int[] playerScoreRegistry;

@@ -8,14 +8,14 @@ import java.awt.event.MouseEvent;
 import static gui.BackgroundPanel.tile_x;
 import static gui.BackgroundPanel.tile_y;
 
-class InfoPanel extends JPanel implements InfoPaneling{
+class InfoPanel extends TemporalParent implements InfoPaneling{
 
-    private static int[] infoPanelBounds = {
+/*    private static int[] infoPanelBounds = {
             (tile_x >> 1) + (tile_x >> 2) - (tile_x >> 5),
             tile_y >> 3,
             (tile_x >> 2) + (tile_x >> 6),
             tile_y - (tile_y >> 2) + (tile_y >> 5)
-    };
+    };*/    //  TODO disposable
 
 //    * PLAYERS
 

@@ -1,5 +1,7 @@
 package gui;
 
+import gui.infoPanel.GameHeadline;
+
 import javax.swing.*;
 
 import java.awt.*;

@@ -1,21 +1,13 @@
-package gui;
+package gui.infoPanel;
 
 import javax.swing.*;
-
 import java.awt.*;
 
-import static gui.BackgroundPanel.*;
+import gui.TemporalParent;
 
-public class GameHeadline extends JPanel {
+public class GameHeadline extends TemporalParent {
 
-    private static int[] headlinePanelBounds = {
-            (tile_x >> 1) + (tile_x >> 2) - (tile_x >> 5),
-            tile_y >> 3,
-            (tile_x >> 2) + (tile_x >> 6),
-            ((tile_x >> 2) + (tile_x >> 6)) * 226 / 910,
-    };
-
-    GameHeadline() {
+    public GameHeadline() {
         setLayout(null);
         setOpaque(false);
         setBounds(
