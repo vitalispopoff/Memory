@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
-public class Music {
+public class Music implements Musical{
 
     private static String musicLocation = "src\\main\\resources\\SFX\\";
     private static Random random = new Random();

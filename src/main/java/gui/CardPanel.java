@@ -13,7 +13,7 @@ import static mechanics.CardLists.cardsList;
 import static mechanics.type.Music.playMusicAction;
 import static mechanics.type.Music.stopMusicBackground;
 
-class CardPanel extends JPanel {
+class CardPanel extends JPanel implements CardPaneling{
 
     private CardGraphicsLists cardGraphicsLists = new CardGraphicsLists();
     private int clickCounter = 0;
@@ -54,7 +54,8 @@ class CardPanel extends JPanel {
         dealTheCards();
     }
 
-    private void dealTheCards() {
+
+    public void dealTheCards() {
         clickCounter = 0;
         Image sheet = new ImageIcon("src\\main\\resources\\cardCover.png")
                 .getImage().getScaledInstance(
@@ -104,7 +105,7 @@ class CardPanel extends JPanel {
         }
     }
 
-    private void cardsComparison(Card card) {
+    public void cardsComparison(Card card) {
         comparison.compare(card);
         if (comparison.getComparisonStatus() == ComparisonStatus.WAIT)
             clickCounter = 1;
@@ -141,7 +142,6 @@ class CardPanel extends JPanel {
                             clickCounter = 0;
                             InfoPanel.isPlayer_2Move = !(InfoPanel.isPlayer_2Move);
                             InfoPanel.refreshPointers();
-
                         }
                     },
                     1000
