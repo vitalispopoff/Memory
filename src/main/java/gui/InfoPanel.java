@@ -66,8 +66,60 @@ class InfoPanel extends JPanel implements InfoPaneling{
                     infoPanelBounds[2],
                     infoPanelBounds[3]
             );
-            setOpaque(false);
+            setOpaque(true);
+            setBackground(new Color (0,255,0, 128));
         }
+
+        //       *      QUIT BUTTON
+
+        JLabel rageQuit = new JLabel();
+        {
+            rageQuit.setBounds(
+                    (infoPanelBounds[3] >> 3) + (infoPanelBounds[3] >> 5),
+                    (infoPanelBounds[3]) - (infoPanelBounds[3] >> 4) - (infoPanelBounds[3] >> 5),
+                    (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
+                    (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5)
+            );
+            rageQuit.setOpaque(true);
+            rageQuit.setBackground(new Color(255,255,0,128));   // TODO $%^
+            rageQuit.setVisible(true);
+            Image quitUrl = new ImageIcon("src\\main\\resources\\infoPanel\\quit.png")
+                    .getImage().getScaledInstance(
+                            (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
+                            (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5),
+                            Image.SCALE_SMOOTH);
+//            rageQuit.setIcon(new ImageIcon(quitUrl));
+
+            rageQuit.addMouseListener(new MouseAdapter() {
+                public void mouseClicked(MouseEvent e) {
+                    System.exit(0);
+                }
+            });
+        }
+        add(rageQuit);
+
+//        JLabel panelHeadline = new JLabel();
+/*        {
+            panelHeadline.setBounds(
+                    0,
+                    0,
+                    infoPanelBounds[2],
+                    (infoPanelBounds[2] * 226 / 910)
+            );
+            panelHeadline.setOpaque(true);
+            panelHeadline.setVisible(true);
+            Image panelHeadlineUrl = new ImageIcon("src\\main\\resources\\infoPanel\\memory.png")
+                    .getImage().getScaledInstance(
+                            infoPanelBounds[2],
+                            (infoPanelBounds[2] * 226 / 910),
+                            Image.SCALE_SMOOTH);
+//            panelHeadline.setIcon(new ImageIcon(panelHeadlineUrl));
+            panelHeadline.setBackground(new Color(255,255,0,128));   // TODO $%^
+
+        }*/
+//        add(panelHeadline);
+
+
 
 //        *     SCOREBOARD
 
@@ -82,8 +134,9 @@ class InfoPanel extends JPanel implements InfoPaneling{
                         ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
                         ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
                         Image.SCALE_SMOOTH);
-        player_1ScoreLabel.setIcon(new ImageIcon(player_1ScoreIcon));
-        player_1ScoreLabel.setOpaque(false);
+//        player_1ScoreLabel.setIcon(new ImageIcon(player_1ScoreIcon));
+        player_1ScoreLabel.setBackground(new Color(255, 0,0,128)); // TODO $%^
+        player_1ScoreLabel.setOpaque(true);
         add(player_1ScoreLabel);
 
         player_2ScoreLabel.setBounds(
@@ -97,8 +150,9 @@ class InfoPanel extends JPanel implements InfoPaneling{
                         ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
                         ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
                         Image.SCALE_SMOOTH);
-        player_2ScoreLabel.setIcon(new ImageIcon(player_2ScoreIcon));
-        player_2ScoreLabel.setOpaque(false);
+//        player_2ScoreLabel.setIcon(new ImageIcon(player_2ScoreIcon));
+        player_2ScoreLabel.setBackground(new Color(255, 0,0,128)); // TODO $%^
+        player_2ScoreLabel.setOpaque(true);
         add(player_2ScoreLabel);
 
 //        *     POINTERS
@@ -117,8 +171,9 @@ class InfoPanel extends JPanel implements InfoPaneling{
                     ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
                     ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3
             );
-            player_1Pointer.setIcon(new ImageIcon(PointerIcon));
-            player_1Pointer.setOpaque(false);
+//            player_1Pointer.setIcon(new ImageIcon(PointerIcon));
+//            player_1Pointer.setOpaque(false);
+            player_1Pointer.setBackground(new Color(255, 255,255,128)); // TODO $%^
 
             player_2Pointer = new JLabel();
             player_2Pointer.setBounds(
@@ -127,8 +182,9 @@ class InfoPanel extends JPanel implements InfoPaneling{
                     ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
                     ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3
             );
-            player_2Pointer.setIcon(new ImageIcon(PointerIcon));
-            player_2Pointer.setOpaque(false);
+//            player_2Pointer.setIcon(new ImageIcon(PointerIcon));
+            player_2Pointer.setOpaque(true);
+            player_2Pointer.setBackground(new Color(255, 255,255,128)); // TODO $%^
 
         }
         refreshPointers();
@@ -137,23 +193,9 @@ class InfoPanel extends JPanel implements InfoPaneling{
 
 //        *     HEADLINES
 
-        JLabel panelHeadline = new JLabel();
-        {
-            panelHeadline.setBounds(
-                    0,
-                    0,
-                    infoPanelBounds[2],
-                    (infoPanelBounds[2] * 226 / 910)
-            );
-            panelHeadline.setOpaque(false);
-            panelHeadline.setVisible(true);
-            Image panelHeadlineUrl = new ImageIcon("src\\main\\resources\\infoPanel\\memory.png")
-                    .getImage().getScaledInstance(
-                            infoPanelBounds[2],
-                            (infoPanelBounds[2] * 226 / 910),
-                            Image.SCALE_SMOOTH);
-            panelHeadline.setIcon(new ImageIcon(panelHeadlineUrl));
-        }
+
+
+//        *     PLAYER HEADLINES
 
         JLabel player_1Headline = new JLabel();
         {
@@ -163,7 +205,8 @@ class InfoPanel extends JPanel implements InfoPaneling{
                     (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2),
                     ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3
             );
-            player_1Headline.setOpaque(false);
+            player_1Headline.setOpaque(true);
+            player_1Headline.setBackground(new Color(0, 255,255,128)); // TODO $%^
             player_1Headline.setVisible(true);
             Image player_1HeadlineUrl = new ImageIcon("src\\main\\resources\\infoPanel\\player1.png")
                     .getImage().getScaledInstance(
@@ -171,7 +214,7 @@ class InfoPanel extends JPanel implements InfoPaneling{
                             ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
                             Image.SCALE_SMOOTH
                     );
-            player_1Headline.setIcon(new ImageIcon(player_1HeadlineUrl));
+//            player_1Headline.setIcon(new ImageIcon(player_1HeadlineUrl));
         }
 
         JLabel player_2Headline = new JLabel();
@@ -182,7 +225,8 @@ class InfoPanel extends JPanel implements InfoPaneling{
                     (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2),
                     ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3
             );
-            player_2Headline.setOpaque(false);
+            player_2Headline.setOpaque(true);
+            player_2Headline.setBackground(new Color(255,0,255,128)); // TODO $%^
             player_2Headline.setVisible(true);
             Image player_2HeadlineUrl = new ImageIcon("src\\main\\resources\\infoPanel\\player2.png")
                     .getImage().getScaledInstance(
@@ -190,37 +234,12 @@ class InfoPanel extends JPanel implements InfoPaneling{
                             ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
                             Image.SCALE_SMOOTH
                     );
-            player_2Headline.setIcon(new ImageIcon(player_2HeadlineUrl));
+//            player_2Headline.setIcon(new ImageIcon(player_2HeadlineUrl));
         }
-        add(panelHeadline);
+
         add(player_1Headline);
         add(player_2Headline);
 
-//       *      QUIT BUTTON
 
-        JLabel rageQuit = new JLabel();
-        {
-            rageQuit.setBounds(
-                    (infoPanelBounds[3] >> 3) + (infoPanelBounds[3] >> 5),
-                    (infoPanelBounds[3]) - (infoPanelBounds[3] >> 4) - (infoPanelBounds[3] >> 5),
-                    (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
-                    (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5)
-            );
-            rageQuit.setOpaque(false);
-            rageQuit.setVisible(true);
-            Image quitUrl = new ImageIcon("src\\main\\resources\\infoPanel\\quit.png")
-                    .getImage().getScaledInstance(
-                            (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
-                            (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5),
-                            Image.SCALE_SMOOTH);
-            rageQuit.setIcon(new ImageIcon(quitUrl));
-
-            rageQuit.addMouseListener(new MouseAdapter() {
-                public void mouseClicked(MouseEvent e) {
-                    System.exit(0);
-                }
-            });
-        }
-        add(rageQuit);
     }
 }

@@ -15,6 +15,8 @@ class BackgroundPanel extends JPanel {
 
         setOpaque(false);
         setBounds(0, 0 - 5, tile_x, tile_y);
+
+//        BCG
         Image sheet = new ImageIcon("src\\main\\resources\\bcg.jpg")
                 .getImage().getScaledInstance(
                         tile_x,

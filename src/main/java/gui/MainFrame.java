@@ -2,6 +2,8 @@ package gui;
 
 import javax.swing.*;
 
+import java.awt.*;
+
 import static mechanics.type.Music.playMusicBackground;
 
 public class MainFrame extends JFrame {
@@ -14,13 +16,14 @@ public class MainFrame extends JFrame {
         setIconImage(new ImageIcon("src\\main\\resources\\gameIcon.png").getImage());
 
         BackgroundPanel backgroundPanel = new BackgroundPanel();
-        CardPanel cardPanel = new CardPanel();
-        InfoPanel infoPanel = new InfoPanel();
-
-        if (intro) add(new IntroPanel());
-        else playMusicBackground();
-        add(infoPanel);
-        add(cardPanel);
+        CardPaneling cardPanel = new CardPanel();
+        InfoPaneling infoPanel = new InfoPanel();
+        GameHeadline gameHeadline = new GameHeadline();
+        add(gameHeadline);
+//        if (intro) add(new IntroPanel());
+//        else playMusicBackground();
+//        add((Component) infoPanel);
+        add((Component) cardPanel);
         add(backgroundPanel);
 
         setResizable(false);
