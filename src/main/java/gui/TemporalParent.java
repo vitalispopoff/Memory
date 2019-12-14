@@ -33,9 +33,9 @@ public abstract class TemporalParent extends JPanel {
 
     public static int[] playerStatusPanelBounds = {
             infoPanelBounds[0],
-            infoPanelBounds[1] + headlinePanelBounds[3] + (infoPanelBounds[3] >> 4),
+            infoPanelBounds[1] + headlinePanelBounds[3] /*+ (infoPanelBounds[3] >> 4)*/,
             infoPanelBounds[2],
-            infoPanelBounds[3] >> 1
+            (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 3)
     };
 
     public static int[] menuPanelBounds = {
@@ -45,7 +45,7 @@ public abstract class TemporalParent extends JPanel {
             (infoPanelBounds[2] >> 2) - (infoPanelBounds[2] >> 4)
     };
 
-    public TemporalParent(){
+    public TemporalParent() {
         setOpaque(false);
         setVisible(true);
 //        setBackground(new Color(0,0, 0, 128));

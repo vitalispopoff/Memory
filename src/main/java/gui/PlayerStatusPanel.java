@@ -71,9 +71,12 @@ public class PlayerStatusPanel extends TemporalParent {
                 playerStatusPanelBounds[2] >> 1,
                 ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >>5)) / numberOfPlayers
         );
-        playerScoreValue.setBackground(new Color(255, 0, 255, 128));
+        Image playerScoreIcon = new ImageIcon("src\\main\\resources\\infoPanel\\0.png")
+                .getImage().getScaledInstance(
+                        ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >>5)) / numberOfPlayers,
+                        ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >>5)) / numberOfPlayers,
+                        Image.SCALE_SMOOTH);
+                playerScoreValue.setIcon(new ImageIcon(playerScoreIcon));
         add(playerScoreValue);
-
-
     }
 }
