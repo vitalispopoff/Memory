@@ -13,16 +13,11 @@ import static mechanics.CardList.cardsList;
 import static mechanics.type.Music.playMusicAction;
 import static mechanics.type.Music.stopMusicBackground;
 
-class CardPanel extends JPanel implements CardPaneling{
+class CardPanel extends TemporalParent implements CardPaneling{
 
     private CardGraphicsList cardGraphicsList = new CardGraphicsList();
     private int clickCounter = 0;
     private Comparison comparison = new Comparison();
-
-    private int[] cardPanelBounds = {BackgroundPanel.tile >> 5,
-            BackgroundPanel.tile >> 5,
-            (BackgroundPanel.tile_x >> 1) + (BackgroundPanel.tile_x >> 3),
-            BackgroundPanel.tile_y - (BackgroundPanel.tile >> 4)};
 
     private static int[] cardPanelGridDimensions = {4, 4};      // 7, 8
     private static int numberOfCards = (cardPanelGridDimensions[0] * cardPanelGridDimensions[1]);
@@ -76,7 +71,7 @@ class CardPanel extends JPanel implements CardPaneling{
                 cardsList.add(cardsList.get(i).clone());
             }
 
-            Collections.shuffle(cardsList);
+            Collections.shuffle(cardsList);     // (TODO) SHUFFELIN'!
 
             for (int i = 0; i < cardsList.size(); i++) {
                 final int i_final = i;

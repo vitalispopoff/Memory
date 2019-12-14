@@ -15,7 +15,7 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
             tile_y >> 3,
             (tile_x >> 2) + (tile_x >> 6),
             tile_y - (tile_y >> 2) + (tile_y >> 5)
-    };*/    //  TODO disposable
+    };*/    // TODO disposable
 
 //    * PLAYERS
 

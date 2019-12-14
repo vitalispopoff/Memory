@@ -1,6 +1,7 @@
 package gui;
 
 import gui.infoPanel.GameHeadline;
+import gui.infoPanel.MenuPanel;
 
 import javax.swing.*;
 
@@ -21,6 +22,8 @@ public class MainFrame extends JFrame {
         CardPaneling cardPanel = new CardPanel();
         InfoPaneling infoPanel = new InfoPanel();
         GameHeadline gameHeadline = new GameHeadline();
+        MenuPanel menuPanel = new MenuPanel();
+        add(menuPanel);
         add(gameHeadline);
 //        if (intro) add(new IntroPanel());
 //        else playMusicBackground();

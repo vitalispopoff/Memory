@@ -1,5 +1,7 @@
 package gui;
 
+import gui.infoPanel.MenuPanel;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -14,6 +16,14 @@ public abstract class TemporalParent extends JPanel {
     static int tile_y = screenSize.height + 5;
     static int tile = Integer.min(tile_x, tile_y);
 
+
+    public static int[] cardPanelBounds = {
+            tile >> 5,
+            tile >> 5,
+            (tile_x >> 1) + (tile_x >> 3),
+            tile_y - (tile >> 4)
+    };
+
     public static int[] infoPanelBounds = {
             (tile_x >> 1) + (tile_x >> 2) - (tile_x >> 5),
             tile_y >> 3,
@@ -24,8 +34,15 @@ public abstract class TemporalParent extends JPanel {
     public static int[] headlinePanelBounds = {
             (tile_x >> 1) + (tile_x >> 2) - (tile_x >> 5),
             tile_y >> 3,
-            (tile_x >> 2) + (tile_x >> 6),
-            ((tile_x >> 2) + (tile_x >> 6)) * 226 / 910,
+            infoPanelBounds[2],
+            ((tile_x >> 2) + (tile_x >> 6)) /3,
+    };
+
+    public static int[] menuPanelBounds = {
+            (tile_x >> 1) + (tile_x >> 2) - (tile_x >> 5),
+            infoPanelBounds[1]+(infoPanelBounds[3]) - (infoPanelBounds[3] >> 3) /*- (infoPanelBounds[3] >> 5)*/,
+            infoPanelBounds[2],
+            (infoPanelBounds[2]>>1)/ MenuPanel.numberOfMenuButtons
     };
 
 
