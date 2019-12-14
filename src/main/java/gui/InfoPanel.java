@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import static gui.BackgroundPanel.tile_x;
 import static gui.BackgroundPanel.tile_y;
 
-class InfoPanel extends TemporalParent implements InfoPaneling{
+class InfoPanel extends TemporalParent implements InfoPaneling {
 
 /*    private static int[] infoPanelBounds = {
             (tile_x >> 1) + (tile_x >> 2) - (tile_x >> 5),
@@ -67,12 +67,12 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
                     infoPanelBounds[3]
             );
             setOpaque(true);
-            setBackground(new Color (0,255,0, 128));
+            setBackground(new Color(0, 255, 0, 128));
         }
 
         //       *      QUIT BUTTON
 
-        JLabel rageQuit = new JLabel();
+/*        JLabel rageQuit = new JLabel();
         {
             rageQuit.setBounds(
                     (infoPanelBounds[3] >> 3) + (infoPanelBounds[3] >> 5),
@@ -87,16 +87,16 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
                     .getImage().getScaledInstance(
                             (infoPanelBounds[3] >> 2) - (infoPanelBounds[3] >> 5),
                             (infoPanelBounds[3] >> 3) - (infoPanelBounds[3] >> 5),
-                            Image.SCALE_SMOOTH);
+                            Image.SCALE_SMOOTH);*/
 //            rageQuit.setIcon(new ImageIcon(quitUrl));
 
-            rageQuit.addMouseListener(new MouseAdapter() {
+/*            rageQuit.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
                     System.exit(0);
                 }
             });
         }
-        add(rageQuit);
+        add(rageQuit);*/
 
 //        JLabel panelHeadline = new JLabel();
 /*        {
@@ -120,16 +120,15 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
 //        add(panelHeadline);
 
 
-
 //        *     SCOREBOARD
 
-        player_1ScoreLabel.setBounds(
+/*        player_1ScoreLabel.setBounds(
                 (infoPanelBounds[2] >> 1),
                 (infoPanelBounds[3] >> 2) + (infoPanelBounds[3] >> 3) + (infoPanelBounds[3] >> 5),
                 ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
                 ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1
-        );
-        Image player_1ScoreIcon = new ImageIcon("src\\main\\resources\\infoPanel\\0.png")
+        );*/
+/*        Image player_1ScoreIcon = new ImageIcon("src\\main\\resources\\infoPanel\\0.png")
                 .getImage().getScaledInstance(
                         ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
                         ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
@@ -137,9 +136,9 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
 //        player_1ScoreLabel.setIcon(new ImageIcon(player_1ScoreIcon));
         player_1ScoreLabel.setBackground(new Color(255, 0,0,128)); // TODO $%^
         player_1ScoreLabel.setOpaque(true);
-        add(player_1ScoreLabel);
+        add(player_1ScoreLabel);*/
 
-        player_2ScoreLabel.setBounds(
+/*        player_2ScoreLabel.setBounds(
                 (infoPanelBounds[2] >> 1),
                 (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 2),
                 ((infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 3)) >> 1,
@@ -153,11 +152,11 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
 //        player_2ScoreLabel.setIcon(new ImageIcon(player_2ScoreIcon));
         player_2ScoreLabel.setBackground(new Color(255, 0,0,128)); // TODO $%^
         player_2ScoreLabel.setOpaque(true);
-        add(player_2ScoreLabel);
+        add(player_2ScoreLabel);*/
 
 //        *     POINTERS
 
-        {
+/*        {
             Image PointerIcon = new ImageIcon("src\\main\\resources\\infoPanel\\pointer.png")
                     .getImage().getScaledInstance(
                             ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
@@ -188,11 +187,11 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
         }
         refreshPointers();
         add(player_1Pointer);
-        add(player_2Pointer);
+        add(player_2Pointer);*/
 
 //        *     PLAYER HEADLINES
 
-        JLabel player_1Headline = new JLabel();
+        /*JLabel player_1Headline = new JLabel();
         {
             player_1Headline.setBounds(
                     (infoPanelBounds[2] >> 2),
@@ -208,11 +207,11 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
                             (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2),
                             ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
                             Image.SCALE_SMOOTH
-                    );
+                    );*/
 //            player_1Headline.setIcon(new ImageIcon(player_1HeadlineUrl));
-        }
+//    }
 
-        JLabel player_2Headline = new JLabel();
+/*        JLabel player_2Headline = new JLabel();
         {
             player_2Headline.setBounds(
                     (infoPanelBounds[2] >> 2),
@@ -228,12 +227,12 @@ class InfoPanel extends TemporalParent implements InfoPaneling{
                             (infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2),
                             ((infoPanelBounds[2] >> 1) + (infoPanelBounds[2] >> 2)) / 3,
                             Image.SCALE_SMOOTH
-                    );
+                    );*/
 //            player_2Headline.setIcon(new ImageIcon(player_2HeadlineUrl));
-        }
+//}
 
-        add(player_1Headline);
-        add(player_2Headline);
+/*        add(player_1Headline);
+        add(player_2Headline);*/
 
 
     }

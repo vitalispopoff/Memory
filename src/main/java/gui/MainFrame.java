@@ -11,6 +11,8 @@ import static mechanics.type.Music.playMusicBackground;
 
 public class MainFrame extends JFrame {
 
+    public static int numberOfPlayers=2;
+
     public MainFrame(boolean intro) {
         super();
         setLayout(null);
@@ -23,7 +25,7 @@ public class MainFrame extends JFrame {
         InfoPaneling infoPanel = new InfoPanel();
         GameHeadline gameHeadline = new GameHeadline();
         MenuPanel menuPanel = new MenuPanel();
-        int numberOfPlayers=2;
+
         PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel(numberOfPlayers);
         PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel(numberOfPlayers);
 

@@ -117,7 +117,7 @@ class CardPanel extends TemporalParent implements CardPaneling{
                             tricks -= 2;
 
                             InfoPanel.updateScoreBoard();
-                            InfoPanel.refreshPointers();
+                            PlayerStatusPanel.refreshPointers();
                             if (tricks == 0) {
                                 stopMusicBackground();
                             }
@@ -135,8 +135,12 @@ class CardPanel extends TemporalParent implements CardPaneling{
                             comparison.getCard1().getCardPlacingOnTable().setIcon(new ImageIcon(card.getCardBackCover()));
                             comparison.getCard2().getCardPlacingOnTable().setIcon(new ImageIcon(card.getCardBackCover()));
                             clickCounter = 0;
-                            InfoPanel.isPlayer_2Move = !(InfoPanel.isPlayer_2Move);
-                            InfoPanel.refreshPointers();
+//                            InfoPanel.isPlayer_2Move = !(InfoPanel.isPlayer_2Move);
+//                            InfoPanel.refreshPointers();
+                            PlayerStatusPanel.setNextPlayer();
+                            PlayerStatusPanel.refreshPointers();
+
+
                         }
                     },
                     1000
