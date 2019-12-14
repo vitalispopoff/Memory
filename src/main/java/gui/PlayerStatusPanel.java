@@ -4,11 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class PlayerStatusPanel extends TemporalParent {
+//import static gui.TemporalParent.numberOfPlayers;
+
+/*public*/ class PlayerStatusPanel extends TemporalParent {
 
     private static ArrayList<PlayerStatusPanel> playerRegistry = new ArrayList<>();
     private static int playerNumberCounter = 0;
-    public static int currentPlayerIndex=0;
+    public static int currentPlayerIndex = 0;
 
 //    private static int indexOfPlayerOnTheMove;
 //    private static int[] playerScoreRegistry;
@@ -19,9 +21,9 @@ public class PlayerStatusPanel extends TemporalParent {
     private JLabel playerPointer;
     private int playerIndexNumber;
     private int playerScoreValue = 0;
-    private String scoreValueGraphicUrl = "src\\main\\resources\\infoPanel\\" + playerScoreValue + ".png";
+    private JLabel playerScorePreview;
 
-    PlayerStatusPanel(int numberOfPlayers) {
+    PlayerStatusPanel() {
         super();
         this.playerIndexNumber = playerNumberCounter++;
         playerRegistry.add(playerIndexNumber, this);
@@ -40,31 +42,31 @@ public class PlayerStatusPanel extends TemporalParent {
 //        *     PANEL PROPERTIES
 
         {
-        setLayout(null);
-        setBounds(
-                playerStatusPanelBounds[0],
-                locationVerticalComponent,
-                playerStatusPanelBounds[2],
-                playerStatusPanelBounds[3] / numberOfPlayers
-        );
-}
+            setLayout(null);
+            setBounds(
+                    playerStatusPanelBounds[0],
+                    locationVerticalComponent,
+                    playerStatusPanelBounds[2],
+                    playerStatusPanelBounds[3] / numberOfPlayers
+            );
+        }
 
 //        *     POINTER
 
-        /*JLabel */playerPointer = new JLabel();
+        playerPointer = new JLabel();
         {
-        playerPointer.setBounds(
-                0, 0,
-                pointerBounds[2],
-                pointerBounds[3]
-        );
-        Image PointerIcon = new ImageIcon("src\\main\\resources\\infoPanel\\pointer.png")
-                .getImage().getScaledInstance(
-                        pointerGraphicSize,
-                        pointerGraphicSize,
-                        Image.SCALE_SMOOTH);
-        playerPointer.setIcon(new ImageIcon(PointerIcon));
-        playerPointer.setVisible(playerIndexNumber==0);
+            playerPointer.setBounds(
+                    0, 0,
+                    pointerBounds[2],
+                    pointerBounds[3]
+            );
+            Image PointerIcon = new ImageIcon("src\\main\\resources\\infoPanel\\pointer.png")
+                    .getImage().getScaledInstance(
+                            pointerGraphicSize,
+                            pointerGraphicSize,
+                            Image.SCALE_SMOOTH);
+            playerPointer.setIcon(new ImageIcon(PointerIcon));
+            playerPointer.setVisible(playerIndexNumber == 0);
         }
         add(playerPointer);
 
@@ -72,75 +74,88 @@ public class PlayerStatusPanel extends TemporalParent {
 
         JLabel playerName = new JLabel();
         {
-        playerName.setBounds(
-                pointerBounds[2],
-                0,
-                (playerStatusPanelBounds[2] - (playerStatusPanelBounds[2] >> 2)),
-                pointerBounds[3]
-        );
-        Image playerNameGraphic = new ImageIcon("src\\main\\resources\\infoPanel\\player"+playerIndexNumber+".png")
-                .getImage().getScaledInstance(
-                        (playerStatusPanelBounds[2] - (playerStatusPanelBounds[2] >> 2)),
-                        pointerBounds[3],
-                        Image.SCALE_SMOOTH
-                );
-        playerName.setIcon(new ImageIcon(playerNameGraphic));
+            playerName.setBounds(
+                    pointerBounds[2],
+                    0,
+                    (playerStatusPanelBounds[2] - (playerStatusPanelBounds[2] >> 2)),
+                    pointerBounds[3]
+            );
+            Image playerNameGraphic = new ImageIcon("src\\main\\resources\\infoPanel\\player" + playerIndexNumber + ".png")
+                    .getImage().getScaledInstance(
+                            (playerStatusPanelBounds[2] - (playerStatusPanelBounds[2] >> 2)),
+                            pointerBounds[3],
+                            Image.SCALE_SMOOTH
+                    );
+            playerName.setIcon(new ImageIcon(playerNameGraphic));
         }
         add(playerName);
 
 //        *     SCORES
 
-        JLabel playerScoreValue = new JLabel();
+        playerScorePreview = new JLabel();
         {
-        playerScoreValue.setBounds(
-                playerStatusPanelBounds[2] >> 2,
-                (playerStatusPanelBounds[3] / numberOfPlayers) >> 1,
-                playerStatusPanelBounds[2] >> 1,
-                ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers
-        );
-        Image playerScoreIcon = new ImageIcon(scoreValueGraphicUrl)
+            playerScorePreview.setBounds(
+                    playerStatusPanelBounds[2] >> 2,
+                    (playerStatusPanelBounds[3] / numberOfPlayers) >> 1,
+                    playerStatusPanelBounds[2] >> 1,
+                    ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers
+            );
+            Image playerScoreIcon = new ImageIcon("src\\main\\resources\\infoPanel\\" + playerScoreValue + ".png")
+                    .getImage().getScaledInstance(
+                            ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
+                            ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
+                            Image.SCALE_SMOOTH);
+            playerScorePreview.setIcon(new ImageIcon(playerScoreIcon));
+        }
+        add(playerScorePreview);
+    }
+
+    /*public*/ static void setNextPlayer() {
+        currentPlayerIndex = (++currentPlayerIndex) % MainFrame.numberOfPlayers;
+
+//        return currentPlayerIndex;
+    }
+
+    /*public*/ static void refreshPointers() {
+        for (PlayerStatusPanel pointer : playerRegistry) {
+            pointer.playerPointer.setVisible(pointer.playerIndexNumber == currentPlayerIndex);
+        }
+    }
+
+    /*public*/ static void updateScoreBoard() {
+        int cache = ++(playerRegistry.get(currentPlayerIndex).playerScoreValue);
+
+        Image playerScoreIcon = new ImageIcon("src\\main\\resources\\infoPanel\\" + cache + ".png")
                 .getImage().getScaledInstance(
                         ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
                         ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
                         Image.SCALE_SMOOTH);
-        playerScoreValue.setIcon(new ImageIcon(playerScoreIcon));
-        }
-        add(playerScoreValue);
+        playerRegistry.get(currentPlayerIndex).playerScorePreview.setIcon(new ImageIcon(playerScoreIcon))
+
+        ;
     }
 
-    public static int setNextPlayer(){
-        currentPlayerIndex=(++currentPlayerIndex)%MainFrame.numberOfPlayers;
-
-        return currentPlayerIndex;
-    }
-
-    public static void refreshPointers(){
-        for (PlayerStatusPanel pointer: playerRegistry) {
-            pointer.playerPointer.setVisible(pointer.playerIndexNumber==currentPlayerIndex);
-        }
-    }
-
-    public int getPlayerIndexNumber() {
+    /*public int getPlayerIndexNumber() {
         return playerIndexNumber;
-    }
+    }*/
 
-    public int getPlayerScoreValue() {
+    /*public int getPlayerScoreValue() {
         return playerScoreValue;
-    }
+    }*/
 
-    public void setPlayerScoreValue(int playerScoreValue) {
+    /*public void setPlayerScoreValue(int playerScoreValue) {
         this.playerScoreValue = playerScoreValue;
-    }
+    }*/
 
-    public int incrementPlayerScoreValue() {
+    /*public int incrementPlayerScoreValue() {
         return ++playerScoreValue;
-    }
+    }*/
 
-    public String getScoreValueGraphicUrl() {
+/*    public String getScoreValueGraphicUrl() {
         return scoreValueGraphicUrl;
     }
 
     public void setScoreValueGraphicUrl() {
         this.scoreValueGraphicUrl = "src\\main\\resources\\infoPanel\\" + playerScoreValue + ".png";
-    }
+    }*/
 }

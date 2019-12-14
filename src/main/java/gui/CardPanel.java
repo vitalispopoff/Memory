@@ -116,7 +116,8 @@ class CardPanel extends TemporalParent implements CardPaneling{
                             clickCounter = 0;
                             tricks -= 2;
 
-                            InfoPanel.updateScoreBoard();
+//                            InfoPanel.updateScoreBoard();
+                            PlayerStatusPanel.updateScoreBoard();
                             PlayerStatusPanel.refreshPointers();
                             if (tricks == 0) {
                                 stopMusicBackground();

@@ -5,7 +5,7 @@ import java.awt.*;
 
 public abstract class TemporalParent extends JPanel {
 
-    private static int numberOfPlayers=2;
+    public static int numberOfPlayers=2;
 
     private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     static int tile_x = screenSize.width;

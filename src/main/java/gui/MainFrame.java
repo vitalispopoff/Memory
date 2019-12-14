@@ -26,8 +26,8 @@ public class MainFrame extends JFrame {
         GameHeadline gameHeadline = new GameHeadline();
         MenuPanel menuPanel = new MenuPanel();
 
-        PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel(numberOfPlayers);
-        PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel(numberOfPlayers);
+        PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel(/*numberOfPlayers*/);
+        PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel(/*numberOfPlayers*/);
 
         add(menuPanel);
         add(gameHeadline);
