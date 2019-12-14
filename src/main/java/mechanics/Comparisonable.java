@@ -1,5 +1,6 @@
 package mechanics;
 
+
 import mechanics.type.Card;
 
 public interface Comparisonable {
