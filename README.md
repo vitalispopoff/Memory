@@ -1,5 +1,11 @@
 # Memory
 
+<p>v03:<br>
+[intro and music disabled]</p>
+<ul>
+    <li>tidying the code structure</li>
+    <li>rebuilding for new functionalities</li></ul>
+
 
 <p>v02:<br>
 LVP:<ul>
