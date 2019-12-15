@@ -28,11 +28,13 @@ public class MainFrame extends JFrame {
 
         PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel(/*numberOfPlayers*/);
         PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel(/*numberOfPlayers*/);
+//        PlayerStatusPanel playerStatusPanel2 = new PlayerStatusPanel(/*numberOfPlayers*/);
 
         add(menuPanel);
         add(gameHeadline);
         add(playerStatusPanel0);
         add(playerStatusPanel1);
+//        add(playerStatusPanel2);
 
 
 //        if (intro) add(new IntroPanel());
