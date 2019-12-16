@@ -7,6 +7,9 @@ import gui.TemporalParent;
 
 public class GameHeadline extends TemporalParent {
 
+    static Font bannerFont;
+
+
     public GameHeadline() {
         super();
         setLayout(null);
@@ -25,15 +28,25 @@ public class GameHeadline extends TemporalParent {
                     headlinePanelBounds[2],
                     (headlinePanelBounds[2] * 226 / 910)
             );
-            panelHeadline.setOpaque(false);
+            panelHeadline.setOpaque(true);
             panelHeadline.setVisible(true);
-
+            panelHeadline.setBackground(new Color(255, 0, 255, 96));
+/*
             Image panelHeadlineUrl = new ImageIcon("src\\main\\resources\\infoPanel\\memory.png")
                     .getImage().getScaledInstance(
                             headlinePanelBounds[2],
                             headlinePanelBounds[3],
                             Image.SCALE_SMOOTH);
-            panelHeadline.setIcon(new ImageIcon(panelHeadlineUrl));
+//            panelHeadline.setIcon(new ImageIcon(panelHeadlineUrl));
+            */  //      (TODO) disposable?
+
+
+            bannerFont = cowboyjunkDEMO.deriveFont((float) (headlinePanelBounds[3] >> 1));
+
+            panelHeadline.setFont(bannerFont);
+            panelHeadline.setHorizontalTextPosition(SwingConstants.LEADING);
+//            panelHeadline.setVerticalTextPosition(SwingConstants.CENTER);
+            panelHeadline.setText("MEMORY");
         }
         add(panelHeadline);
     }

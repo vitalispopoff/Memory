@@ -19,7 +19,6 @@ class CardGraphicsList implements CardGraphicsListing {
                     .getImage());
         }
     }
-
     List<Image> getFrontImagesList() {
         return frontImagesList;
     }

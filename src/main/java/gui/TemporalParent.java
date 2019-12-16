@@ -2,10 +2,11 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+
+import static com.sun.org.apache.xerces.internal.utils.SecuritySupport.getResourceAsStream;
 
 public abstract class TemporalParent extends JPanel {
-
-    public static int numberOfPlayers=3;
 
     private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     static int tile_x = screenSize.width;
@@ -35,7 +36,7 @@ public abstract class TemporalParent extends JPanel {
 
     public static int[] playerStatusPanelBounds = {
             infoPanelBounds[0],
-            infoPanelBounds[1] + headlinePanelBounds[3] /*+ (infoPanelBounds[3] >> 4)*/,
+            infoPanelBounds[1] + headlinePanelBounds[3],
             infoPanelBounds[2],
             (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 3)
     };
@@ -47,11 +48,24 @@ public abstract class TemporalParent extends JPanel {
             (infoPanelBounds[2] >> 2) - (infoPanelBounds[2] >> 4)
     };
 
+    static int numberOfPlayers = 3;
+//    static Font writingFont;
+//    public static Font bannerFont;
+    public static Font cowboyjunkDEMO;
+    static Font Jandysdua;
+    static {
+        try {
+            /*Font */Jandysdua = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream("fonts\\Jandysdua.ttf"));
+            /*Font */cowboyjunkDEMO = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream("fonts\\cowboyjunkDEMO.otf"));
+//            writingFont = Jandysdua.deriveFont(48.f);
+//            bannerFont = cowboyjunkDEMO.deriveFont(48.f);
+        } catch (FontFormatException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public TemporalParent() {
         setOpaque(false);
         setVisible(true);
-//        setBackground(new Color(0,0, 0, 128));
     }
-
-
 }

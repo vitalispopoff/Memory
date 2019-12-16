@@ -21,26 +21,32 @@ public class MainFrame extends JFrame {
         setIconImage(new ImageIcon("src\\main\\resources\\gameIcon.png").getImage());
 
         BackgroundPanel backgroundPanel = new BackgroundPanel();
-        CardPaneling cardPanel = new CardPanel();
-        InfoPaneling infoPanel = new InfoPanel();
+
         GameHeadline gameHeadline = new GameHeadline();
-        MenuPanel menuPanel = new MenuPanel();
-
-        PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel(/*numberOfPlayers*/);
-        PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel(/*numberOfPlayers*/);
-//        PlayerStatusPanel playerStatusPanel2 = new PlayerStatusPanel(/*numberOfPlayers*/);
-
-        add(menuPanel);
         add(gameHeadline);
+
+/*        InfoPaneling infoPanel = new InfoPanel();
+        add((Component) infoPanel);*/   //  TODO    disposable ?
+
+//        MenuPanel menuPanel = new MenuPanel();
+//        add(menuPanel);
+
+//        CardPaneling cardPanel = new CardPanel();
+//        add((Component) cardPanel);
+
+        PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel();
+        PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel();
+        PlayerStatusPanel playerStatusPanel2 = new PlayerStatusPanel();
+
         add(playerStatusPanel0);
         add(playerStatusPanel1);
-//        add(playerStatusPanel2);
+        add(playerStatusPanel2);
 
 
 //        if (intro) add(new IntroPanel());
 //        else playMusicBackground();
-//        add((Component) infoPanel);
-        add((Component) cardPanel);
+
+
         add(backgroundPanel);
 
         setResizable(false);

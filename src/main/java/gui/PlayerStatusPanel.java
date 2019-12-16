@@ -63,6 +63,7 @@ class PlayerStatusPanel extends TemporalParent {
 
 //        *     NAME
         JLabel playerName = new JLabel();
+
         {
             playerName.setBounds(
                     pointerBounds[2],
@@ -70,7 +71,7 @@ class PlayerStatusPanel extends TemporalParent {
                     (playerStatusPanelBounds[2] - (playerStatusPanelBounds[2] >> 2)),
                     pointerBounds[3]
             );
-            try {
+/*            try {
                 Image playerNameGraphic = new ImageIcon("src\\main\\resources\\infoPanel\\player" + playerIndexNumber + ".png")
                         .getImage().getScaledInstance(
                                 (playerStatusPanelBounds[2] - (playerStatusPanelBounds[2] >> 2)),
@@ -78,9 +79,18 @@ class PlayerStatusPanel extends TemporalParent {
                                 Image.SCALE_SMOOTH
                         );
 
-                playerName.setIcon(new ImageIcon(playerNameGraphic));
+//                playerName.setIcon(new ImageIcon(playerNameGraphic));
             } catch (Exception e) {
                 System.out.println("No such file, sorry.");
+            }*/     // (TODO) disposable (graphic representation)
+//  ! $%^
+            {
+
+                Font writingFont = Jandysdua.deriveFont(48.f);
+                playerName.setOpaque(true);
+                playerName.setBackground(new Color(255, 255, 0, 96));
+                playerName.setFont(writingFont);
+                playerName.setText("Player " + (playerIndexNumber + 1));
             }
             add(playerName);
 
@@ -93,12 +103,18 @@ class PlayerStatusPanel extends TemporalParent {
                         playerStatusPanelBounds[2] >> 1,
                         ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers
                 );
-                Image playerScoreIcon = new ImageIcon("src\\main\\resources\\infoPanel\\" + playerScoreValue + ".png")
+/*                Image playerScoreIcon = new ImageIcon("src\\main\\resources\\infoPanel\\" + playerScoreValue + ".png")
                         .getImage().getScaledInstance(
                                 ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
                                 ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
                                 Image.SCALE_SMOOTH);
-                playerScorePreview.setIcon(new ImageIcon(playerScoreIcon));
+                playerScorePreview.setIcon(new ImageIcon(playerScoreIcon));*/   //  (TODO)  disposable?
+                Font writingFont = Jandysdua.deriveFont(48.f);
+                playerScorePreview.setOpaque(true);
+                playerScorePreview.setBackground(new Color(255, 255, 0, 96));
+                playerScorePreview.setFont(writingFont);
+                String cache = playerScoreValue==1?" point":" points";
+                playerScorePreview.setText(playerScoreValue+cache);
             }
             add(playerScorePreview);
         }
@@ -106,7 +122,6 @@ class PlayerStatusPanel extends TemporalParent {
 
     static void setNextPlayer() {
         currentPlayerIndex = (++currentPlayerIndex) % MainFrame.numberOfPlayers;
-//        System.out.println(currentPlayerIndex);
     }
 
     static void refreshPointers() {
