@@ -31,16 +31,16 @@ public class MainFrame extends JFrame {
 //        MenuPanel menuPanel = new MenuPanel();
 //        add(menuPanel);
 
-//        CardPaneling cardPanel = new CardPanel();
-//        add((Component) cardPanel);
+        CardPaneling cardPanel = new CardPanel();
+        add((Component) cardPanel);
 
         PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel();
         PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel();
-        PlayerStatusPanel playerStatusPanel2 = new PlayerStatusPanel();
+//        PlayerStatusPanel playerStatusPanel2 = new PlayerStatusPanel();
 
         add(playerStatusPanel0);
         add(playerStatusPanel1);
-        add(playerStatusPanel2);
+//        add(playerStatusPanel2);
 
 
 //        if (intro) add(new IntroPanel());

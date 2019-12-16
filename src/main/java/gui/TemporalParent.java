@@ -48,21 +48,20 @@ public abstract class TemporalParent extends JPanel {
             (infoPanelBounds[2] >> 2) - (infoPanelBounds[2] >> 4)
     };
 
-    static int numberOfPlayers = 3;
-//    static Font writingFont;
-//    public static Font bannerFont;
+    static int numberOfPlayers = 2;
     public static Font cowboyjunkDEMO;
-    static Font Jandysdua;
+    public static Font Jandysdua;
+    public static Font Saloon_Girl;
+
     static {
         try {
-            /*Font */Jandysdua = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream("fonts\\Jandysdua.ttf"));
-            /*Font */cowboyjunkDEMO = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream("fonts\\cowboyjunkDEMO.otf"));
-//            writingFont = Jandysdua.deriveFont(48.f);
-//            bannerFont = cowboyjunkDEMO.deriveFont(48.f);
+            Jandysdua = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream("fonts\\Jandysdua.ttf"));
+            cowboyjunkDEMO = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream("fonts\\cowboyjunkDEMO.otf"));
+            Saloon_Girl = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream("fonts\\Saloon_Girl.ttf"));
         } catch (FontFormatException | IOException e) {
             e.printStackTrace();
         }
-    }
+    }   //  *   ttf loaders
 
     public TemporalParent() {
         setOpaque(false);

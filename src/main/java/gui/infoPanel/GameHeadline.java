@@ -39,13 +39,10 @@ public class GameHeadline extends TemporalParent {
                             Image.SCALE_SMOOTH);
 //            panelHeadline.setIcon(new ImageIcon(panelHeadlineUrl));
             */  //      (TODO) disposable?
-
-
             bannerFont = cowboyjunkDEMO.deriveFont((float) (headlinePanelBounds[3] >> 1));
 
             panelHeadline.setFont(bannerFont);
-            panelHeadline.setHorizontalTextPosition(SwingConstants.LEADING);
-//            panelHeadline.setVerticalTextPosition(SwingConstants.CENTER);
+            panelHeadline.setHorizontalTextPosition(SwingConstants.CENTER);
             panelHeadline.setText("MEMORY");
         }
         add(panelHeadline);
