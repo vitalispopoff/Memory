@@ -28,18 +28,18 @@ public class MainFrame extends JFrame {
 /*        InfoPaneling infoPanel = new InfoPanel();
         add((Component) infoPanel);*/   //  TODO    disposable ?
 
-//        MenuPanel menuPanel = new MenuPanel();
-//        add(menuPanel);
+        MenuPanel menuPanel = new MenuPanel();
+        add(menuPanel);
 
         CardPaneling cardPanel = new CardPanel();
         add((Component) cardPanel);
 
-        PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel();
-        PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel();
+//        PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel();
+//        PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel();
 //        PlayerStatusPanel playerStatusPanel2 = new PlayerStatusPanel();
 
-        add(playerStatusPanel0);
-        add(playerStatusPanel1);
+//        add(playerStatusPanel0);
+//        add(playerStatusPanel1);
 //        add(playerStatusPanel2);
 
 
