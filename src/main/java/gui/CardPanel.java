@@ -99,7 +99,6 @@ class CardPanel extends TemporalParent implements CardPaneling {
             numberOfChoicesCurrentlyMade = 1;
 
         if (comparison.getComparisonStatus() == ComparisonStatus.TRUE) {
-            InfoPanel.playerPoints[InfoPanel.isPlayer_2Move ? 1 : 0] += 1;
             new java.util.Timer().schedule(
                     new java.util.TimerTask() {
                         @Override

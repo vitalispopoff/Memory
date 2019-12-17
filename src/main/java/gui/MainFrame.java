@@ -11,7 +11,7 @@ import static mechanics.type.Music.playMusicBackground;
 
 public class MainFrame extends JFrame {
 
-    public static int numberOfPlayers=2;
+//    public static int numberOfPlayers = 4;
 
     public MainFrame(boolean intro) {
         super();
@@ -19,7 +19,6 @@ public class MainFrame extends JFrame {
         setUndecorated(true);
         setVisible(true);
         setIconImage(new ImageIcon("src\\main\\resources\\gameIcon.png").getImage());
-
         BackgroundPanel backgroundPanel = new BackgroundPanel();
 
         GameHeadline gameHeadline = new GameHeadline();
@@ -34,13 +33,14 @@ public class MainFrame extends JFrame {
         CardPaneling cardPanel = new CardPanel();
         add((Component) cardPanel);
 
-//        PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel();
-//        PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel();
-//        PlayerStatusPanel playerStatusPanel2 = new PlayerStatusPanel();
-
-//        add(playerStatusPanel0);
-//        add(playerStatusPanel1);
-//        add(playerStatusPanel2);
+        PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel();
+        PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel();
+        PlayerStatusPanel playerStatusPanel2 = new PlayerStatusPanel();
+        PlayerStatusPanel playerStatusPanel3 = new PlayerStatusPanel();
+        add(playerStatusPanel0);
+        add(playerStatusPanel1);
+        add(playerStatusPanel2);
+        add(playerStatusPanel3);
 
 
 //        if (intro) add(new IntroPanel());

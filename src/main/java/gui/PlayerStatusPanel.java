@@ -117,7 +117,7 @@ class PlayerStatusPanel extends TemporalParent {
     }
 
     static void setNextPlayer() {
-        currentPlayerIndex = (++currentPlayerIndex) % MainFrame.numberOfPlayers;
+        currentPlayerIndex = (++currentPlayerIndex) % numberOfPlayers;
     }
 
     static void refreshPointers() {

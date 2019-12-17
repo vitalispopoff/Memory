@@ -48,7 +48,7 @@ public abstract class TemporalParent extends JPanel {
             (infoPanelBounds[2] >> 2) - (infoPanelBounds[2] >> 4)
     };
 
-    static int numberOfPlayers = 2;
+    static int numberOfPlayers = 4;
     public static Font cowboyjunkDEMO;
     public static Font Jandysdua;
     public static Font Saloon_Girl;

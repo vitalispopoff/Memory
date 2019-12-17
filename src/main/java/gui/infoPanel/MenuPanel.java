@@ -7,14 +7,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
 public class MenuPanel extends TemporalParent {
 
     public static int numberOfMenuButtons=2;
 
     public MenuPanel() {
         setLayout(new GridLayout(1,numberOfMenuButtons));
-        setOpaque(false);
         setBounds(
                 menuPanelBounds[0],
                 menuPanelBounds[1],
@@ -30,8 +28,6 @@ public class MenuPanel extends TemporalParent {
                             menuPanelBounds[3],
                             Image.SCALE_SMOOTH);
             replay.setIcon(new ImageIcon(replayUrl));*/ //  (TODO) disposable ?
-//            replay.setVisible(true);
-//            replay.setOpaque(false);
             replay.setContentAreaFilled(false);
             replay.setBorderPainted(true);
             replay.setFont(replayFont);
@@ -52,10 +48,8 @@ public class MenuPanel extends TemporalParent {
                             Image.SCALE_SMOOTH);
             rageQuit.setIcon(new ImageIcon(quitUrl));*/ //  (TODO) disposable?
             Font quitFont = cowboyjunkDEMO.deriveFont((float) (menuPanelBounds[3]>>1));
-//            rageQuit.setVisible(true);
-//            rageQuit.setOpaque(false);
             rageQuit.setContentAreaFilled(false);
-            rageQuit.setBorderPainted(false);
+            rageQuit.setBorderPainted(true);
             rageQuit.setFont(quitFont);
             rageQuit.setHorizontalTextPosition(SwingConstants.CENTER);
             rageQuit.setText("QUIT");
@@ -67,6 +61,5 @@ public class MenuPanel extends TemporalParent {
         }
         add(replay);
         add(rageQuit);
-
     }
 }
