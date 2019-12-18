@@ -2,7 +2,6 @@ import gui.MainFrame;
 
 import java.awt.*;
 
-
 public class Main {
 
     private static MainFrame mainFrame;
@@ -11,10 +10,14 @@ public class Main {
 
         EventQueue.invokeLater(() -> {
             mainFrame = new MainFrame(true);
-            GraphicsEnvironment graphics =
+            GraphicsEnvironment.
+                    getLocalGraphicsEnvironment().
+                    getDefaultScreenDevice().
+                    setFullScreenWindow(mainFrame);
+            /*            GraphicsEnvironment graphics =
                     GraphicsEnvironment.getLocalGraphicsEnvironment();
             GraphicsDevice device = graphics.getDefaultScreenDevice();
-            device.setFullScreenWindow(mainFrame);
+            device.setFullScreenWindow(mainFrame);*/
         });
     }
 }

@@ -1,10 +1,13 @@
 package mechanics.type;
 
+import mechanics.CardList;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Card implements Cloneable {
 
+//    public static List<Card> cardsList = new ArrayList<>();
     private static int generalCardCounter = 0;
 
     private int cardId;
@@ -54,11 +57,13 @@ public class Card implements Cloneable {
 
     public void setCardPlacingOnTable(JButton cardPlacingOnTable) {
         this.cardPlacingOnTable = cardPlacingOnTable;
+        this.cardPlacingOnTable.setOpaque(false);
+        this.cardPlacingOnTable.setContentAreaFilled(false);
+        this.cardPlacingOnTable.setBorderPainted(false);
     }
 
     @Override
     public Card clone() throws CloneNotSupportedException {
         return (Card) super.clone();
     }
-
 }

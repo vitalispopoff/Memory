@@ -1,10 +1,12 @@
-package gui;
+package gui.infoPanel;
+
+import gui.TemporalParent;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-class PlayerStatusPanel extends TemporalParent {
+public class PlayerStatusPanel extends TemporalParent {
 
     private static ArrayList<PlayerStatusPanel> playerRegistry = new ArrayList<>();
     private static int playerNumberCounter = 0;
@@ -15,7 +17,7 @@ class PlayerStatusPanel extends TemporalParent {
     private int playerScoreValue = 0;
     private JLabel playerScorePreview;
 
-    PlayerStatusPanel() {
+    public PlayerStatusPanel() {
         super();
         this.playerIndexNumber = playerNumberCounter++;
         playerRegistry.add(playerIndexNumber, this);
@@ -49,12 +51,6 @@ class PlayerStatusPanel extends TemporalParent {
                     pointerBounds[2],
                     pointerBounds[3]
             );
-/*            Image PointerIcon = new ImageIcon("src\\main\\resources\\infoPanel\\pointer.png")
-                    .getImage().getScaledInstance(
-                            pointerGraphicSize,
-                            pointerGraphicSize,
-                            Image.SCALE_SMOOTH);
-            playerPointer.setIcon(new ImageIcon(PointerIcon));*/
             Font pointerFont = Saloon_Girl.deriveFont(64.F);
             playerPointer.setBackground(new Color(255, 255, 0, 96));
             playerPointer.setFont(pointerFont);
@@ -73,19 +69,6 @@ class PlayerStatusPanel extends TemporalParent {
                     (playerStatusPanelBounds[2] - (playerStatusPanelBounds[2] >> 2)),
                     pointerBounds[3]
             );
-/*            try {
-                Image playerNameGraphic = new ImageIcon("src\\main\\resources\\infoPanel\\player" + playerIndexNumber + ".png")
-                        .getImage().getScaledInstance(
-                                (playerStatusPanelBounds[2] - (playerStatusPanelBounds[2] >> 2)),
-                                pointerBounds[3],
-                                Image.SCALE_SMOOTH
-                        );
-
-//                playerName.setIcon(new ImageIcon(playerNameGraphic));
-            } catch (Exception e) {
-                System.out.println("No such file, sorry.");
-            }*/     // (TODO) disposable (graphic representation)
-
             Font writingFont = Jandysdua.deriveFont(48.f);
             playerName.setBackground(new Color(255, 255, 0, 96));
             playerName.setFont(writingFont);
@@ -102,12 +85,6 @@ class PlayerStatusPanel extends TemporalParent {
                     playerStatusPanelBounds[2] >> 1,
                     ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers
             );
-/*                Image playerScoreIcon = new ImageIcon("src\\main\\resources\\infoPanel\\" + playerScoreValue + ".png")
-                        .getImage().getScaledInstance(
-                                ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
-                                ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
-                                Image.SCALE_SMOOTH);
-                playerScorePreview.setIcon(new ImageIcon(playerScoreIcon));*/   //  (TODO)  disposable?
             Font writingFont = Jandysdua.deriveFont(48.f);
             playerScorePreview.setBackground(new Color(255, 255, 0, 96));
             playerScorePreview.setFont(writingFont);
@@ -116,24 +93,18 @@ class PlayerStatusPanel extends TemporalParent {
         add(playerScorePreview);
     }
 
-    static void setNextPlayer() {
+    public static void setNextPlayer() {
         currentPlayerIndex = (++currentPlayerIndex) % numberOfPlayers;
     }
 
-    static void refreshPointers() {
+    public static void refreshPointers() {
         for (PlayerStatusPanel pointer : playerRegistry) {
             pointer.playerPointer.setVisible(pointer.playerIndexNumber == currentPlayerIndex);
         }
     }
 
-    static void updateScoreBoard() {
+    public static void updateScoreBoard() {
         int cache = ++(playerRegistry.get(currentPlayerIndex).playerScoreValue);
-/*        Image playerScoreIcon = new ImageIcon("src\\main\\resources\\infoPanel\\" + cache + ".png")
-                .getImage().getScaledInstance(
-                        ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
-                        ((playerStatusPanelBounds[3] >> 1) - (playerStatusPanelBounds[3] >> 5)) / numberOfPlayers,
-                        Image.SCALE_SMOOTH);
-        playerRegistry.get(currentPlayerIndex).playerScorePreview.setIcon(new ImageIcon(playerScoreIcon));*/    //  (TODO) disposable?
         playerRegistry.get(currentPlayerIndex).playerScorePreview.setText(cache+(cache == 1 ? " point" : " points"));
     }
 }

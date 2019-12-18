@@ -2,6 +2,7 @@ package gui;
 
 import gui.infoPanel.GameHeadline;
 import gui.infoPanel.MenuPanel;
+import gui.infoPanel.PlayerStatusPanel;
 
 import javax.swing.*;
 
@@ -18,6 +19,10 @@ public class MainFrame extends JFrame {
         setLayout(null);
         setUndecorated(true);
         setVisible(true);
+
+        if (intro) add(new IntroPanel());
+        else playMusicBackground();
+
         setIconImage(new ImageIcon("src\\main\\resources\\gameIcon.png").getImage());
         BackgroundPanel backgroundPanel = new BackgroundPanel();
 
@@ -39,12 +44,11 @@ public class MainFrame extends JFrame {
         PlayerStatusPanel playerStatusPanel3 = new PlayerStatusPanel();
         add(playerStatusPanel0);
         add(playerStatusPanel1);
-        add(playerStatusPanel2);
-        add(playerStatusPanel3);
+//        add(playerStatusPanel2);
+//        add(playerStatusPanel3);
 
 
-//        if (intro) add(new IntroPanel());
-//        else playMusicBackground();
+
 
 
         add(backgroundPanel);

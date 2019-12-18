@@ -22,14 +22,8 @@ public class MenuPanel extends TemporalParent {
         JButton replay = new JButton();
         {
             Font replayFont = cowboyjunkDEMO.deriveFont((float) (menuPanelBounds[3]>>1));
-            /*Image replayUrl = new ImageIcon("src\\main\\resources\\infoPanel\\replay.png")
-                    .getImage().getScaledInstance(
-                            menuPanelBounds[2]/numberOfMenuButtons,
-                            menuPanelBounds[3],
-                            Image.SCALE_SMOOTH);
-            replay.setIcon(new ImageIcon(replayUrl));*/ //  (TODO) disposable ?
             replay.setContentAreaFilled(false);
-            replay.setBorderPainted(true);
+            replay.setBorderPainted(false);
             replay.setFont(replayFont);
             replay.setHorizontalTextPosition(SwingConstants.CENTER);
             replay.setText("REPLAY");
@@ -41,15 +35,9 @@ public class MenuPanel extends TemporalParent {
         }
         JButton rageQuit = new JButton();
         {
-/*            Image quitUrl = new ImageIcon("src\\main\\resources\\infoPanel\\quit.png")
-                    .getImage().getScaledInstance(
-                            menuPanelBounds[2]/numberOfMenuButtons,
-                            menuPanelBounds[3],
-                            Image.SCALE_SMOOTH);
-            rageQuit.setIcon(new ImageIcon(quitUrl));*/ //  (TODO) disposable?
             Font quitFont = cowboyjunkDEMO.deriveFont((float) (menuPanelBounds[3]>>1));
             rageQuit.setContentAreaFilled(false);
-            rageQuit.setBorderPainted(true);
+            rageQuit.setBorderPainted(false);
             rageQuit.setFont(quitFont);
             rageQuit.setHorizontalTextPosition(SwingConstants.CENTER);
             rageQuit.setText("QUIT");

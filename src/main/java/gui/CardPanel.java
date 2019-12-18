@@ -1,7 +1,7 @@
 package gui;
 
 import static java.lang.Math.round;
-import static mechanics.CardList.cardsList;
+import static mechanics.CardList.listOfCards;
 import static mechanics.type.Music.playMusicAction;
 import static mechanics.type.Music.stopMusicBackground;
 
@@ -9,13 +9,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Collections;
 
+import gui.infoPanel.PlayerStatusPanel;
 import mechanics.Comparison;
 import mechanics.type.Card;
 import mechanics.type.ComparisonStatus;
 
 class CardPanel extends TemporalParent implements CardPaneling {
 
-    private static int[] ColumnsAndRowsOfCardGrid = {4, 4};      // 7, 8
+    private static int[] ColumnsAndRowsOfCardGrid = {8, 7};      // 7, 8
     private static int totalNumberOfCardsInGame = (ColumnsAndRowsOfCardGrid[0] * ColumnsAndRowsOfCardGrid[1]);
     private static int numberOfCardsStillOnTable = totalNumberOfCardsInGame;
 
@@ -26,11 +27,10 @@ class CardPanel extends TemporalParent implements CardPaneling {
             (int) round((double) cardPanelBounds[2] / (double) ColumnsAndRowsOfCardGrid[0]),
             (int) round((double) cardPanelBounds[3] / (double) ColumnsAndRowsOfCardGrid[1])};
     private int cardSize;
-
     {
         int cache = Integer.min(cardPanelGridSizes[0], cardPanelGridSizes[1]);
         cardSize = cache - (cache >> 2);
-    }
+    }   // * defining cardsize
 
     CardPanel() {
         super();
@@ -57,31 +57,31 @@ class CardPanel extends TemporalParent implements CardPaneling {
                 );
         try {
             for (int i = 0; i < (totalNumberOfCardsInGame >> 1); i++)
-                cardsList.add(new Card(cardGraphicsList.getFrontImagesList().get(i).getScaledInstance(
+                listOfCards.add(new Card(cardGraphicsList.getFrontImagesList().get(i).getScaledInstance(
                         cardSize,
                         cardSize,
                         Image.SCALE_SMOOTH))
                 );
 
             for (int i = 0; i < (totalNumberOfCardsInGame >> 1); i++)
-                cardsList.add(cardsList.get(i).clone());
+                listOfCards.add(listOfCards.get(i).clone());
 
-            Collections.shuffle(cardsList);     // [TODO] does the SHovELIN'!
+            Collections.shuffle(listOfCards);     // [TODO] does the SHovELIN'!
 
-            for (int i = 0; i < cardsList.size(); i++) {
+            for (int i = 0; i < listOfCards.size(); i++) {
                 final int i_final = i;
-                cardsList.get(i).setCardPlacingOnTable(new JButton());
-                cardsList.get(i).getCardPlacingOnTable().setOpaque(false);
-                cardsList.get(i).getCardPlacingOnTable().setContentAreaFilled(false);
-                cardsList.get(i).getCardPlacingOnTable().setBorderPainted(false);
-                cardsList.get(i).setCardBackCover(sheet);
-                cardsList.get(i).getCardPlacingOnTable().setIcon(new ImageIcon(cardsList.get(i).getCardBackCover()));
-                cardsList.get(i).getCardPlacingOnTable().addActionListener(
+                listOfCards.get(i).setCardPlacingOnTable(new JButton());
+/*                listOfCards.get(i).getCardPlacingOnTable().setOpaque(false);
+                listOfCards.get(i).getCardPlacingOnTable().setContentAreaFilled(false);
+                listOfCards.get(i).getCardPlacingOnTable().setBorderPainted(false);*/
+                listOfCards.get(i).setCardBackCover(sheet);
+                listOfCards.get(i).getCardPlacingOnTable().setIcon(new ImageIcon(listOfCards.get(i).getCardBackCover()));
+                listOfCards.get(i).getCardPlacingOnTable().addActionListener(
                         e -> {
                             numberOfChoicesCurrentlyMade++;
                             if (numberOfChoicesCurrentlyMade < 3) {
-                                cardsList.get(i_final).getCardPlacingOnTable().setIcon(new ImageIcon(cardsList.get(i_final).getCardFrontCover()));
-                                cardsComparison(cardsList.get(i_final));
+                                listOfCards.get(i_final).getCardPlacingOnTable().setIcon(new ImageIcon(listOfCards.get(i_final).getCardFrontCover()));
+                                cardsComparison(listOfCards.get(i_final));
                                 playMusicAction();
                             }
                         });
@@ -90,7 +90,7 @@ class CardPanel extends TemporalParent implements CardPaneling {
             e.printStackTrace();
         }
         for (int i = 0; i < totalNumberOfCardsInGame; i++)
-            add(cardsList.get(i).getCardPlacingOnTable());
+            add(listOfCards.get(i).getCardPlacingOnTable());
     }
 
     public void cardsComparison(Card card) {
