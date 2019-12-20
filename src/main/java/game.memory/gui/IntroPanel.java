@@ -1,12 +1,12 @@
-package gui;
+package game.memory.gui;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static gui.BackgroundPanel.tile_x;
-import static gui.BackgroundPanel.tile_y;
-import static mechanics.type.Music.playMusicBackground;
-import static mechanics.type.Music.playMusicIntro;
+import static game.memory.gui.BackgroundPanel.tile_x;
+import static game.memory.gui.BackgroundPanel.tile_y;
+import static game.memory.mechanics.type.Music.playMusicBackground;
+import static game.memory.mechanics.type.Music.playMusicIntro;
 
 public class IntroPanel extends JPanel {
 

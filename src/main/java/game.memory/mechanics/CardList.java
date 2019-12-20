@@ -1,6 +1,6 @@
-package mechanics;
+package game.memory.mechanics;
 
-import mechanics.type.Card;
+import game.memory.mechanics.type.Card;
 
 import java.util.ArrayList;
 import java.util.List;

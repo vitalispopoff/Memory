@@ -1,4 +1,4 @@
-package mechanics.type;
+package game.memory.mechanics.type;
 
 public interface Musical {
 

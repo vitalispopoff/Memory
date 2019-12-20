@@ -1,6 +1,4 @@
-package mechanics.type;
-
-import mechanics.CardList;
+package game.memory.mechanics.type;
 
 import javax.swing.*;
 import java.awt.*;

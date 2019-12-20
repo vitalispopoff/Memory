@@ -1,6 +1,6 @@
-package gui.infoPanel;
+package game.memory.gui.infoPanel;
 
-import gui.TemporalParent;
+import game.memory.gui.TemporalParent;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,10 +1,13 @@
-package gui;
+package game.memory.gui;
+
+//import com.sun.org.apache.xerces.internal.utils.SecuritySupport;
+//import com.sun.org.apache.xalan.internal.utils.SecuritySupport;
+
+import com.sun.org.apache.bcel.internal.util.SecuritySupport;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-
-import static com.sun.org.apache.xerces.internal.utils.SecuritySupport.getResourceAsStream;
 
 public abstract class TemporalParent extends JPanel {
 
@@ -55,9 +58,9 @@ public abstract class TemporalParent extends JPanel {
 
     static {
         try {
-            Jandysdua = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream("fonts\\Jandysdua.ttf"));
-            cowboyjunkDEMO = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream("fonts\\cowboyjunkDEMO.otf"));
-            Saloon_Girl = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream("fonts\\Saloon_Girl.ttf"));
+            Jandysdua = Font.createFont(Font.TRUETYPE_FONT, SecuritySupport.getResourceAsStream("fonts\\Jandysdua.ttf"));
+            cowboyjunkDEMO = Font.createFont(Font.TRUETYPE_FONT, SecuritySupport.getResourceAsStream("fonts\\cowboyjunkDEMO.otf"));
+            Saloon_Girl = Font.createFont(Font.TRUETYPE_FONT, SecuritySupport.getResourceAsStream("fonts\\Saloon_Girl.ttf"));
         } catch (FontFormatException | IOException e) {
             e.printStackTrace();
         }

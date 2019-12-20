@@ -1,14 +1,14 @@
-package gui;
+package game.memory.gui;
 
-import gui.infoPanel.GameHeadline;
-import gui.infoPanel.MenuPanel;
-import gui.infoPanel.PlayerStatusPanel;
+import game.memory.gui.infoPanel.GameHeadline;
+import game.memory.gui.infoPanel.MenuPanel;
+import game.memory.gui.infoPanel.PlayerStatusPanel;
 
 import javax.swing.*;
 
 import java.awt.*;
 
-import static mechanics.type.Music.playMusicBackground;
+import static game.memory.mechanics.type.Music.playMusicBackground;
 
 public class MainFrame extends JFrame {
 

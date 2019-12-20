@@ -1,6 +1,6 @@
-package gui;
+package game.memory.gui;
 
-import mechanics.type.Card;
+import game.memory.mechanics.type.Card;
 
 
 

@@ -1,4 +1,4 @@
-package mechanics;
+package game.memory.mechanics;
 
 /**
  *  ArrayList of cards [CardList] set in an exclusive class -> may need rebuilding.

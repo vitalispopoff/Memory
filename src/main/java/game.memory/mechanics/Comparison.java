@@ -1,6 +1,6 @@
-package mechanics;
+package game.memory.mechanics;
 
-import mechanics.type.*;
+import game.memory.mechanics.type.*;
 
 public class Comparison implements Comparisonable {
 

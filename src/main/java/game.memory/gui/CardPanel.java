@@ -1,18 +1,18 @@
-package gui;
+package game.memory.gui;
 
 import static java.lang.Math.round;
-import static mechanics.CardList.listOfCards;
-import static mechanics.type.Music.playMusicAction;
-import static mechanics.type.Music.stopMusicBackground;
+import static game.memory.mechanics.CardList.listOfCards;
+import static game.memory.mechanics.type.Music.playMusicAction;
+import static game.memory.mechanics.type.Music.stopMusicBackground;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Collections;
 
-import gui.infoPanel.PlayerStatusPanel;
-import mechanics.Comparison;
-import mechanics.type.Card;
-import mechanics.type.ComparisonStatus;
+import game.memory.gui.infoPanel.PlayerStatusPanel;
+import game.memory.mechanics.Comparison;
+import game.memory.mechanics.type.Card;
+import game.memory.mechanics.type.ComparisonStatus;
 
 class CardPanel extends TemporalParent implements CardPaneling {
 
