@@ -1,18 +1,19 @@
-package game.memory.gui;
+package gra.memory.gui;
 
 import static java.lang.Math.round;
-import static game.memory.mechanics.CardList.listOfCards;
-import static game.memory.mechanics.type.Music.playMusicAction;
-import static game.memory.mechanics.type.Music.stopMusicBackground;
+import static gra.memory.mechanics.type.Music.playMusicAction;
+import static gra.memory.mechanics.type.Music.stopMusicBackground;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Collections;
 
-import game.memory.gui.infoPanel.PlayerStatusPanel;
-import game.memory.mechanics.Comparison;
-import game.memory.mechanics.type.Card;
-import game.memory.mechanics.type.ComparisonStatus;
+import gra.memory.gui.infoPanel.PlayerStatusPanel;
+import gra.memory.mechanics.Comparison;
+import gra.memory.mechanics.type.Card;
+import gra.memory.mechanics.type.ComparisonStatus;
+import gra.memory.mechanics.CardList;
+import gra.memory.mechanics.type.Music;
 
 class CardPanel extends TemporalParent implements CardPaneling {
 
@@ -57,32 +58,32 @@ class CardPanel extends TemporalParent implements CardPaneling {
                 );
         try {
             for (int i = 0; i < (totalNumberOfCardsInGame >> 1); i++)
-                listOfCards.add(new Card(cardGraphicsList.getFrontImagesList().get(i).getScaledInstance(
+                CardList.listOfCards.add(new Card(cardGraphicsList.getFrontImagesList().get(i).getScaledInstance(
                         cardSize,
                         cardSize,
                         Image.SCALE_SMOOTH))
                 );
 
             for (int i = 0; i < (totalNumberOfCardsInGame >> 1); i++)
-                listOfCards.add(listOfCards.get(i).clone());
+                CardList.listOfCards.add(CardList.listOfCards.get(i).clone());
 
-            Collections.shuffle(listOfCards);     // [TODO] does the SHovELIN'!
+            Collections.shuffle(CardList.listOfCards);     // [TODO] does the SHovELIN'!
 
-            for (int i = 0; i < listOfCards.size(); i++) {
+            for (int i = 0; i < CardList.listOfCards.size(); i++) {
                 final int i_final = i;
-                listOfCards.get(i).setCardPlacingOnTable(new JButton());
+                CardList.listOfCards.get(i).setCardPlacingOnTable(new JButton());
 /*                listOfCards.get(i).getCardPlacingOnTable().setOpaque(false);
                 listOfCards.get(i).getCardPlacingOnTable().setContentAreaFilled(false);
                 listOfCards.get(i).getCardPlacingOnTable().setBorderPainted(false);*/
-                listOfCards.get(i).setCardBackCover(sheet);
-                listOfCards.get(i).getCardPlacingOnTable().setIcon(new ImageIcon(listOfCards.get(i).getCardBackCover()));
-                listOfCards.get(i).getCardPlacingOnTable().addActionListener(
+                CardList.listOfCards.get(i).setCardBackCover(sheet);
+                CardList.listOfCards.get(i).getCardPlacingOnTable().setIcon(new ImageIcon(CardList.listOfCards.get(i).getCardBackCover()));
+                CardList.listOfCards.get(i).getCardPlacingOnTable().addActionListener(
                         e -> {
                             numberOfChoicesCurrentlyMade++;
                             if (numberOfChoicesCurrentlyMade < 3) {
-                                listOfCards.get(i_final).getCardPlacingOnTable().setIcon(new ImageIcon(listOfCards.get(i_final).getCardFrontCover()));
-                                cardsComparison(listOfCards.get(i_final));
-                                playMusicAction();
+                                CardList.listOfCards.get(i_final).getCardPlacingOnTable().setIcon(new ImageIcon(CardList.listOfCards.get(i_final).getCardFrontCover()));
+                                cardsComparison(CardList.listOfCards.get(i_final));
+                                Music.playMusicAction();
                             }
                         });
             }
@@ -90,7 +91,7 @@ class CardPanel extends TemporalParent implements CardPaneling {
             e.printStackTrace();
         }
         for (int i = 0; i < totalNumberOfCardsInGame; i++)
-            add(listOfCards.get(i).getCardPlacingOnTable());
+            add(CardList.listOfCards.get(i).getCardPlacingOnTable());
     }
 
     public void cardsComparison(Card card) {
@@ -109,7 +110,7 @@ class CardPanel extends TemporalParent implements CardPaneling {
                             numberOfCardsStillOnTable -= 2;
                             PlayerStatusPanel.updateScoreBoard();
                             PlayerStatusPanel.refreshPointers();
-                            if (numberOfCardsStillOnTable == 0) stopMusicBackground();
+                            if (numberOfCardsStillOnTable == 0) Music.stopMusicBackground();
                         }
                     },
                     1000

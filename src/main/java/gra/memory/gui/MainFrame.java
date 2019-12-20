@@ -1,14 +1,15 @@
-package game.memory.gui;
+package gra.memory.gui;
 
-import game.memory.gui.infoPanel.GameHeadline;
-import game.memory.gui.infoPanel.MenuPanel;
-import game.memory.gui.infoPanel.PlayerStatusPanel;
+import gra.memory.gui.infoPanel.GameHeadline;
+import gra.memory.gui.infoPanel.MenuPanel;
+import gra.memory.gui.infoPanel.PlayerStatusPanel;
+import gra.memory.mechanics.type.Music;
 
 import javax.swing.*;
 
 import java.awt.*;
 
-import static game.memory.mechanics.type.Music.playMusicBackground;
+import static gra.memory.mechanics.type.Music.playMusicBackground;
 
 public class MainFrame extends JFrame {
 
@@ -21,7 +22,7 @@ public class MainFrame extends JFrame {
         setVisible(true);
 
         if (intro) add(new IntroPanel());
-        else playMusicBackground();
+        else Music.playMusicBackground();
 
         setIconImage(new ImageIcon("src\\main\\resources\\gameIcon.png").getImage());
         BackgroundPanel backgroundPanel = new BackgroundPanel();

@@ -1,6 +1,6 @@
-package game.memory;
+package gra.memory;
 
-import game.memory.gui.MainFrame;
+import gra.memory.gui.MainFrame;
 
 import java.awt.*;
 

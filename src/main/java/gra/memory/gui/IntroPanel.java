@@ -1,12 +1,12 @@
-package game.memory.gui;
+package gra.memory.gui;
+
+import gra.memory.mechanics.type.Music;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static game.memory.gui.BackgroundPanel.tile_x;
-import static game.memory.gui.BackgroundPanel.tile_y;
-import static game.memory.mechanics.type.Music.playMusicBackground;
-import static game.memory.mechanics.type.Music.playMusicIntro;
+import static gra.memory.mechanics.type.Music.playMusicBackground;
+import static gra.memory.mechanics.type.Music.playMusicIntro;
 
 public class IntroPanel extends JPanel {
 
@@ -15,16 +15,16 @@ public class IntroPanel extends JPanel {
     IntroPanel() {
         setVisible(true);
         setLayout(null);
-        setBounds(0, 0, tile_x, tile_y);
+        setBounds(0, 0, TemporalParent.tile_x, TemporalParent.tile_y);
         String introImageUrl = "src\\main\\resources\\intro\\intro.gif";
         introImage = Toolkit.getDefaultToolkit().createImage(introImageUrl);
-        playMusicIntro("src\\main\\resources\\intro\\introMusic.wav");
+        Music.playMusicIntro("src\\main\\resources\\intro\\introMusic.wav");
         new java.util.Timer().schedule(
                 new java.util.TimerTask() {
                     @Override
                     public void run() {
                         setVisible(false);
-                        playMusicBackground();
+                        Music.playMusicBackground();
                     }
                 },
                 5080

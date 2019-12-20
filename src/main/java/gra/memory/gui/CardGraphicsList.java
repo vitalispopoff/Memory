@@ -1,4 +1,4 @@
-package game.memory.gui;
+package gra.memory.gui;
 
 import javax.swing.*;
 import java.awt.*;

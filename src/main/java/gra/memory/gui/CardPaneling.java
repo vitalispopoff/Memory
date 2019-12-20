@@ -1,7 +1,6 @@
-package game.memory.gui;
+package gra.memory.gui;
 
-import game.memory.mechanics.type.Card;
-
+import gra.memory.mechanics.type.Card;
 
 
 public interface CardPaneling {

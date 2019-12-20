@@ -1,6 +1,8 @@
-package game.memory.mechanics;
+package gra.memory.mechanics;
 
 import game.memory.mechanics.type.*;
+import gra.memory.mechanics.type.Card;
+import gra.memory.mechanics.type.ComparisonStatus;
 
 public class Comparison implements Comparisonable {
 

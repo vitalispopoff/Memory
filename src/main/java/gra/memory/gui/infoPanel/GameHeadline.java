@@ -1,9 +1,9 @@
-package game.memory.gui.infoPanel;
+package gra.memory.gui.infoPanel;
 
 import javax.swing.*;
 import java.awt.*;
 
-import game.memory.gui.TemporalParent;
+import gra.memory.gui.TemporalParent;
 
 public class GameHeadline extends TemporalParent {
 

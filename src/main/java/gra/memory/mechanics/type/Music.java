@@ -1,4 +1,4 @@
-package game.memory.mechanics.type;
+package gra.memory.mechanics.type;
 
 import javax.sound.sampled.*;
 import java.io.File;
