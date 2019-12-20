@@ -40,8 +40,8 @@ public class MainFrame extends JFrame {
 
         PlayerStatusPanel playerStatusPanel0 = new PlayerStatusPanel();
         PlayerStatusPanel playerStatusPanel1 = new PlayerStatusPanel();
-        PlayerStatusPanel playerStatusPanel2 = new PlayerStatusPanel();
-        PlayerStatusPanel playerStatusPanel3 = new PlayerStatusPanel();
+//        PlayerStatusPanel playerStatusPanel2 = new PlayerStatusPanel();
+//        PlayerStatusPanel playerStatusPanel3 = new PlayerStatusPanel();
         add(playerStatusPanel0);
         add(playerStatusPanel1);
 //        add(playerStatusPanel2);

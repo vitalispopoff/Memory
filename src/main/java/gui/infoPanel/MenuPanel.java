@@ -47,7 +47,7 @@ public class MenuPanel extends TemporalParent {
                 }
             });
         }
-        add(replay);
+//        add(replay);
         add(rageQuit);
     }
 }
