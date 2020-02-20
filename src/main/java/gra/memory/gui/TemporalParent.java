@@ -12,49 +12,41 @@ import java.io.IOException;
 public abstract class TemporalParent extends JPanel {
 
     private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    static int tile_x = screenSize.width;
-    static int tile_y = screenSize.height + 5;
-    static int tile = Integer.min(tile_x, tile_y);
-
-    public static int[] cardPanelBounds = {
+    static int 
+        tile_x = screenSize.width,
+        tile_y = screenSize.height + 5,
+        tile = Integer.min(tile_x, tile_y);
+    public static int numberOfPlayers = 2;
+    public static int[] 
+        cardPanelBounds = {
             tile >> 5,
             tile >> 5,
             (tile_x >> 1) + (tile_x >> 3),
-            tile_y - (tile >> 4)
-    };
-
-    public static int[] infoPanelBounds = {
+            tile_y - (tile >> 4)},
+        infoPanelBounds = {
             (tile_x >> 1) + (tile_x >> 2) - (tile_x >> 5),
             tile_y >> 3,
             (tile_x >> 2) + (tile_x >> 6),
-            tile_y - (tile_y >> 2) + (tile_y >> 5)
-    };
-
-    public static int[] headlinePanelBounds = {
+            tile_y - (tile_y >> 2) + (tile_y >> 5)};
+        headlinePanelBounds = {
             infoPanelBounds[0],
             infoPanelBounds[1],
             infoPanelBounds[2],
-            (infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 4)
-    };
-
-    public static int[] playerStatusPanelBounds = {
+            (infoPanelBounds[2] >> 2) + (infoPanelBounds[2] >> 4)},
+        playerStatusPanelBounds = {
             infoPanelBounds[0],
             infoPanelBounds[1] + headlinePanelBounds[3],
             infoPanelBounds[2],
-            (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 3)
-    };
-
-    public static int[] menuPanelBounds = {
+            (infoPanelBounds[3] >> 1) + (infoPanelBounds[3] >> 3)},
+        menuPanelBounds = {
             infoPanelBounds[0],
             infoPanelBounds[3],
             infoPanelBounds[2],
-            (infoPanelBounds[2] >> 2) - (infoPanelBounds[2] >> 4)
-    };
-
-    public static int numberOfPlayers = 2;
-    public static Font cowboyjunkDEMO;
-    public static Font Jandysdua;
-    public static Font Saloon_Girl;
+            (infoPanelBounds[2] >> 2) - (infoPanelBounds[2] >> 4)};
+    public static Font 
+        cowboyjunkDEMO,
+        Font Jandysdua,
+        Font Saloon_Girl;
 
     static {
         try {
