@@ -10,7 +10,6 @@ class CardGraphicsList implements CardGraphicsListing {
     private List<Image> frontImagesList = new ArrayList<>();
 
     CardGraphicsList() {
-
         for (int i = 0; i < 31; i++) {
             frontImagesList.add(new ImageIcon(
                     "src\\main\\resources\\cardFront"
