@@ -5,13 +5,13 @@ import java.awt.*;
 
 public class Card implements Cloneable {
 
-//    public static List<Card> cardsList = new ArrayList<>();
+//    public static List<Card> cardsList = new ArrayList<>(); //disposable ?
     private static int generalCardCounter = 0;
-
     private int cardId;
-    private Image cardFrontCover;
-    private Image cardBackCover;
     private JButton cardPlacingOnTable;
+    private Image 
+        cardFrontCover,
+        cardBackCover;
 
     public Card(Image cardFrontCover, Image cardBackCover, JButton cardPlacingOnTable) {
         setCardId();
