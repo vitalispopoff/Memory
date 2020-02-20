@@ -12,11 +12,9 @@ class BackgroundPanel extends TemporalParent {
 
     BackgroundPanel() {
         super();
-
         setOpaque(false);
         setBounds(0, 0 - 5, tile_x, tile_y);
-
-//        BCG
+    //  BCG
         Image sheet = new ImageIcon("src\\main\\resources\\bcg.jpg")
                 .getImage().getScaledInstance(
                         tile_x,
