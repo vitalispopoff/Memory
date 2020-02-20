@@ -1,12 +1,11 @@
 package gra.memory.gui;
 
-import gra.memory.mechanics.type.Music;
+import static gra.memory.mechanics.type.Music.*;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static gra.memory.mechanics.type.Music.playMusicBackground;
-import static gra.memory.mechanics.type.Music.playMusicIntro;
+import gra.memory.mechanics.type.Music;
 
 public class IntroPanel extends JPanel {
 
