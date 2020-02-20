@@ -1,15 +1,12 @@
 package gra.memory.gui;
 
-import gra.memory.gui.infoPanel.GameHeadline;
-import gra.memory.gui.infoPanel.MenuPanel;
-import gra.memory.gui.infoPanel.PlayerStatusPanel;
-import gra.memory.mechanics.type.Music;
+import static gra.memory.mechanics.type.Music.playMusicBackground;
 
 import javax.swing.*;
-
 import java.awt.*;
 
-import static gra.memory.mechanics.type.Music.playMusicBackground;
+import gra.memory.gui.infoPanel.*;
+import gra.memory.mechanics.type.Music;
 
 public class MainFrame extends JFrame {
 
@@ -47,11 +44,6 @@ public class MainFrame extends JFrame {
         add(playerStatusPanel1);
 //        add(playerStatusPanel2);
 //        add(playerStatusPanel3);
-
-
-
-
-
         add(backgroundPanel);
 
         setResizable(false);
