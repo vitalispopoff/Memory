@@ -7,7 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Memory" />
+        <module name="Fork" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Fork" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
