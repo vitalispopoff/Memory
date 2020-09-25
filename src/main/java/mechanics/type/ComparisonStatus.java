@@ -1,4 +1,4 @@
-package gra.memory.mechanics.type;
+package mechanics.type;
 
 public enum ComparisonStatus {
     TRUE,

@@ -1,7 +1,7 @@
-package gra.memory.mechanics;
+package mechanics;
 
 
-import gra.memory.mechanics.type.Card;
+import mechanics.type.Card;
 
 public interface Comparisonable {
 

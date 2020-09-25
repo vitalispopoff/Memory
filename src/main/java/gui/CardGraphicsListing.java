@@ -1,4 +1,4 @@
-package gra.memory.gui;
+package gui;
 
 /**
  *  generates a list of all graphic representations of the card faces into <code>frontImageList</code>

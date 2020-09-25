@@ -1,27 +1,33 @@
-package gra.memory.gui;
+package gui;
 
 import static java.lang.Math.round;
-import static gra.memory.mechanics.type.Music.*;
+import static mechanics.type.Music.playMusicAction;
+import static mechanics.type.Music.stopMusicBackground;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Collections;
-import gra.memory.*;
+
+import gui.infoPanel.PlayerStatusPanel;
+import mechanics.Comparison;
+import mechanics.type.Card;
+import mechanics.type.ComparisonStatus;
+import mechanics.CardList;
+import mechanics.type.Music;
 
 class CardPanel extends TemporalParent implements CardPaneling {
 
     private static int[] ColumnsAndRowsOfCardGrid = {8, 7};      // 7, 8
-    private static int 
-        totalNumberOfCardsInGame = (ColumnsAndRowsOfCardGrid[0] * ColumnsAndRowsOfCardGrid[1]),
-        numberOfCardsStillOnTable = totalNumberOfCardsInGame;
+    private static int totalNumberOfCardsInGame = (ColumnsAndRowsOfCardGrid[0] * ColumnsAndRowsOfCardGrid[1]);
+    private static int numberOfCardsStillOnTable = totalNumberOfCardsInGame;
 
     private CardGraphicsList cardGraphicsList = new CardGraphicsList();
+    private int numberOfChoicesCurrentlyMade = 0;
     private Comparison comparison = new Comparison();
     private int[] cardPanelGridSizes = {
             (int) round((double) cardPanelBounds[2] / (double) ColumnsAndRowsOfCardGrid[0]),
             (int) round((double) cardPanelBounds[3] / (double) ColumnsAndRowsOfCardGrid[1])};
-    private int 
-        numberOfChoicesCurrentlyMade = 0,
-        cardSize;
+    private int cardSize;
     {
         int cache = Integer.min(cardPanelGridSizes[0], cardPanelGridSizes[1]);
         cardSize = cache - (cache >> 2);
@@ -37,7 +43,8 @@ class CardPanel extends TemporalParent implements CardPaneling {
                 cardPanelBounds[0],
                 cardPanelBounds[1],
                 cardPanelBounds[2],
-                cardPanelBounds[3]);
+                cardPanelBounds[3]
+        );
         dealTheCards();
     }
 
@@ -47,15 +54,19 @@ class CardPanel extends TemporalParent implements CardPaneling {
                 .getImage().getScaledInstance(
                         cardSize,
                         cardSize,
-                        Image.SCALE_SMOOTH);
+                        Image.SCALE_SMOOTH
+                );
         try {
             for (int i = 0; i < (totalNumberOfCardsInGame >> 1); i++)
-                CardList.listOfCards.add(new Card(cardGraphicsList.getFrontImagesList().get(i).getScaledInstance(
+                CardList.listOfCards.add(new Card(cardGraphicsList.getFrontImageList().get(i).getScaledInstance(
                         cardSize,
                         cardSize,
-                        Image.SCALE_SMOOTH)));
+                        Image.SCALE_SMOOTH))
+                );
+
             for (int i = 0; i < (totalNumberOfCardsInGame >> 1); i++)
                 CardList.listOfCards.add(CardList.listOfCards.get(i).clone());
+
             Collections.shuffle(CardList.listOfCards);     // [TODO] does the SHovELIN'!
 
             for (int i = 0; i < CardList.listOfCards.size(); i++) {
@@ -85,7 +96,9 @@ class CardPanel extends TemporalParent implements CardPaneling {
 
     public void cardsComparison(Card card) {
         comparison.compare(card);
-        if (comparison.getComparisonStatus() == ComparisonStatus.WAIT) numberOfChoicesCurrentlyMade = 1;
+        if (comparison.getComparisonStatus() == ComparisonStatus.WAIT)
+            numberOfChoicesCurrentlyMade = 1;
+
         if (comparison.getComparisonStatus() == ComparisonStatus.TRUE) {
             new java.util.Timer().schedule(
                     new java.util.TimerTask() {
